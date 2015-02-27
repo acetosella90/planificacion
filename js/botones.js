@@ -8,20 +8,20 @@ var main = function(){
    
     
     $('#mapuche').click(function(){
-        $('#tabla1').toggle();
+        $('#tabla1').hide().fadeIn(800);
     $('#tabla2').hide();
     $('#tabla3').hide();
     });
   
 $('#pilaga').click(function(){
-        $('#tabla2').toggle();
+        $('#tabla2').hide().fadeIn(800);
     $('#tabla1').hide();
     $('#tabla3').hide();
     });
 
   
 $('#araucano').click(function(){
-        $('#tabla3').toggle();
+        $('#tabla3').hide().fadeIn(800);
     $('#tabla1').hide();
     $('#tabla2').hide();
     });
