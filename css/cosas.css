@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*  <a class="navbar-brand" href="#">Pentaho</a>
+    Created on : 26/02/2015, 11:00:40
+    Author     : RSixfro
+<img src="http://www.computing.co.uk/IMG/920/310920/pentaho-logo-cmyk.png" class="col-lg-2" class="navbar-brand"  >
+*/
+
+.circulo{
+  
+   box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+                   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+                   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    
+}
+
+
+
+.circular_shadow { width: 200; 
+                    height: 200; 
+                   border-radius: 50%; 
+                   -webkit-border-radius: 150px; 
+                   -moz-border-radius: 150px;
+                   background-color: @brand-success;
+                 
+                   box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+                   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+                   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+                   
+                  
+                 
+}
