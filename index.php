@@ -104,41 +104,40 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
 
 
                             <h2 class="sub-header">Section title</h2>
-                            <div  id="tabla1" class="table-responsive tabla" style="display:none;">
+                            <div  id="tabla1" class="table-responsive tabla visible" style="display:none;">
                                 <table class="table table-striped">
                                     <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Reportes</th>
+                                        <tr id='columna-cabeza1'>
+                                            
+                                            <th id="reporte">Reportes por tipos de datos</th>
                                             <th>Descripcion</th>
-                                            <th>Tipo de grafico</th>
+                                            <th>Numero de reportes totales</th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>mapuche</td>
-                                            <td>ipsum</td>
-                                            <td>dolor</td>
+                                     <tbody>
+                                        <tr >
+                                            
+                                            <td id="principal">DATOS AGREGADOS TOTALES DE LA UNIVERSIDAD</td>
+                                            <td>   </td>
+                                        </tr>
+                                 
+                                       
+                                        <tr >
+                                            
+                                            <td id="principal2">DATOS POR UNIDAD ACADÉMICA</td>
+                                           
 
                                         </tr>
                                         <tr>
-                                            <td>2</td>
-                                            <td>amet</td>
-                                            <td>consectetur</td>
-                                            <td>adipiscing</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Integer</td>
-                                            <td>nec</td>
-                                            <td>odio</td>
+                                            
+                                            <td id="principal3">DATOS DESAGREGADOS POR UNIDAD ACADÉMICA</td>
+                                            
 
                                         </tr>
 
                                     </tbody>
+                                    
                                 </table>
                             </div>
                             <div id="tabla2" class="table-responsive" style="display:none;">
@@ -155,7 +154,7 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>pilaga</td>
+                                            <td>Cantidad y tipo de docente</td>
                                             <td>ipsum</td>
                                             <td>dolor</td>
                                             <td>sit</td>
@@ -174,7 +173,11 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                                             <td>odio</td>
                                             <td>Praesent</td>
                                         </tr>
-
+                                       <tr>
+                                            
+                                            <td id='volver'>Volver</td>
+                                            
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -211,7 +214,52 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                                             <td>odio</td>
                                             <td>Praesent</td>
                                         </tr>
-
+                                       <tr>
+                                            
+                                            <td id='volver2'>Volver</td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                             <div  id="tabla4" class="table-responsive" style="display:none;">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Reportes</th>
+                                            <th>Descripcion</th>
+                                            <th>Tipo de grafico</th>
+                                            <th>Header</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>araucano y guarani</td>
+                                            <td>ipsum</td>
+                                            <td>dolor</td>
+                                            <td>sit</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>amet</td>
+                                            <td>consectetur</td>
+                                            <td>adipiscing</td>
+                                            <td>elit</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Integer</td>
+                                            <td>nec</td>
+                                            <td>odio</td>
+                                            <td>Praesent</td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td id='volver3'>Volver</td>
+                                            
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
