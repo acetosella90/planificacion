@@ -75,7 +75,7 @@ $('#principal2').click(function(){
 };
 
  /* 
-* FIN 
+* FIN ;;;;;;
 **/
 $(document).ready(main);
 
