@@ -1,61 +1,69 @@
+<?php
+include_once '../funciones/parseo.php';
+
+$datos = parceo();
+echo "<pre>"; 
+var_dump($datos);
+echo "</pre>";
+
+/* dato[0][0] --> fila 1 */
+/* dato[1][1] --> fila 2 */
+/* dato[n][0] --> años */
+/* dato[n][1] --> alumnos */
+?>
 <!DOCTYPE HTML>
 <html>
+    
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Grafico</title>
+		<title>Highcharts Example</title>
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<style type="text/css">
-${demo.css}
 		</style>
 		<script type="text/javascript">
 $(function () {
     $('#container').highcharts({
-        chart: {
-            type: 'column'
-        },
         title: {
-            text: 'Evaluacion anual de importes liquidados'
+            text: 'Alumnos Egresados por Anos',
+            x: -20 //center
         },
         subtitle: {
-            text: 'Ubicacion: Pentaho'
+            text: 'Pentaho: Guarani',
+            x: -20
         },
         xAxis: {
-            categories: [
-                'Docente',
-                'No Docente',
-                'Superior'
-                
-            ]
+            categories: [<?php for($i=1;$i< count($datos); $i++) 
+                            echo "'" . $datos[$i][0] . "',";
+                        ?>]
         },
         yAxis: {
-            min: 0,
             title: {
-                text: '$'
-            }
+                text: 'Alumnos'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }],
+        min: 0
+        
         },
         tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} $</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
+            valueSuffix: ' Alumnos'
         },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
+                
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
         },
         series: [{
-            name: '2013',
-            data: [49.9, 71.5, 106.4]
-
-        }, {
-            name: '2014',
-            data: [83.6, 78.8, 98.5]
-
+            name: 'Egresados',
+            data: [<?php for($i=1;$i< count($datos); $i++) 
+                            echo $datos[$i][1] . ",";
+                        ?>]
         }]
     });
 });
