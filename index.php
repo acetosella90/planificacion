@@ -78,7 +78,7 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                         </ul>
                     </div>
                     <div id="contenido"><!-- CONTENIDO --></div>
-                  
+
                 </div>
 
                 <!-- Bootstrap core JavaScript
@@ -88,7 +88,7 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                 <script src="js/bootstrap.min.js"></script>
                 <script src="js/doc.min.js"></script>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                  <script src='js/botones.js'></script>
+                <script src='js/botones.js'></script>
                 <script src='js/funciones.js'></script>
         </body>
     </html>
