@@ -13,12 +13,18 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
             <meta name="description" content="">
             <meta name="author" content="">
             <link rel="icon" href="../../favicon.ico">
-
+            <link rel="icon" href="css/Hover-master/scss/effects/icons/_icon-back.scss" media="all">
             <title>Panel Principal</title>
-
+            <!-- Bootstrap core CSS3 -->
+            <link href="css/Hover-master/scss/effects/icons/_icon-back.scss" rel="icon" media="all">
+            <link href="css/Hover-master/css/hover.css" rel="stylesheet" media="all">
+           <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+            <link href="css/Hover-master/css/hover.css" rel="stylesheet">
+            <link href="css/Hover-master/css/hover-min.css" rel="stylesheet">
             <!-- Bootstrap core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
-
+            
+            
             <!-- Custom styles for this template -->
             <link href="css/dashboard.css" rel="stylesheet">
             <link href="css/cosas.css" rel="stylesheet">
