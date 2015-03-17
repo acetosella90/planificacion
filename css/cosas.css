@@ -9,9 +9,9 @@ and open the template in the editor.
 <img src="http://www.computing.co.uk/IMG/920/310920/pentaho-logo-cmyk.png" class="col-lg-2" class="navbar-brand"  >
 */
 
-.visible{
+.boton{
   
-  display:block;
+  cursor: pointer;
     
 }
 
