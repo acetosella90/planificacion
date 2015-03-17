@@ -29,4 +29,21 @@ $(document).ready(function() {
             }
         });
     });
+
+ $('#tabla_araucano').click(function() {
+         $('#p_base').removeClass("active");
+        $('#tabla_araucano').addClass("active");
+        var ajax_data = {
+            "id": "p_tabla-araucano"
+        };
+        $.ajax({
+            data: ajax_data,
+            type: "POST",
+            url: "funciones/funciones_ajax.php",
+            success: function(a) {
+                $('#contenido').html(a);
+            }
+        });
+    });
+
 });
