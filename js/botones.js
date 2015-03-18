@@ -176,7 +176,7 @@ var main = function () {
             * La Funcionalidad del boton "VOLVER" es igual para todas los sistemas
      */
     $('.volver').click(function () {
-
+        alert("asdas");
         i.hide();
         j.hide().fadeIn(800);
 

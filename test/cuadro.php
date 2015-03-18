@@ -176,6 +176,7 @@ $todo = $consulta->fetchAll();
 </script>
 </head>
 <body>
+    
     <script src="../test/js/highcharts.js"></script>
     <script src="../test/js/modules/data.js"></script>
     <script src="../test/js/modules/exporting.js"></script>
