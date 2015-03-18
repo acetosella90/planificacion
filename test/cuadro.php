@@ -155,20 +155,23 @@ for ($i = 0; $i < count($todo); $i++) {
     }
 }
 
-for ($i = 0; $i < count($titulo); $i++ ) 
-    for ($j = 0; $j < count($todo); $j++){ 
-       
-        if ($todo[$j][tipo_alumno] == "Alumnos" )
-            $t[$i] = array(titulo=>$titulo[$i], alumnos=>$todo[$j][total], egresados=>0, reinscriptos=>0);
-        
-        if ($todo[$j][tipo_alumno] == "Egresados" )
-            $t[$i] = array(titulo=>$titulo[$i], alumnos=>0, egresados=>$todo[$j][total], reinscriptos=>0);
-        
-        if ($todo[$j][tipo_alumno] == "Reinscriptos" )
-            $t[$i] = array(titulo=>$titulo[$i], alumnos=>0, egresados=>0, reinscriptos=>$todo[$j][total]);
-       
-               
+
+for ($i = 0; $i < count($titulo); $i++) {
+    $a = 0;
+    $e = 0;
+    $r = 0;
+    for ($j = 0; $j < count($todo); $j++) {
+
+        if ($todo[$j][tipo_alumno] == "Alumnos" && $todo[$j][titulo] == $titulo[$i])
+            $t[$i] = array(titulo => $titulo[$i], alumnos => $a+=$todo[$j][total], egresados => $e, reinscriptos => $r);
+
+        if ($todo[$j][tipo_alumno] == "Egresados" && $todo[$j][titulo] == $titulo[$i])
+            $t[$i] = array(titulo => $titulo[$i], alumnos => $a, egresados => $e+=$todo[$j][total], reinscriptos => $r);
+
+        if ($todo[$j][tipo_alumno] == "Reinscriptos" && $todo[$j][titulo] == $titulo[$i])
+            $t[$i] = array(titulo => $titulo[$i], alumnos => $a, egresados => $e, reinscriptos => $r+=$todo[$j][total]);
     }
+}
 
 
 echo "<pre>";
@@ -226,24 +229,27 @@ echo "</pre>";
             </tr>
         </thead>
         <tbody>
-            <?php for ($i = 0; $i < count($todo); $i++) { ?>
+<?php for ($i = 0; $i < count($todo); $i++) { ?>
                 <tr>
                     <th><?php echo $todo[$i][titulo]; ?></th>
-                    <td><?php if ($todo[$i][tipo_alumno] == "Alumnos")
-                    echo $todo[$i][total];
-                else
-                    echo 0;
-                ?></td>
-                    <td><?php if ($todo[$i][tipo_alumno] == "Egresados")
-                    echo $todo[$i][total];
-                else
-                    echo 0;
-                ?></td>
-                    <td><?php if ($todo[$i][tipo_alumno] == "Reinscriptos")
+                    <td><?php
+            if ($todo[$i][tipo_alumno] == "Alumnos")
                 echo $todo[$i][total];
             else
                 echo 0;
-            ?></td>
+    ?></td>
+                    <td><?php
+                    if ($todo[$i][tipo_alumno] == "Egresados")
+                        echo $todo[$i][total];
+                    else
+                        echo 0;
+    ?></td>
+                    <td><?php
+                        if ($todo[$i][tipo_alumno] == "Reinscriptos")
+                            echo $todo[$i][total];
+                        else
+                            echo 0;
+                        ?></td>
                 </tr>
 <?php } ?> 
 
