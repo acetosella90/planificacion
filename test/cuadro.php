@@ -174,9 +174,7 @@ for ($i = 0; $i < count($titulo); $i++) {
 }
 
 
-echo "<pre>";
-var_dump($t);
-echo "</pre>";
+
 ?>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -219,7 +217,7 @@ echo "</pre>";
 
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
-    <table id="datatable" ">
+    <table id="datatable" style='display:none'>
         <thead>
             <tr>
                 <th></th>
@@ -229,28 +227,14 @@ echo "</pre>";
             </tr>
         </thead>
         <tbody>
-<?php for ($i = 0; $i < count($todo); $i++) { ?>
+<?php foreach ($t as $cuadro) { ?>
                 <tr>
-                    <th><?php echo $todo[$i][titulo]; ?></th>
-                    <td><?php
-            if ($todo[$i][tipo_alumno] == "Alumnos")
-                echo $todo[$i][total];
-            else
-                echo 0;
-    ?></td>
-                    <td><?php
-                    if ($todo[$i][tipo_alumno] == "Egresados")
-                        echo $todo[$i][total];
-                    else
-                        echo 0;
-    ?></td>
-                    <td><?php
-                        if ($todo[$i][tipo_alumno] == "Reinscriptos")
-                            echo $todo[$i][total];
-                        else
-                            echo 0;
-                        ?></td>
-                </tr>
+                    <th><?php echo $cuadro[titulo]; ?></th>
+                    <td><?php echo $cuadro[alumnos];?></td>
+                    <td><?php echo $cuadro[egresados];?></td>
+                    <td><?php echo $cuadro[reinscriptos];?></td>
+                </tr>    
+                    
 <?php } ?> 
 
         </tbody>
