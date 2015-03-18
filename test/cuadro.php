@@ -76,7 +76,9 @@ WHERE
 	AND idanioinformado = $_POST[combo_fechas]
 	AND nombreserie in ('" . $_POST[tipo_alumno][0] . "','" . $_POST[tipo_alumno][1] . "','" . $_POST[tipo_alumno][2] . "')
 
-group by 1,2,3,4";
+group by 1,2,3,4
+
+ORDER BY titulo;";
 
 $consulta = $conexion->prepare($sql);
 
@@ -141,7 +143,38 @@ $todo = $consulta->fetchAll();
 </tr>
 
 </table>
+<?php
+$titulo = array();
+$j = 0;
 
+for ($i = 0; $i < count($todo); $i++) {
+
+    if ($titulo[$j - 1] != $todo[$i]['titulo']) {
+        $titulo[$j] = $todo[$i]['titulo'];
+        $j++;
+    }
+}
+
+for ($i = 0; $i < count($titulo); $i++ ) 
+    for ($j = 0; $j < count($todo); $j++){ 
+       
+        if ($todo[$j][tipo_alumno] == "Alumnos" )
+            $t[$i] = array(titulo=>$titulo[$i], alumnos=>$todo[$j][total], egresados=>0, reinscriptos=>0);
+        
+        if ($todo[$j][tipo_alumno] == "Egresados" )
+            $t[$i] = array(titulo=>$titulo[$i], alumnos=>0, egresados=>$todo[$j][total], reinscriptos=>0);
+        
+        if ($todo[$j][tipo_alumno] == "Reinscriptos" )
+            $t[$i] = array(titulo=>$titulo[$i], alumnos=>0, egresados=>0, reinscriptos=>$todo[$j][total]);
+       
+               
+    }
+
+
+echo "<pre>";
+var_dump($t);
+echo "</pre>";
+?>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <style type="text/css">
@@ -176,7 +209,7 @@ $todo = $consulta->fetchAll();
 </script>
 </head>
 <body>
-    
+
     <script src="../test/js/highcharts.js"></script>
     <script src="../test/js/modules/data.js"></script>
     <script src="../test/js/modules/exporting.js"></script>
@@ -194,14 +227,26 @@ $todo = $consulta->fetchAll();
         </thead>
         <tbody>
             <?php for ($i = 0; $i < count($todo); $i++) { ?>
-            <tr>
-                <th><?php echo $todo[$i][titulo]; ?></th>
-                <td><?php if ($todo[$i][tipo_alumno] == "Alumnos") echo $todo[$i][total]; else echo 0; ?></td>
-                <td><?php if ($todo[$i][tipo_alumno] == "Egresados") echo $todo[$i][total]; else echo 0; ?></td>
-                <td><?php if ($todo[$i][tipo_alumno] == "Reinscriptos") echo $todo[$i][total]; else echo 0; ?></td>
-            </tr>
-            <?php } ?> 
-           
+                <tr>
+                    <th><?php echo $todo[$i][titulo]; ?></th>
+                    <td><?php if ($todo[$i][tipo_alumno] == "Alumnos")
+                    echo $todo[$i][total];
+                else
+                    echo 0;
+                ?></td>
+                    <td><?php if ($todo[$i][tipo_alumno] == "Egresados")
+                    echo $todo[$i][total];
+                else
+                    echo 0;
+                ?></td>
+                    <td><?php if ($todo[$i][tipo_alumno] == "Reinscriptos")
+                echo $todo[$i][total];
+            else
+                echo 0;
+            ?></td>
+                </tr>
+<?php } ?> 
+
         </tbody>
     </table>
 
