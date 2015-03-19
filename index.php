@@ -7,7 +7,7 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
     <!DOCTYPE html>
     <html lang="en">
         <head>
-            <meta charset="utf-8">
+            
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="">
@@ -24,6 +24,8 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
             <!-- Bootstrap core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
             
+             <script src="js/jquery.min.js"></script>
+                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
             
             <!-- Custom styles for this template -->
             <link href="css/dashboard.css" rel="stylesheet">
@@ -83,19 +85,25 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                             <li><a href="">More navigation</a></li>
                         </ul>
                     </div>
-                    <div id="contenido"><!-- CONTENIDO --></div>
+                    
+                    <div id="contenido"><!-- CONTENIDO -->
+                    <?php if($_GET[pagina] == 'araucano')
+                        include './content/p_tabla-araucano.php';
+                    ?>
+                    </div>
 
                 </div>
 
                 <!-- Bootstrap core JavaScript
                 ================================================== -->
                 <!-- Placed at the end of the document so the pages load faster -->
-                <script src="js/jquery.min.js"></script>
+               
                 <script src="js/bootstrap.min.js"></script>
                 <script src="js/doc.min.js"></script>
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+               
                 <script src='js/botones.js'></script>
                 <script src='js/funciones.js'></script>
+                
         </body>
     </html>
     <?php

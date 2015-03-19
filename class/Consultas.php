@@ -38,8 +38,10 @@ class Consultas {
         return $sql;
     }
     
-     public static function getFiltroAraucano() {
+    public static function getFiltroAraucano($POST) {
          
+        $combo_facultades = $POST[combo_facultades];
+        
          $sql = "SELECT
                     academica_d_facultades.facultad as facultad,
                     academica_d_series.nombreserie as tipo_alumno,
@@ -56,9 +58,9 @@ class Consultas {
                         INNER JOIN araucano.academica_d_titulos 
                                 ON academica_ft_cuadros1y2.idtitulo = academica_d_titulos.idtitulo
                 WHERE
-                        facultad like '$_POST[combo_facultades]'
-                        AND idanioinformado = $_POST[combo_fechas]
-                        AND nombreserie in ('" . $_POST[tipo_alumno][0] . "','" . $_POST[tipo_alumno][1] . "','" . $_POST[tipo_alumno][2] . "')
+                        facultad like '$combo_facultades'
+                        AND idanioinformado = $POST[combo_fechas]
+                        AND nombreserie in ('" . $POST[tipo_alumno][0] . "','" . $POST[tipo_alumno][1] . "','" . $POST[tipo_alumno][2] . "')
 
                 group by 1,2,3,4
 

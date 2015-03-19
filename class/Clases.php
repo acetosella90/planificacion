@@ -50,10 +50,10 @@ class Clases {
             $c = " checked ";
         
 
-        echo '<div id="alumnos" style="float: left;">';
-        echo "<input type='checkbox' name='tipo_alumno[]'" . $a . " value='Alumnos'>Alumnos";
-        echo "<input type='checkbox' name='tipo_alumno[]'" . $b . " value='Egresados'>Egresados";
-        echo "<input type='checkbox' name='tipo_alumno[]'" . $c . " value='Reinscriptos'>Reinscriptos";
+        echo '<div id="alumnos" style="float: left; margin-left: 10px;">';
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $a . " value='Alumnos'>Alumnos";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $b . " value='Egresados'>Egresados";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $c . " value='Reinscriptos'>Reinscriptos";
         echo '</div>';
     }
 

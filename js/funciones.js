@@ -47,3 +47,34 @@ $(document).ready(function() {
     });
 
 });
+
+$(function () {
+        $('#container').highcharts({
+            
+            data: {
+                table: 'datatable'
+            },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Alumnos por Titulos'
+            },
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: 'Cantidad de Alumnos'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + ' alumnos en ' + this.point.name.toLowerCase();
+                }
+            }
+        });
+    });
+    
+    
+    
+    

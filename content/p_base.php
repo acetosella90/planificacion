@@ -439,7 +439,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td ><a href="./content/p_tabla-araucano.php" >Cantidad de alumnos por unidad</a></td>
+                        <td ><a href="index.php?pagina=araucano" >Cantidad de alumnos por unidad</a></td>
                         <td>Muestra la cantidad total por año de alumnos por unidad academica</td>
                         <td>Barras</td>
                         <td>sit</td>
