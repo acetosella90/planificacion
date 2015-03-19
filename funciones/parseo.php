@@ -16,8 +16,7 @@ function parceo() {
     return $datos;
 }
 
-function array_sort($array, $on, $order=SORT_ASC)
-{
+function array_sort($array, $on, $order = SORT_ASC) {
     $new_array = array();
     $sortable_array = array();
 
@@ -37,10 +36,10 @@ function array_sort($array, $on, $order=SORT_ASC)
         switch ($order) {
             case SORT_ASC:
                 asort($sortable_array);
-            break;
+                break;
             case SORT_DESC:
                 arsort($sortable_array);
-            break;
+                break;
         }
 
         foreach ($sortable_array as $k => $v) {
@@ -49,4 +48,34 @@ function array_sort($array, $on, $order=SORT_ASC)
     }
 
     return $new_array;
+}
+
+function getFacultades($todo) {
+
+    $facultades = array();
+    $j = 0;
+
+    for ($i = 0; $i < count($todo); $i++) {
+
+        if ($facultades[$j - 1] != $todo[$i]['facultad']) {
+            $facultades[$j] = $todo[$i]['facultad'];
+            $j++;
+        }
+    }
+    return $facultades;
+}
+
+function getTitulos($todo) {
+
+    $titulo = array();
+    $j = 0;
+
+    for ($i = 0; $i < count($todo); $i++) {
+
+        if ($titulo[$j - 1] != $todo[$i]['titulo']) {
+            $titulo[$j] = $todo[$i]['titulo'];
+            $j++;
+        }
+    }
+    return $titulo;
 }

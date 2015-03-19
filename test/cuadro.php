@@ -1,51 +1,17 @@
 <?php
-include './../class/Conexion.php';
-include './../class/Clases.php';
-include './../funciones/parseo.php';
+require_once './../class/Conexion.php';
+require_once './../class/Clases.php';
+require_once './../class/Consultas.php';
+require_once './../funciones/parseo.php';
+
 $conexion = new Conexion();
 
-$sql = "
-SELECT
-    academica_d_facultades.facultad as facultad,
-    academica_d_series.nombreserie as tipo_alumno,
-    academica_ft_cuadros1y2.idanioinformado as anio,
-    academica_d_titulos.titulo as titulo,
-    sum(academica_ft_cuadros1y2.cantidad) as total
-FROM
-    araucano.academica_d_series as academica_d_series,
-    araucano.academica_ft_cuadros1y2 as academica_ft_cuadros1y2,
-    araucano.academica_d_facultades as academica_d_facultades,
-    araucano.academica_d_titulos as academica_d_titulos
-WHERE
-    academica_ft_cuadros1y2.idserie = academica_d_series.idserie
-    AND academica_ft_cuadros1y2.idfacultad = academica_d_facultades.idfacultad
-    AND academica_ft_cuadros1y2.idtitulo = academica_d_titulos.idtitulo
-
-GROUP BY
-    academica_d_facultades.facultad,
-    academica_d_series.nombreserie,
-    academica_ft_cuadros1y2.idanioinformado,
-    academica_d_titulos.titulo  
-ORDER BY 
-    facultad, titulo;";
-
-$consulta = $conexion->prepare($sql);
-
+$consulta = $conexion->prepare(Consultas::getTodoAraucano());
 $consulta->execute();
 $todo = $consulta->fetchAll();
 
+$facultades = getFacultades($todo);
 
-
-$facultades = array();
-$j = 0;
-
-for ($i = 0; $i < count($todo); $i++) {
-
-    if ($facultades[$j - 1] != $todo[$i]['facultad']) {
-        $facultades[$j] = $todo[$i]['facultad'];
-        $j++;
-    }
-}
 ?>
 
 <form  method="POST">
@@ -58,31 +24,7 @@ for ($i = 0; $i < count($todo); $i++) {
 </form>
 
 <?php
-$sql = "SELECT
-    academica_d_facultades.facultad as facultad,
-    academica_d_series.nombreserie as tipo_alumno,
-    academica_ft_cuadros1y2.idanioinformado as anio,
-    academica_d_titulos.titulo as titulo,
-
-    sum(academica_ft_cuadros1y2.cantidad) as total
-FROM
-	araucano.academica_ft_cuadros1y2 INNER JOIN araucano.academica_d_series 
-		ON academica_ft_cuadros1y2.idserie = academica_d_series.idserie 
-	INNER JOIN araucano.academica_d_facultades 
-		ON academica_ft_cuadros1y2.idfacultad = academica_d_facultades.idfacultad 
-	INNER JOIN araucano.academica_d_titulos 
-		ON academica_ft_cuadros1y2.idtitulo = academica_d_titulos.idtitulo
-WHERE
-	facultad like '$_POST[combo_facultades]'
-	AND idanioinformado = $_POST[combo_fechas]
-	AND nombreserie in ('" . $_POST[tipo_alumno][0] . "','" . $_POST[tipo_alumno][1] . "','" . $_POST[tipo_alumno][2] . "')
-
-group by 1,2,3,4
-
-ORDER BY titulo;";
-
-$consulta = $conexion->prepare($sql);
-
+$consulta = $conexion->prepare(Consultas::getFiltroAraucano());
 $consulta->execute();
 $todo = $consulta->fetchAll();
 ?>
@@ -111,8 +53,10 @@ $todo = $consulta->fetchAll();
     }
     ?>
 </table>
+
 <div id="container2" style="width: 650px; height: 400px; margin: 0 auto; float: left; "></div>
 <div style="clear: both; height: 0px;"><!-- e --></div>
+
 <table  rules="all" border="1" style="margin-top: 15px;">
     <tr>
         <td colspan="2"> A&Ntilde;O <?php echo $_POST[combo_fechas]; ?></td>
@@ -146,22 +90,11 @@ $todo = $consulta->fetchAll();
 
 </table>
 <?php
-$titulo = array();
-$j = 0;
 
-for ($i = 0; $i < count($todo); $i++) {
+$titulo = getTitulos($todo);
 
-    if ($titulo[$j - 1] != $todo[$i]['titulo']) {
-        $titulo[$j] = $todo[$i]['titulo'];
-        $j++;
-    }
-}
-
-
-for ($i = 0; $i < count($titulo); $i++) {
-    $a = 0;
-    $e = 0;
-    $r = 0;
+for ($i = 0,$a = 0, $e = 0, $r = 0 ; $i < count($titulo); $i++) {
+    
     for ($j = 0; $j < count($todo); $j++) {
 
         if ($todo[$j][tipo_alumno] == "Alumnos" && $todo[$j][titulo] == $titulo[$i])
@@ -175,10 +108,8 @@ for ($i = 0; $i < count($titulo); $i++) {
     }
 }
 
-
-
 ?>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <style type="text/css">
     ${demo.css}
