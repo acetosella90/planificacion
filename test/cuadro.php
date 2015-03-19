@@ -1,6 +1,7 @@
 <?php
 include './../class/Conexion.php';
 include './../class/Clases.php';
+include './../funciones/parseo.php';
 $conexion = new Conexion();
 
 $sql = "
@@ -86,7 +87,7 @@ $consulta->execute();
 $todo = $consulta->fetchAll();
 ?>
 
-<table  rules="all" border="1">
+<table style='float: left;'  rules="all" border="1">
     <tr>
         <td><strong>Escuelas</strong></td>
         <td><strong>Titulos</strong></td>
@@ -110,7 +111,8 @@ $todo = $consulta->fetchAll();
     }
     ?>
 </table>
-
+<div id="container2" style="width: 650px; height: 400px; margin: 0 auto; float: left; "></div>
+<div style="clear: both; height: 0px;"><!-- e --></div>
 <table  rules="all" border="1" style="margin-top: 15px;">
     <tr>
         <td colspan="2"> A&Ntilde;O <?php echo $_POST[combo_fechas]; ?></td>
@@ -176,14 +178,16 @@ for ($i = 0; $i < count($titulo); $i++) {
 
 
 ?>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <style type="text/css">
     ${demo.css}
 </style>
+
 <script type="text/javascript">
     $(function () {
         $('#container').highcharts({
+            
             data: {
                 table: 'datatable'
             },
@@ -208,6 +212,62 @@ for ($i = 0; $i < count($titulo); $i++) {
         });
     });
 </script>
+<?php 
+
+$r = array_sort($t, 'alumnos', SORT_DESC);
+
+foreach ($t as $cuadro) { 
+    $c.= "'". $cuadro[titulo] . "',";
+}
+
+$c = substr($c, 0, -1);
+?>
+
+<script type="text/javascript">
+    
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Alumnos por titulo'
+        },
+        xAxis: {
+            categories: [<?php echo $c; ?>]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Cantidad de alumnos'
+            }
+        },
+        legend: {
+            reversed: true
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+               name: 'Alumnos',
+               data: [<?php foreach ($r as $cuadro) { echo $cuadro[alumnos].", "; } ?>]
+                },
+            {
+               name: 'Egresados',
+               data: [<?php foreach ($r as $cuadro) { echo $cuadro[reinscriptos].", "; } ?>]
+                },
+            {
+               name: 'Reinscriptos',
+               data: [<?php foreach ($r as $cuadro) { echo $cuadro[reinscriptos].", "; } ?>]
+                }
+            
+                ]
+    });
+});
+
+		</script>
 </head>
 <body>
 
@@ -216,6 +276,7 @@ for ($i = 0; $i < count($titulo); $i++) {
     <script src="../test/js/modules/exporting.js"></script>
 
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    
 
     <table id="datatable" style='display:none'>
         <thead>
