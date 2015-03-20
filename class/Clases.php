@@ -39,19 +39,33 @@ class Clases {
     }
 
     static public function getTipoAlumno() {
+        
+       if($_SERVER["REQUEST_METHOD"]  != 'POST'){
+           $a = " checked ";
+           $b = " checked ";
+           $c = " checked ";
+       }
+       else{
 
-        if ($_POST[tipo_alumno][0] == "Alumnos" || $_POST[tipo_alumno][1] == "Alumnos" || $_POST[tipo_alumno][2] == "Alumnos") 
-            $a = " checked ";
-        
-        if ($_POST[tipo_alumno][0] == "Egresados" || $_POST[tipo_alumno][1] == "Egresados" || $_POST[tipo_alumno][2] == "Egresados") 
-            $b = " checked ";
-        
-        if ($_POST[tipo_alumno][0] == "Reinscriptos" || $_POST[tipo_alumno][1] == "Reinscriptos" || $_POST[tipo_alumno][2] == "Reinscriptos") 
-            $c = " checked ";
-        
+            if ($_POST[tipo_alumno][0] == "Alumnos" || $_POST[tipo_alumno][1] == "Alumnos" || $_POST[tipo_alumno][2] == "Alumnos") 
+                $a = " checked ";
+            else 
+               $a = ""; 
 
+
+            if ($_POST[tipo_alumno][0] == "Egresados" || $_POST[tipo_alumno][1] == "Egresados" || $_POST[tipo_alumno][2] == "Egresados") 
+                $b = " checked ";
+            else 
+               $b = "";
+
+            if ($_POST[tipo_alumno][0] == "Reinscriptos" || $_POST[tipo_alumno][1] == "Reinscriptos" || $_POST[tipo_alumno][2] == "Reinscriptos") 
+                $c = " checked ";
+            else 
+               $c = "";
+        
+        }
         echo '<div id="alumnos" style="float: left; margin-left: 10px;">';
-        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $a . " value='Alumnos'>Alumnos";
+        echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $a . " value='Alumnos'>Alumnos";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $b . " value='Egresados'>Egresados";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $c . " value='Reinscriptos'>Reinscriptos";
         echo '</div>';
