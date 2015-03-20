@@ -37,7 +37,7 @@
         <div class="row" style="margin-top: 40px;">
             <div class="col-xs-18 col-md-12">
                 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                <span style="float: right" class="label label-danger" id="btn-tabla1">Ver Tabla de Datos 1</span>
+                <span style="float: right" class="label label-danger " id="btn-tabla1">Ver Tabla de Datos 1</span>
             </div>
         </div>
 
