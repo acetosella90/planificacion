@@ -71,4 +71,49 @@ class Clases {
         echo '</div>';
     }
 
-}
+
+ 
+    static public function getPaises($paises) {
+        echo "<select name='combo_paises' id='pais' style='margin-left: 5px;'>";
+        for ($i = 0; $i < count($paises); $i++) {
+            echo "<option";
+            if ($_POST[combo_paises] == $paises[$i])
+                echo " selected ";
+            echo " value='$paises[$i]'>" . $paises[$i] . "</option>";
+        }
+        echo "</select>";
+        echo "</div>";
+    }
+
+    
+      static public function getGenero() {
+        
+       if($_SERVER["REQUEST_METHOD"]  != 'POST'){
+           $a = " checked ";
+           $b = " checked ";
+      
+       }
+       else{
+
+            if ($_POST[genero][0] == "Femenino" || $_POST[genero][1] == "Femenino" ) 
+                $a = " checked ";
+            else 
+               $a = ""; 
+
+
+            if ($_POST[genero][0] == "Maculino" || $_POST[genero][1] == "Maculino" ) 
+                $b = " checked ";
+            else 
+               $b = "";
+
+            
+        
+        }
+        echo '<div id="genero" style="float: left; margin-left: 10px;">';
+        echo "<input  style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $a . " value='Femenino'>Femenino";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $b . " value='Maculino'>Maculino";
+        echo '</div>';
+    }
+    
+    
+        }

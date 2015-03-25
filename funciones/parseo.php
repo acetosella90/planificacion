@@ -79,3 +79,33 @@ function getTitulos($todo) {
     }
     return $titulo;
 }
+
+function getGeneros($todo) {
+
+    $genero = array();
+    $j = 0;
+
+    for ($i = 0; $i < count($todo); $i++) {
+
+        if ($titulo[$j - 1] != $todo[$i]['genero']) {
+            $titulo[$j] = $todo[$i]['genero'];
+            $j++;
+        }
+    }
+    return $genero;
+}
+
+function getPaises($todo2,$todo) {
+
+    $paises = array();
+    $j = 0;
+
+    for ($i = 0; $i < count($todo2); $i++) {
+
+        if ($todo2[$i]['pais'] == $todo2[$i]['pais']) {
+            $paises[$j] = $todo2[$i]['pais'];
+            $j++;
+        }
+    }
+    return $paises;
+}

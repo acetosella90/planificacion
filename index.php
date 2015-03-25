@@ -90,8 +90,12 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
 
                     <div id="contenido"><!-- CONTENIDO -->
                         <?php
-                        if ($_GET[pagina] == 'araucano')
+                        if ($_GET[pagina] == 'araucano'){
                             include './content/p_tabla-araucano.php';
+                        }
+                        elseif ($_GET[pagina] == 'araucano2'){ 
+                            include './content/p_tabla-araucano2.php';
+                        }
                         ?>
                     </div>
 

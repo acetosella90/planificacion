@@ -354,13 +354,13 @@
         </div>
         <!--FIN TABLAS PILAGA-->
 
-        <!--INICIO TABLAS GUARANI/RHUN-->
+        <!--INICIO TABLAS ARAUCANO-->
         <!--tabla principal -->
         <div  id="tabla3" class="table-responsive tabla visible" style="display:none;">
             <table class="table table-striped">
                 <thead>
                     <tr id='columna-cabeza1'>
-                        <th id="reporte">Reportes GUARANI/RHUN por tipos de datos</th>
+                        <th id="reporte">Reportes ARAUCANO por tipos de datos</th>
                         <th>Descripcion</th>
                         <th>Numero de reportes totales</th>
                     </tr>
@@ -446,7 +446,7 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                      <td><a href="#">Cantidad de egresados por unidad</a></td>
+                      <td><a href="index.php?pagina=araucano2">Cantidad de egresados por unidad</a></td>
                         <td>Muestra la cantidad total por año de egresados por unidad academica</td>
                         <td>Barras/Torta</td>
                         <td>elit</td>

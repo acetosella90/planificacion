@@ -69,4 +69,93 @@ class Consultas {
          return $sql;
      }
 
+
+   public static function getTodoAraucano2() {
+        
+    $sql="  
+SELECT
+academica_d_facultades.facultad as facultad,
+academica_d_generos.generodescripcion as genero,
+academica_d_titulos.titulo as titulo,
+academica_d_mug_paises.nombre_pais as pais,
+sum(academica_ft_cuadro12.cantidad) as total
+
+FROM
+araucano.academica_d_facultades as academica_d_facultades,
+araucano.academica_ft_cuadro12 as academica_ft_cuadro12,
+araucano.academica_d_generos as academica_d_generos,
+araucano.academica_d_titulos as academica_d_titulos,
+araucano.academica_d_mug_paises as academica_d_mug_paises
+
+WHERE
+academica_ft_cuadro12.idfacultad = academica_d_facultades.idfacultad
+and
+academica_ft_cuadro12.idgenero = academica_d_generos.idgenero
+and
+academica_ft_cuadro12.idtitulo = academica_d_titulos.idtitulo
+and
+academica_ft_cuadro12.idpais = academica_d_mug_paises.idpais
+
+
+GROUP BY
+academica_d_facultades.facultad,
+academica_d_generos.generodescripcion,
+academica_d_titulos.titulo,
+academica_d_mug_paises.nombre_pais
+
+ORDER BY facultad, titulo,nombre_pais ;
+
+";
+  
+      return $sql;   
+    }
+public static function getFiltroAraucano2($POST) {
+         
+        $combo_facultades = $POST[combo_facultades];
+        $combo_paises = $POST[combo_paises];
+         $sql = "SELECT
+                    academica_d_facultades.facultad as facultad,
+                    academica_d_generos.generodescripcion as genero,
+                    academica_d_mug_paises.nombre_pais as pais, 
+                    academica_d_titulos.titulo as titulo,
+                    academica_d_mug_paises.nombre_pais as pais,
+                    sum(academica_ft_cuadros12.cantidad) as total
+                FROM
+                    araucano.academica_ft_cuadros12 
+                        INNER JOIN academica_d_generos.generodescripcion 
+                                ON academica_ft_cuadros12.idgenero = academica_d_generos.generodescripcion.idgenero 
+                        INNER JOIN araucano.academica_d_facultades 
+                                ON academica_ft_cuadros12.idfacultad = academica_d_facultades.idfacultad 
+                        INNER JOIN araucano.academica_d_titulos 
+                                ON academica_ft_cuadros12.idtitulo = academica_d_titulos.idtitulo
+                        INNER JOIN araucano.academica_d_mug_paises 
+                                ON academica_ft_cuadros12.idpais = academica_d_mug_paises.idpais
+                WHERE
+                        facultad like '$combo_facultades'
+                        AND pais like '$combo_paises'
+                        AND generodescripcion in ('" . $POST[genero][0] . "','" . $POST[genero][1] . "')
+
+                group by 1,2,3,4
+
+                ORDER BY titulo;";
+         
+         return $sql;
+     }
+  
+     
+ public static function getpaises() {
+         
+        $sql = "SELECT nombre_pais
+        FROM   academica_d_mug_paises ;";
+         
+         return $sql;
+     }    
+    
+     
+     
 }
+
+
+
+    
+    
