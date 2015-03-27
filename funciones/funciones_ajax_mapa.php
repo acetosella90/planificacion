@@ -17,4 +17,6 @@ if ($araucano) {
     $consulta->execute();
     $todo = $consulta->fetchAll();
 }
+echo "<pre>";
 var_dump($todo);
+echo "</pre>";
