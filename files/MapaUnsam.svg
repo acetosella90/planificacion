@@ -1,17 +1,22 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
 
 <svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1750px" height="517px"
-	 viewBox="0 0 1341 417" enable-background="new 0 0 1341 417" xml:space="preserve">
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1750px" height="517px"
+     viewBox="0 0 1341 417" enable-background="new 0 0 1341 417" xml:space="preserve">
+         
 <switch>
 	<foreignObject requiredExtensions="&ns_ai;" x="0" y="0" width="1" height="1">
 		<i:pgfRef  xlink:href="#adobe_illustrator_pgf">
 		</i:pgfRef>
 	</foreignObject>
+       
 	<g i:extraneous="self">
+            
 		<g id="Capa_1">
 			<g id="_x23_ffffffff">
+                             
 				<path fill="#FFFFFF" d="M-0.26,0h1341v417h-1341V0 M1317.891,22.98c-12.012,4.48-23.83,9.45-35.67,14.34
 					c-19.641,7.97-40.061,13.66-60.262,19.97c-8.27,2.62-15.959,6.68-24.029,9.8c-22.879,9.27-45.84,18.33-68.811,27.38
 					c-1.229,2.27-1.459,5.56-4.109,6.68c-4.92,2.27-10.061,4-15.209,5.67c-7.801,2.34-14.432,7.4-22.211,9.8
@@ -3064,7 +3069,9 @@
 			<path fill="#F4F4F4" d="M1107.47,325.97c1.25-4.02,6.48-1.89,9.46-1.399C1114.21,326.73,1110.65,326.07,1107.47,325.97z"/>
 			<path fill="#F4F4F4" d="M482.99,333.57c-1.53-0.46-1.7-3.311-0.05-3.721C484.37,330.3,484.44,333.11,482.99,333.57z"/>
 		</g>
+            
 		<g id="Capa_2">
+                
 			<path fill="#F6F6F6" d="M182.09,190.23c6.86,3.69,12.41,9.44,17.32,15.41c1.11,1.23,1.77,2.76,2.37,4.29
 				c-1.95,1.131-3.86,2.32-5.73,3.59c-2.64-1.699-4.13-4.459-5.95-6.899c-1.84-1.74-3.73-3.43-5.31-5.43
 				c-2.05-1.71-4.61-2.7-6.79-4.24C179.25,194.65,180.38,192.23,182.09,190.23z"/>
@@ -3680,16 +3687,19 @@
 			</g>
 			<path fill="#D2D2D1" d="M88.13,301.38c1.28-0.069,2.56-0.149,3.84-0.21c0.6,1.03,1.22,2.061,1.83,3.09
 				c-1.06,1.02-2.19,1.971-3.69,2.2"/>
-			<g id="_x23_d5d2d2ff">
+			<g id="_x23_d5d2d2ff" >
 				<path fill="#D5D2D2" d="M107.85,301.66c1.71-0.34,3.35-0.01,4.71,1.119c-0.84,1.421-1.66,2.841-2.49,4.271
 					c0.62-0.06,1.86-0.189,2.48-0.25c0.95,0.84,1.91,1.67,2.87,2.51c0.86,0.71,1.73,1.4,2.63,2.07c1,0.71,2.03,1.37,3.06,2.05
 					c0.88-2.81,1.98-5.56,3.74-7.949c0.24,0.64,0.71,1.909,0.95,2.55c-1.35,2.39-2.57,4.84-3.91,7.239
 					c-4.83-1.609-9.35-3.989-13.67-6.64c-0.07-1.29-0.14-2.569-0.21-3.851C107.97,304,107.89,302.439,107.85,301.66z"/>
 			</g>
 		</g>
+               
+       
+                
 		<g id="Tornavias" opacity="0.1">
-			<path  onmouseover="this.style.fill = &quot;blue&quot;;"
-           onmouseout="this.style.fill = &quot;white&quot;;" fill="#FFFFFF" d="M152.17,178.95c0,0,60.48,1.509,60.48,72.014l-3.09,15.056l1.26,1.701l4.71,0.219l-5.44,11.33
+          			<path   onmouseover="this.style.fill = &quot;blue&quot;;"
+                                        onmouseout="this.style.fill = &quot;white&quot;;" fill="#FFFFFF" d="M152.17,178.95c0,0,60.48,1.509,60.48,72.014l-3.09,15.056l1.26,1.701l4.71,0.219l-5.44,11.33
 				l-16.73,18.25c0,0-15.09,12.361-38.44,16.301l-1.04-4.58c0,0-11.812,0.075-18.14-1.58l-3.24,12.13c0,0-46.667-7.496-57.75-52.31
 				l0.49-1.41l-1.79-5.41l-4.05-1.392l14.85-26.554C84.25,232.715,93.33,177.15,152.17,178.95z"/>
 		</g>
@@ -3739,6 +3749,10 @@
 			<path onmouseout="this.style.fill = &quot;white&quot;;" onmouseover="this.style.fill = &quot;blue&quot;;" fill="#FFFFFF" stroke="#00FFFF" d="M428.85,335.97l0.381,19.24l-43.081,0.29l-0.006-15.79c0,0,2.229-1.25,9.543-0.979
 				c0,0,3.098,0.693,4.743-2.601L428.85,335.97z"/>
 		</g>
+		<g id="Arquitectura" opacity="0.1">
+			<path  onmouseout="this.style.fill = &quot;white&quot;;" onmouseover="this.style.fill = &quot;blue&quot;;" fill="#FFFFFF" stroke="#00FFFF" fill="#F8F8F9" d="M363.47,329.34c0.8-0.01,2.4-0.03,3.2-0.04c2.68,0.12,5.35,0.41,8.02,0.65
+					c0.04,6.7,0.43,13.399,0.28,20.109l-0.08,1.421c-3.53-0.311-7.08-0.66-10.63-0.37C363.14,343.89,364.32,336.57,363.47,329.34z"></path>
+		</g>
 		<g id="Rectorado" opacity="0.1">
 			<polygon onmouseout="this.style.fill = &quot;white&quot;;" onmouseover="this.style.fill = &quot;blue&quot;;" fill="#FFFFFF" stroke="#00FFFF" points="283.58,287.9 283.935,307.578 248.59,308.16 248.99,288 			"/>
 		</g>
@@ -3746,6 +3760,67 @@
 			<path onmouseout="this.style.fill = &quot;white&quot;;" onmouseover="this.style.fill = &quot;blue&quot;;" fill="#FFFFFF" stroke="#00FFFF" d="M206.456,287.838c0,0-3.459,1.173-3.378,3.332l0.242,14.35l35.47,0.381l-0.38-18.69
 				L206.456,287.838z"/>
 		</g>
+                
+                <g id="circulo_tornavias1">
+                    <circle r="7" cx="180" cy="280" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="180" cy="280" style="fill:white;"/>
+                    <circle r="4" cx="180" cy="280" style="fill:#3D89BB;"/>
+                    
+                    <rect id='rectangulo_tornavias1' x="200" y="270" width="85" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="241" y="272" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_tornavias1' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Sexta Etapa</tspan>
+                    </text>
+                </g>
+                <g id="circulo_tornavias2">
+                    <circle r="7" cx="100" cy="230" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="100" cy="230" style="fill:white;"/>
+                    <circle r="4" cx="100" cy="230" style="fill:#3D89BB;"/>
+                </g>
+                <g id="circulo_tornavias3">
+                    <circle r="7" cx="150" cy="190" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="150" cy="190" style="fill:white;"/>
+                    <circle r="4" cx="150" cy="190" style="fill:#3D89BB;"/>
+                </g>
+                <g id="3IA">
+                    <circle r="7" cx="250" cy="208" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="250" cy="208" style="fill:white;"/>
+                    <circle r="4" cx="250" cy="208" style="fill:#3D89BB;"/>
+                </g>
+                <g id="IIB">
+                    <circle r="7" cx="420" cy="290" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="420" cy="290" style="fill:white;"/>
+                    <circle r="4" cx="420" cy="290" style="fill:#3D89BB;"/>
+                </g>
+                <g id="Arte">
+                    <circle r="7" cx="485" cy="315" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="485" cy="315" style="fill:white;"/>
+                    <circle r="4" cx="485" cy="315" style="fill:#3D89BB;"/>
+                </g>
+                <g id="Rehabilitacion">
+                    <circle r="7" cx="580" cy="335" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="580" cy="335" style="fill:white;"/>
+                    <circle r="4" cx="580" cy="335" style="fill:#3D89BB;"/>
+                </g>
+                <g id="Actividades_Centrales">
+                    <circle r="7" cx="350" cy="345" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="350" cy="345" style="fill:white;"/>
+                    <circle r="4" cx="350" cy="345" style="fill:#3D89BB;"/>
+                </g>
+                <g id="Politica">
+                    <circle r="7" cx="835" cy="335" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="835" cy="335" style="fill:white;"/>
+                    <circle r="4" cx="835" cy="335" style="fill:#3D89BB;"/>
+                </g>
+                <g id="Sociales">
+                    <circle r="7" cx="858" cy="335" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="858" cy="335" style="fill:white;"/>
+                    <circle r="4" cx="858" cy="335" style="fill:#3D89BB;"/>
+                </g>
+                <g id="Investigacion">
+                    <circle r="7" cx="1100" cy="320" style="fill:#3D89BB;"/>
+                    <circle r="5" cx="1100" cy="320" style="fill:white;"/>
+                    <circle r="4" cx="1100" cy="320" style="fill:#3D89BB;"/>
+                </g>
 	</g>
 </switch>
 <i:pgf  id="adobe_illustrator_pgf">

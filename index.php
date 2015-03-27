@@ -2,7 +2,7 @@
 session_start();
 
 echo $_SESSION['usuario'];
-if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
+if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -44,7 +44,7 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
               <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
         </head>
-        <body>
+        <body style="background-image: url(files/UNSAM.jpg); background-repeat: round; ">
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -71,11 +71,11 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid">
+            <div class="container-fluid" >
                 <div class="row">
                     <div  class="col-sm-3 col-md-1 sidebar">
                         <ul id="div" class="nav nav-sidebar">
-                            <li id="p_mapa" class="active"><a href="#">Mapas <span class="sr-only">(current)</span></a></li>
+                            <li id="p_mapa" ><a href="#">Mapas <span class="sr-only">(current)</span></a></li>
                             <li id="p_base"><a href="#">Cubos</a></li>
                             <li><a href="#">Analisis</a></li>
                             <li><a href="#">Exportar</a></li>
@@ -88,28 +88,28 @@ if ($_SESSION['usuario'] == "rutita" && $_SESSION['pass'] == "cadabra") {
                         </ul>
                     </div>
 
-                    <div id="contenido"><!-- CONTENIDO -->
+                    <div id="contenido" ><!-- CONTENIDO -->
                         <?php
-                        if ($_GET[pagina] == 'araucano'){
+                        if ($_GET[pagina] == 'araucano') {
                             include './content/p_tabla-araucano.php';
-                        }
-                        elseif ($_GET[pagina] == 'araucano2'){ 
+                        } elseif ($_GET[pagina] == 'araucano2') {
                             include './content/p_tabla-araucano2.php';
                         }
                         ?>
                     </div>
 
                 </div>
+            </div>
 
-                <!-- Bootstrap core JavaScript
-                ================================================== -->
-                <!-- Placed at the end of the document so the pages load faster -->
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
 
-                <script src="js/bootstrap.min.js"></script>
-                <script src="js/doc.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/doc.min.js"></script>
 
-                <script src='js/botones.js'></script>
-                <script src='js/funciones.js'></script>
+            <script src='js/botones.js'></script>
+            <script src='js/funciones.js'></script>
 
         </body>
     </html>
