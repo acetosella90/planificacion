@@ -1,5 +1,14 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main" >
     <h1 class="page-header" style="text-shadow: -5px -5px 5px #aaa;">Mapa Interactivo de la Universidad Nacional San Martin</h1>
+    <div class="row" style="margin-left: 0px;" >
+        <h4><span class="glyphicon glyphicon-circle-arrow-down"> <strong>Filtros:</strong></span></h4>
+        <div class="col-xs-6 col-md-1" style="text-align: right">
+            Araucano <input type="checkbox"><br>
+            Pilaga <input type="checkbox"><br>
+            Mapuche <input type="checkbox"><br>
+            Sigeva <input type="checkbox">
+        </div>
+    </div><br>
     <div style="position: absolute; z-index: 9999999999" >
         <h4><span class="glyphicon glyphicon-circle-arrow-down"> <strong>Edificios fuera del campus</strong></span></h4>
         <ul style="list-style:none;">
