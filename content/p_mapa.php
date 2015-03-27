@@ -1,12 +1,12 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main" >
     <h1 class="page-header" style="text-shadow: -5px -5px 5px #aaa;">Mapa Interactivo de la Universidad Nacional San Martin</h1>
     <div class="row" style="margin-left: 0px;" >
-        <h4><span class="glyphicon glyphicon-circle-arrow-down"> <strong>Filtros:</strong></span></h4>
+        <h4><span class="glyphicon glyphicon-circle-arrow-down"> <strong>Filtros</strong></span></h4>
         <div class="col-xs-6 col-md-1" style="text-align: right">
-            Araucano <input type="checkbox"><br>
-            Pilaga <input type="checkbox"><br>
-            Mapuche <input type="checkbox"><br>
-            Sigeva <input type="checkbox">
+            Araucano <input name="check_base1" value="araucano" id="araucano_chk" type="checkbox"><br>
+            Pilaga <input name="check_base2" value="pilaga" id="pilaga_chk"type="checkbox"><br>
+            Mapuche <input name="check_base3" value="mapuche" id="mapuche_chk" type="checkbox"><br>
+            Sigeva <input name="check_base4" value="sigeva" id="sigeva_chk"type="checkbox">
         </div>
     </div><br>
     <div style="position: absolute; z-index: 9999999999" >
@@ -42,31 +42,56 @@
 
 <script>
     $(document).ready(function () {
-        $("#Tornavias").click(function () {
-            $("#cont").show();
-            $("#edif_nombre").html('Tornavias');
-            $("#edif_contenido").html('Tornavias 1 <br> Tormavoas2 <br> Tormavias3');
-        });
 
-        $("#_x33_IA").click(function () {
-            $("#cont").show();
-            $("#edif_nombre").html('3IA');
-            $("#edif_contenido").html('3IA 1 <br> 3IA 2 <br> 3IA 3');
-        });
 
-        $("#circulo_tornavias1").css("cursor", "pointer");
-        $("#circulo_tornavias1").mouseover(function () {
-            $("#rectangulo_tornavias1").show();
-            $("#texto_tornavias1").show();
+
+        $("#Institulo_del_transporte").css("cursor", "pointer");
+        $("#Institulo_del_transporte").mouseover(function () {
+            $("#rectangulo_Institulo_del_transporte").show();
+            $("#texto_Institulo_del_transporte").show();
         });
-        $("#circulo_tornavias1").mouseout(function () {
-            $("#rectangulo_tornavias1").hide();
-            $("#texto_tornavias1").hide();
+        $("#Institulo_del_transporte").mouseout(function () {
+            $("#rectangulo_Institulo_del_transporte").hide();
+            $("#texto_Institulo_del_transporte").hide();
         });
-        $("#circulo_tornavias1").click(function () {
+        $("#Institulo_del_transporte").click(function () {
             $("#cont").show();
             $("#edif_nombre").html('Tornavias - Sexta Etapa');
             $("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+
+        $("#Ciencia_tecnologia").css("cursor", "pointer");
+        $("#Ciencia_tecnologia").mouseover(function () {
+            $("#rectangulo_Ciencia_tecnologia").show();
+            $("#texto_Ciencia_tecnologia").show();
+        });
+        $("#Ciencia_tecnologia").mouseout(function () {
+            $("#rectangulo_Ciencia_tecnologia").hide();
+            $("#texto_Ciencia_tecnologia").hide();
+        });
+        $("#Ciencia_tecnologia").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Escuela de Ciencia y Tecnología');
+
+            var ajax_data = {
+                "id": check
+            };
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
         });
 
     });

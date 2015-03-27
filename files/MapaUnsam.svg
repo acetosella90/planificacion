@@ -3761,25 +3761,33 @@
 				L206.456,287.838z"/>
 		</g>
                 
-                <g id="circulo_tornavias1">
+                <g id="Institulo_del_transporte">
                     <circle r="7" cx="180" cy="280" style="fill:#3D89BB;"/>
                     <circle r="5" cx="180" cy="280" style="fill:white;"/>
                     <circle r="4" cx="180" cy="280" style="fill:#3D89BB;"/>
                     
-                    <rect id='rectangulo_tornavias1' x="200" y="270" width="85" height="17" style="fill:#3D89BB; display:none;"/>
-                    <text x="241" y="272" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
-                        <tspan id='texto_tornavias1' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Sexta Etapa</tspan>
+                    <rect id='rectangulo_Institulo_del_transporte' x="200" y="270" width="140" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="270" y="272" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Institulo_del_transporte' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Institulo del Transporte</tspan>
                     </text>
                 </g>
-                <g id="circulo_tornavias2">
+                <g id="Ciencia_tecnologia2">
                     <circle r="7" cx="100" cy="230" style="fill:#3D89BB;"/>
                     <circle r="5" cx="100" cy="230" style="fill:white;"/>
                     <circle r="4" cx="100" cy="230" style="fill:#3D89BB;"/>
+                    
+                   
                 </g>
-                <g id="circulo_tornavias3">
-                    <circle r="7" cx="150" cy="190" style="fill:#3D89BB;"/>
+                <g id="Ciencia_tecnologia">
+                     <circle r="7" cx="150" cy="190" style="fill:#3D89BB;"/>
                     <circle r="5" cx="150" cy="190" style="fill:white;"/>
                     <circle r="4" cx="150" cy="190" style="fill:#3D89BB;"/>
+                    
+                    <rect id='rectangulo_Ciencia_tecnologia' x="170" y="180" width="200" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="270" y="183" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Ciencia_tecnologia' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Escuela de Ciencia y Tecnología</tspan>
+                    </text>
+                    
                 </g>
                 <g id="3IA">
                     <circle r="7" cx="250" cy="208" style="fill:#3D89BB;"/>
