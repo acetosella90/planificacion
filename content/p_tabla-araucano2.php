@@ -12,16 +12,11 @@
     $consulta->execute();
     $todo = $consulta->fetchAll();
     
-    $consulta = $conexion->prepare(Consultas::getpaises());
-    $consulta->execute();
-    $todo2 = $consulta->fetchAll();
     
-    ##echo "<pre>";
-    ##var_dump($todo2);
-    ##echo "</pre>";
+    
     
     $facultades = getFacultades($todo);
-    $paises = getPaises($todo2);
+    $paises = getPaises($todo);
     ?>
 
 
@@ -45,6 +40,9 @@
         $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($_POST));
         $consulta->execute();
         $todo = $consulta->fetchAll();
+        
+         
+        
         ?>
 <div class="row" style="margin-top: 40px;">
             <div class="col-xs-18 col-md-12">
@@ -53,7 +51,9 @@
             </div>
         </div>
 
-<div class="row"  id="tabla1" style="display: none;">
+
+    
+   <div class="row"  id="tabla1" style="display: none;">
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
                     <h2>Tabla de Escuelas por titulos, genero y pais de origen</h2>
@@ -76,9 +76,9 @@
                             <?php
                             
                             if ($todo[$i][genero] == "Masculino")
-                                $total[maculino]+= $todo[$i][total];
+                                $total[Masculino]+= $todo[$i][total];
                             if ($todo[$i][genero] == "Femenino")
-                                $total[femenino]+= $todo[$i][total];
+                                $total[Femenino]+= $todo[$i][total];
                         }
                         ?>
                     </table>
@@ -155,7 +155,7 @@
         $c = substr($c, 0, -1);
         ?>
 
- <script>
+        <script>
 
             $(function () {
                 $('#container2').highcharts({
@@ -187,18 +187,18 @@
                         }
                     },
                     series: [{
-                            name: 'Alumnos',
+                            name: 'Alumnos Masculinos',
                             data: [<?php
     foreach ($r as $cuadro) {
-        echo $cuadro[alumnos] . ", ";
+        echo $cuadro[Masculino] . ", ";
     }
     ?>]
                         },
                         {
-                            name: 'Egresados',
+                            name: 'Alumnos Femeninos',
                             data: [<?php
     foreach ($r as $cuadro) {
-        echo $cuadro[egresados] . ", ";
+        echo $cuadro[Femenino] . ", ";
     }
     ?>]
                         }
@@ -218,7 +218,7 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Alumnos</th>
+                    
                     <th>Masculino</th>
                     <th>Femenino</th>
                 </tr>
@@ -227,8 +227,8 @@
                 <?php foreach ($t as $cuadro) { ?>
                     <tr>
                         <th><?php echo $cuadro[titulo]; ?></th>
-                        <td><?php echo $cuadro[masculino]; ?></td>
-                        <td><?php echo $cuadro[femenino]; ?></td>
+                        <td><?php echo $cuadro[Masculino]; ?></td>
+                        <td><?php echo $cuadro[Femenino]; ?></td>
                         
                     </tr>                
                 <?php } ?> 
@@ -271,9 +271,9 @@
                             type: 'pie',
                             name: 'Total de Alumnos',
                             data: [
-                                ['Alumnos', <?php echo $al; ?>],
-                                ['Egresados', <?php echo $eg; ?>],
-                                ['Reinscriptos', <?php echo $re; ?>]
+                                ['Masculinos', <?php echo $al; ?>],
+                                ['Femeninos', <?php echo $eg; ?>],
+                               
                             ]
                         }]
                 });

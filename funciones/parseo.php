@@ -95,17 +95,26 @@ function getGeneros($todo) {
     return $genero;
 }
 
-function getPaises($todo2,$todo) {
-
+function getPaises($todo) {
+    ##$todo2=  array ( 0 => "pepe" , 1=> "pepe", 2 =>"pepe", 3=>"anibal");
     $paises = array();
     $j = 0;
+    $todo = array_sort($todo, "pais",SORT_ASC);
+    
+    foreach ($todo as $k2 ) {
+                  $paises2[] = $k2[pais];
+    
+    }
+ 
+    for ($i = 0; $i < count($paises2); $i++) {
 
-    for ($i = 0; $i < count($todo2); $i++) {
-
-        if ($todo2[$i]['pais'] == $todo2[$i]['pais']) {
-            $paises[$j] = $todo2[$i]['pais'];
+        if ($paises[$j - 1] != $paises2[$i]) {
+            $paises[$j] = $paises2[$i];
             $j++;
         }
     }
+    
+    
+
     return $paises;
 }
