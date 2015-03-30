@@ -82,6 +82,7 @@
             var ajax_data = {
                 "id": check
             };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
                 data: ajax_data,
                 type: "POST",
