@@ -101,7 +101,7 @@ class Clases {
                $a = ""; 
 
 
-            if ($_POST[genero][0] == "Maculino" || $_POST[genero][1] == "Maculino" ) 
+            if ($_POST[genero][0] == "Masculino" || $_POST[genero][1] == "Masculino" ) 
                 $b = " checked ";
             else 
                $b = "";
@@ -111,7 +111,7 @@ class Clases {
         }
         echo '<div id="genero" style="float: left; margin-left: 10px;">';
         echo "<input  style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $a . " value='Femenino'>Femenino";
-        echo "<input style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $b . " value='Maculino'>Maculino";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $b . " value='Masculino'>Masculino";
         echo '</div>';
     }
     

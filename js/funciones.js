@@ -47,6 +47,32 @@ $(document).ready(function() {
             }
         });
     });
+    
+    $("#btn-tabla1").click(function (){
+        $("#tabla1").slideToggle();
+    });
+    
+    $("#btn-tabla2").click(function (){
+        $("#tabla2").slideToggle();
+    });
+
+
+$('#tabla_araucano2').click(function() {
+         $('#p_base').removeClass("active");
+        $('#tabla_araucano2').addClass("active");
+        var ajax_data = {
+            "id": "p_tabla-araucano2"
+        };
+        $.ajax({
+            data: ajax_data,
+            type: "POST",
+            url: "funciones/funciones_ajax.php",
+            success: function(a) {
+                $('#contenido').html(a);
+            }
+        });
+    });
+    
     $("#btn-tabla1").click(function (){
         $("#tabla1").slideToggle();
     });

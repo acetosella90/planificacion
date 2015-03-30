@@ -116,23 +116,23 @@ ORDER BY facultad, titulo,nombre_pais ;
         $sql = "SELECT
                     academica_d_facultades.facultad as facultad,
                     academica_d_generos.generodescripcion as genero,
-                    academica_d_mug_paises.nombre_pais as pais, 
+                   
                     academica_d_titulos.titulo as titulo,
                     academica_d_mug_paises.nombre_pais as pais,
-                    sum(academica_ft_cuadros12.cantidad) as total
+                    sum(academica_ft_cuadro12.cantidad) as total
                 FROM
-                    araucano.academica_ft_cuadros12 
-                        INNER JOIN academica_d_generos.generodescripcion 
-                                ON academica_ft_cuadros12.idgenero = academica_d_generos.generodescripcion.idgenero 
+                    araucano.academica_ft_cuadro12 
+                        INNER JOIN araucano.academica_d_generos 
+                                ON academica_ft_cuadro12.idgenero = academica_d_generos.idgenero 
                         INNER JOIN araucano.academica_d_facultades 
-                                ON academica_ft_cuadros12.idfacultad = academica_d_facultades.idfacultad 
+                                ON academica_ft_cuadro12.idfacultad = academica_d_facultades.idfacultad 
                         INNER JOIN araucano.academica_d_titulos 
-                                ON academica_ft_cuadros12.idtitulo = academica_d_titulos.idtitulo
+                                ON academica_ft_cuadro12.idtitulo = academica_d_titulos.idtitulo
                         INNER JOIN araucano.academica_d_mug_paises 
-                                ON academica_ft_cuadros12.idpais = academica_d_mug_paises.idpais
+                                ON academica_ft_cuadro12.idpais = academica_d_mug_paises.idpais
                 WHERE
                         facultad like '$combo_facultades'
-                        AND pais like '$combo_paises'
+                        AND nombre_pais = '$combo_paises'
                         AND generodescripcion in ('" . $POST[genero][0] . "','" . $POST[genero][1] . "')
 
                 group by 1,2,3,4
