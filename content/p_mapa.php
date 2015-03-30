@@ -80,7 +80,8 @@
             $("#edif_nombre").html('Escuela de Ciencia y Tecnología');
 
             var ajax_data = {
-                "id": check
+                "id": check,
+                "escuela": "Escuela de Ciencia y Tecnología"
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({

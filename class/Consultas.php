@@ -9,7 +9,7 @@
 class Consultas {
 
     public static function getTodoAraucano() {
-        
+
         $sql = "
                 SELECT
                     academica_d_facultades.facultad as facultad,
@@ -37,12 +37,12 @@ class Consultas {
 
         return $sql;
     }
-    
+
     public static function getFiltroAraucano($POST) {
-         
+
         $combo_facultades = $POST[combo_facultades];
-        
-         $sql = "SELECT
+
+        $sql = "SELECT
                     academica_d_facultades.facultad as facultad,
                     academica_d_series.nombreserie as tipo_alumno,
                     academica_ft_cuadros1y2.idanioinformado as anio,
@@ -65,14 +65,13 @@ class Consultas {
                 group by 1,2,3,4
 
                 ORDER BY titulo;";
-         
-         return $sql;
-     }
 
+        return $sql;
+    }
 
-   public static function getTodoAraucano2() {
-        
-    $sql="  
+    public static function getTodoAraucano2() {
+
+        $sql = "  
 SELECT
 academica_d_facultades.facultad as facultad,
 academica_d_generos.generodescripcion as genero,
@@ -106,14 +105,15 @@ academica_d_mug_paises.nombre_pais
 ORDER BY facultad, titulo,nombre_pais ;
 
 ";
-  
-      return $sql;   
+
+        return $sql;
     }
-public static function getFiltroAraucano2($POST) {
-         
+
+    public static function getFiltroAraucano2($POST) {
+
         $combo_facultades = $POST[combo_facultades];
         $combo_paises = $POST[combo_paises];
-         $sql = "SELECT
+        $sql = "SELECT
                     academica_d_facultades.facultad as facultad,
                     academica_d_generos.generodescripcion as genero,
                     academica_d_mug_paises.nombre_pais as pais, 
@@ -138,24 +138,16 @@ public static function getFiltroAraucano2($POST) {
                 group by 1,2,3,4
 
                 ORDER BY titulo;";
-         
-         return $sql;
-     }
-  
-     
- public static function getpaises() {
-         
+
+        return $sql;
+    }
+
+    public static function getpaises() {
+
         $sql = "SELECT nombre_pais
         FROM   academica_d_mug_paises ;";
-         
-         return $sql;
-     }    
-    
-     
-     
+
+        return $sql;
+    }
+
 }
-
-
-
-    
-    
