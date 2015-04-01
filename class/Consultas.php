@@ -72,39 +72,39 @@ class Consultas {
     public static function getTodoAraucano2() {
 
         $sql = "  
-SELECT
-academica_d_facultades.facultad as facultad,
-academica_d_generos.generodescripcion as genero,
-academica_d_titulos.titulo as titulo,
-academica_d_mug_paises.nombre_pais as pais,
-sum(academica_ft_cuadro12.cantidad) as total
+                SELECT
+                    academica_d_facultades.facultad as facultad,
+                    academica_d_generos.generodescripcion as genero,
+                    academica_d_titulos.titulo as titulo,
+                    academica_d_mug_paises.nombre_pais as pais,
+                    sum(academica_ft_cuadro12.cantidad) as total
 
-FROM
-araucano.academica_d_facultades as academica_d_facultades,
-araucano.academica_ft_cuadro12 as academica_ft_cuadro12,
-araucano.academica_d_generos as academica_d_generos,
-araucano.academica_d_titulos as academica_d_titulos,
-araucano.academica_d_mug_paises as academica_d_mug_paises
+                FROM
+                    araucano.academica_d_facultades as academica_d_facultades,
+                    araucano.academica_ft_cuadro12 as academica_ft_cuadro12,
+                    araucano.academica_d_generos as academica_d_generos,
+                    araucano.academica_d_titulos as academica_d_titulos,
+                    araucano.academica_d_mug_paises as academica_d_mug_paises
 
-WHERE
-academica_ft_cuadro12.idfacultad = academica_d_facultades.idfacultad
-and
-academica_ft_cuadro12.idgenero = academica_d_generos.idgenero
-and
-academica_ft_cuadro12.idtitulo = academica_d_titulos.idtitulo
-and
-academica_ft_cuadro12.idpais = academica_d_mug_paises.idpais
+                WHERE
+                    academica_ft_cuadro12.idfacultad = academica_d_facultades.idfacultad
+                    and
+                    academica_ft_cuadro12.idgenero = academica_d_generos.idgenero
+                    and
+                    academica_ft_cuadro12.idtitulo = academica_d_titulos.idtitulo
+                    and
+                    academica_ft_cuadro12.idpais = academica_d_mug_paises.idpais
 
 
-GROUP BY
-academica_d_facultades.facultad,
-academica_d_generos.generodescripcion,
-academica_d_titulos.titulo,
-academica_d_mug_paises.nombre_pais
+                GROUP BY
+                    academica_d_facultades.facultad,
+                    academica_d_generos.generodescripcion,
+                    academica_d_titulos.titulo,
+                    academica_d_mug_paises.nombre_pais
 
-ORDER BY facultad, titulo,nombre_pais ;
+                ORDER BY facultad, titulo,nombre_pais ;
 
-";
+                ";
 
         return $sql;
     }
@@ -116,7 +116,6 @@ ORDER BY facultad, titulo,nombre_pais ;
         $sql = "SELECT
                     academica_d_facultades.facultad as facultad,
                     academica_d_generos.generodescripcion as genero,
-                   
                     academica_d_titulos.titulo as titulo,
                     academica_d_mug_paises.nombre_pais as pais,
                     sum(academica_ft_cuadro12.cantidad) as total
@@ -146,6 +145,39 @@ ORDER BY facultad, titulo,nombre_pais ;
 
         $sql = "SELECT nombre_pais
         FROM   academica_d_mug_paises ;";
+
+        return $sql;
+    }
+
+    public static function getTodoAraucanoEscuela($escuela) {
+        
+        $escuela = utf8_decode($escuela);
+        $anio = date('Y')-2;
+        
+        $sql = "SELECT 
+                    academica_d_facultades.facultad as facultad,
+                    academica_d_series.nombreserie as tipo_alumno,
+                    academica_ft_cuadros1y2.idanioinformado as anio,
+                    academica_d_titulos.titulo as titulo,
+                    sum(academica_ft_cuadros1y2.cantidad) as total
+
+                FROM 
+                    araucano.academica_ft_cuadros1y2 as academica_ft_cuadros1y2 
+                        INNER JOIN araucano.academica_d_series as academica_d_series ON
+                                   academica_ft_cuadros1y2.idserie = academica_d_series.idserie
+
+                        INNER JOIN araucano.academica_d_facultades as academica_d_facultades ON
+                                   academica_ft_cuadros1y2.idfacultad = academica_d_facultades.idfacultad  
+
+                        INNER JOIN  araucano.academica_d_titulos as academica_d_titulos ON
+                                    academica_ft_cuadros1y2.idtitulo = academica_d_titulos.idtitulo
+                WHERE
+                
+                facultad like '$escuela'  AND 
+                academica_d_series.nombreserie in('Alumnos', 'Egresados') AND
+                academica_ft_cuadros1y2.idanioinformado = $anio
+                GROUP BY 1,2,3,4
+                ORDER BY academica_d_series.nombreserie,titulo;";
 
         return $sql;
     }

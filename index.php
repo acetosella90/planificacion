@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-echo $_SESSION['usuario'];
+echo "0";
 if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
     ?>
     <!DOCTYPE html>
@@ -54,13 +54,13 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">
-                            <img style="margin-top: -15px; height: 50px;" src="img/logo-unsam.png">
+                        <a class="navbar-brand" href="index.php">
+                            <img style="margin-top: -15px; height: 50px; margin-left: -70px;" src="img/logo-unsam.png">
                         </a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">Configuración</a></li>
+                            <li><a href="#">Configuraci&oacute;n</a></li>
                             <li><a href="#">Perfil</a></li>
                             <li><a href="#">Ayuda</a></li>
                             <li><a href="logout.php">Salir</a></li>

@@ -3776,10 +3776,13 @@
                     <circle r="5" cx="100" cy="230" style="fill:white;"/>
                     <circle r="4" cx="100" cy="230" style="fill:#3D89BB;"/>
                     
-                   
+                   <rect id='rectangulo_Ciencia_tecnologia2' x="120" y="220" width="157" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="198" y="223" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Ciencia_tecnologia2' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Escuela de Humanidades</tspan>
+                    </text>
                 </g>
                 <g id="Ciencia_tecnologia">
-                     <circle r="7" cx="150" cy="190" style="fill:#3D89BB;"/>
+                    <circle r="7" cx="150" cy="190" style="fill:#3D89BB;"/>
                     <circle r="5" cx="150" cy="190" style="fill:white;"/>
                     <circle r="4" cx="150" cy="190" style="fill:#3D89BB;"/>
                     
@@ -3793,6 +3796,12 @@
                     <circle r="7" cx="250" cy="208" style="fill:#3D89BB;"/>
                     <circle r="5" cx="250" cy="208" style="fill:white;"/>
                     <circle r="4" cx="250" cy="208" style="fill:#3D89BB;"/>
+                    
+                     <rect id='rectangulo_3IA' x="270" y="197" width="286" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="412" y="200" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_3IA' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Instituto de Investigación e Ingeniería Ambiental</tspan>
+                    </text>
+                    
                 </g>
                 <g id="IIB">
                     <circle r="7" cx="420" cy="290" style="fill:#3D89BB;"/>

@@ -55,11 +55,31 @@
             $("#texto_Institulo_del_transporte").hide();
         });
         $("#Institulo_del_transporte").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
             $("#cont").show();
-            $("#edif_nombre").html('Tornavias - Sexta Etapa');
-            $("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+            $("#edif_nombre").html('Instituto del Transporte');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Instituto Tecnológico Ferroviario Scalabrini Ortiz"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
         });
 
+//********************************************************************************
         $("#Ciencia_tecnologia").css("cursor", "pointer");
         $("#Ciencia_tecnologia").mouseover(function () {
             $("#rectangulo_Ciencia_tecnologia").show();
@@ -82,6 +102,78 @@
             var ajax_data = {
                 "id": check,
                 "escuela": "Escuela de Ciencia y Tecnología"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#Ciencia_tecnologia2").css("cursor", "pointer");
+        $("#Ciencia_tecnologia2").mouseover(function () {
+            $("#rectangulo_Ciencia_tecnologia2").show();
+            $("#texto_Ciencia_tecnologia2").show();
+        });
+        $("#Ciencia_tecnologia2").mouseout(function () {
+            $("#rectangulo_Ciencia_tecnologia2").hide();
+            $("#texto_Ciencia_tecnologia2").hide();
+        });
+        $("#Ciencia_tecnologia2").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Escuela de Humanidades');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Escuela de Humanidades%"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#3IA").css("cursor", "pointer");
+        $("#3IA").mouseover(function () {
+            $("#rectangulo_3IA").show();
+            $("#texto_3IA").show();
+        });
+        $("#3IA").mouseout(function () {
+            $("#rectangulo_3IA").hide();
+            $("#texto_3IA").hide();
+        });
+        $("#3IA").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Instituto de Investigación e Ingeniería Ambiental');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Instituto de Investigación e Ingeniería Ambiental"
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({

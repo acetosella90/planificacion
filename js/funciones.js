@@ -73,13 +73,7 @@ $('#tabla_araucano2').click(function() {
         });
     });
     
-    $("#btn-tabla1").click(function (){
-        $("#tabla1").slideToggle();
-    });
     
-    $("#btn-tabla2").click(function (){
-        $("#tabla2").slideToggle();
-    });
 
 });
 
