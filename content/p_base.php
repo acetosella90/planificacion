@@ -27,7 +27,7 @@
             <span class="text-muted">Investigadores</span>
         </div>
         
-        <h2 class="sub-header">Section title</h2>
+        <div style="margin-top: 250px;"></div>
 
 
         <!--INICIO TABLAS MAPUCHE-->
