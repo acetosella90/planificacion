@@ -66,14 +66,21 @@ function getFacultades($todo) {
 }
 
 function getTitulos($todo) {
-
+    
+    $todo = array_sort($todo, "titulo",SORT_ASC);  
+    
     $titulo = array();
     $j = 0;
 
-    for ($i = 0; $i < count($todo); $i++) {
+    foreach ($todo as $k2 ) {
+                  $titulo2[] = $k2[titulo];
+    
+    }
+ 
+    for ($i = 0; $i < count($titulo2); $i++) {
 
-        if ($titulo[$j - 1] != $todo[$i]['titulo']) {
-            $titulo[$j] = $todo[$i]['titulo'];
+        if ($titulo[$j - 1] != $titulo2[$i]) {
+            $titulo[$j] = $titulo2[$i];
             $j++;
         }
     }
