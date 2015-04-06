@@ -28,7 +28,7 @@ class Clases {
             echo " value='$facultades[$i]'>" . $facultades[$i] . "</option>";
         }
         echo "</select>";
-        echo "</div>";
+       
     }
 
     static public function geTitulos($titulo) {
@@ -82,7 +82,7 @@ class Clases {
             echo " value='$paises[$i]'>" . $paises[$i] . "</option>";
         }
         echo "</select>";
-        echo "</div>";
+      
     }
 
     

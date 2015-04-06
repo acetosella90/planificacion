@@ -5,13 +5,13 @@
         <group>
             <file>file:/var/www/html/planificacion/content/p_tabla-araucano.php</file>
             <file>file:/var/www/html/planificacion/content/newEmptyPHP.php</file>
-            <file>file:/var/www/html/planificacion/content/p_base.php</file>
-            <file>file:/var/www/html/planificacion/funciones/parseo.php</file>
             <file>file:/var/www/html/planificacion/class/Consultas.php</file>
-            <file>file:/var/www/html/planificacion/class/Clases.php</file>
+            <file>file:/var/www/html/planificacion/funciones/parseo.php</file>
+            <file>file:/var/www/html/planificacion/content/p_base.php</file>
             <file>file:/var/www/html/planificacion/content/p_tabla-araucano2.php</file>
+            <file>file:/var/www/html/planificacion/class/Clases.php</file>
             <file>file:/var/www/html/planificacion/index.php</file>
-            <file>file:/var/www/html/planificacion/css/cosas.css</file>
+            <file>file:/var/www/html/planificacion/js/funciones.js</file>
         </group>
     </open-files>
 </project-private>
