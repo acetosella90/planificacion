@@ -3803,15 +3803,25 @@
                     </text>
                     
                 </g>
-                <g id="IIB">
+                <g id="IIB_B">
                     <circle r="7" cx="420" cy="290" style="fill:#3D89BB;"/>
                     <circle r="5" cx="420" cy="290" style="fill:white;"/>
                     <circle r="4" cx="420" cy="290" style="fill:#3D89BB;"/>
+                    
+                     <rect id='rectangulo_IIB' x="440" y="280" width="270" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="572" y="283" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_IIB' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Instituto de Investigaciones Biotecnológicas </tspan>
+                    </text>
                 </g>
                 <g id="Arte">
                     <circle r="7" cx="485" cy="315" style="fill:#3D89BB;"/>
                     <circle r="5" cx="485" cy="315" style="fill:white;"/>
                     <circle r="4" cx="485" cy="315" style="fill:#3D89BB;"/>
+                    
+                     <rect id='rectangulo_Arte' x="500" y="307" width="220" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="610" y="310" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Arte' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Instituto de las Artes Mauricio Kagel</tspan>
+                    </text>
                 </g>
                 <g id="Rehabilitacion">
                     <circle r="7" cx="580" cy="335" style="fill:#3D89BB;"/>
@@ -3822,6 +3832,11 @@
                     <circle r="7" cx="350" cy="345" style="fill:#3D89BB;"/>
                     <circle r="5" cx="350" cy="345" style="fill:white;"/>
                     <circle r="4" cx="350" cy="345" style="fill:#3D89BB;"/>
+                    
+                     <rect id='rectangulo_Actividades_Centrales' x="370" y="337" width="140" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="442" y="340" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Actividades_Centrales' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Actividades Centrales</tspan>
+                    </text>
                 </g>
                 <g id="Politica">
                     <circle r="7" cx="835" cy="335" style="fill:#3D89BB;"/>
@@ -3838,6 +3853,7 @@
                     <circle r="5" cx="1100" cy="320" style="fill:white;"/>
                     <circle r="4" cx="1100" cy="320" style="fill:#3D89BB;"/>
                 </g>
+                
 	</g>
 </switch>
 <i:pgf  id="adobe_illustrator_pgf">

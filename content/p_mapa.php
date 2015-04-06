@@ -187,6 +187,114 @@
 
             //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
         });
+//********************************************************************************
+        $("#IIB_B").css("cursor", "pointer");
+        $("#IIB_B").mouseover(function () {
+            $("#rectangulo_IIB").show();
+            $("#texto_IIB").show();
+        });
+        $("#IIB_B").mouseout(function () {
+            $("#rectangulo_IIB").hide();
+            $("#texto_IIB").hide();
+        });
+        $("#IIB_B").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Instituto de Investigaciones Biotecnológicas');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Instituto de Investigaciones Biotecnológicas"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#Actividades_Centrales").css("cursor", "pointer");
+        $("#Actividades_Centrales").mouseover(function () {
+            $("#rectangulo_Actividades_Centrales").show();
+            $("#texto_Actividades_Centrales").show();
+        });
+        $("#Actividades_Centrales").mouseout(function () {
+            $("#rectangulo_Actividades_Centrales").hide();
+            $("#texto_Actividades_Centrales").hide();
+        });
+        $("#Actividades_Centrales").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Actividades Centrales');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Actividades Centrales"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#Arte").css("cursor", "pointer");
+        $("#Arte").mouseover(function () {
+            $("#rectangulo_Arte").show();
+            $("#texto_Arte").show();
+        });
+        $("#Arte").mouseout(function () {
+            $("#rectangulo_Arte").hide();
+            $("#texto_Arte").hide();
+        });
+        $("#Arte").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Instituto de las Artes Mauricio Kagel');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Instituto de las Artes Mauricio Kagel"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
 
     });
 </script>
