@@ -1,3 +1,7 @@
+<script>
+  $('body').css("background-image","url()");
+</script>
+
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
 
 <?php
@@ -17,6 +21,7 @@
     
     $facultades = getFacultades($todo);
     $paises = getPaises($todo);
+   
     ?>
 
 
@@ -40,13 +45,12 @@
         $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($_POST));
         $consulta->execute();
         $todo = $consulta->fetchAll();
-        
-         
+    
         
         ?>
 <div class="row" style="margin-top: 40px;">
             <div class="col-xs-18 col-md-12">
-                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 <span style="float: right" class="label label-danger " id="btn-tabla1">Ver Tabla de Datos 1</span>
             </div>
         </div>
@@ -129,7 +133,7 @@
 
         <?php
         $titulo = getTitulos($todo);
-
+        
         for ($i = 0, $a = 0, $e = 0 ; $i < count($titulo); $i++) {
 
             for ($j = 0; $j < count($todo); $j++) {
@@ -137,7 +141,7 @@
                 if ($todo[$j][genero] == "Femenino" && $todo[$j][titulo] == $titulo[$i])
                     $t[$i] = array(titulo => $titulo[$i], Femenino => $a+=$todo[$j][total], Masculino => $e);
 
-                if ($todo[$j][tipo_alumno] == "Masculino" && $todo[$j][titulo] == $titulo[$i])
+                if ($todo[$j][genero] == "Masculino" && $todo[$j][titulo] == $titulo[$i])
                     $t[$i] = array(titulo => $titulo[$i], Femenino => $a, Masculino => $e+=$todo[$j][total]);
 
                 
@@ -153,8 +157,11 @@
         }
 
         $c = substr($c, 0, -1);
+        
+        
+        
         ?>
-
+        
         <script>
 
             $(function () {
@@ -201,7 +208,7 @@
         echo $cuadro[Femenino] . ", ";
     }
     ?>]
-                        }
+                        
 
                         }
 
@@ -214,7 +221,7 @@
 
 
 
-        <table id="datatable" style='display:none'>
+        <table id="datatable2" style='display: none;'>
             <thead>
                 <tr>
                     <th></th>
