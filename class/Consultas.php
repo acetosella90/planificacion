@@ -149,10 +149,18 @@ class Consultas {
         return $sql;
     }
 
-    public static function getTodoAraucanoEscuela($escuela) {
+    public static function getTodoAraucanoEscuela($escuela, $egresado = null) {
         
-        $escuela = utf8_decode($escuela);
-        $anio = date('Y')-2;
+         $escuela = utf8_decode($escuela);
+         
+        if (!$egresado){           
+            $anio1 = date('Y') - 2;
+            $anio2 = date('Y') - 2;
+        }
+        else{
+            $anio2 = date('Y') - 2;
+            $anio1 = '1980';
+        }
         
         $sql = "SELECT 
                     academica_d_facultades.facultad as facultad,
@@ -175,7 +183,7 @@ class Consultas {
                 
                 facultad like '$escuela'  AND 
                 academica_d_series.nombreserie in('Alumnos', 'Egresados') AND
-                academica_ft_cuadros1y2.idanioinformado = $anio
+                academica_ft_cuadros1y2.idanioinformado between '$anio1' AND '$anio2'
                 GROUP BY 1,2,3,4
                 ORDER BY academica_d_series.nombreserie,titulo;";
 

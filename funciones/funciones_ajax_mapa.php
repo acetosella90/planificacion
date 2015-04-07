@@ -14,28 +14,36 @@ for ($i = 0; $i < count($_POST[id]); $i++) {
     if ($_POST[id][$i] == "araucano") {
         $araucano = 1;
     }
+    if ($_POST[id][$i] == "pilaga") {
+        $pilaga = 1;
+    }
 }
 
 if ($araucano) {
     $consulta = $conexion->prepare(Consultas::getTodoAraucanoEscuela($_POST["escuela"]));
     $consulta->execute();
     $todo = $consulta->fetchAll();
-}
-$titulo = getTitulos($todo);
 
-for($i = 0 ; $i < count($todo) ; $i++){
-    if($todo[$i]['tipo_alumno'] == "Egresados"){
-        $egresados += $todo[$i]['total'];
+    $consulta2 = $conexion->prepare(Consultas::getTodoAraucanoEscuela($_POST["escuela"], 1));
+    $consulta2->execute();
+    $todo2 = $consulta2->fetchAll();
+
+    $titulo = getTitulos($todo);
+
+    for ($i = 0; $i < count($todo2); $i++) {
+        if ($todo2[$i]['tipo_alumno'] == "Egresados") {
+            $egresados += $todo2[$i]['total'];
+        }
     }
-}
-for($i = 0 ; $i < count($todo) ; $i++){
-    if($todo[$i]['tipo_alumno'] == "Alumnos"){
-        $alumnos += $todo[$i]['total'];
+    for ($i = 0; $i < count($todo); $i++) {
+        if ($todo[$i]['tipo_alumno'] == "Alumnos") {
+            $alumnos += $todo[$i]['total'];
+        }
     }
+    echo"<strong><h4 style='text-decoration: underline;'>Información de Araucano</h4></strong>";
+    echo "<strong>Cantidad de Carreras: </strong>" . count($titulo);
+    echo "<br><strong>Cantidad de Egresados: </strong>" . $egresados;
+    echo "<br><strong>Cantidad de Alumnos (año ". (date('Y') - 2) ."): </strong>" . $alumnos;
 }
 
 
-
-echo "<strong>Cantidad de Carreras: </strong>".count($titulo);
-echo "<br><strong>Cantidad de Egresados: </strong>".$egresados;
-echo "<br><strong>Cantidad de Alumnos: </strong>".$alumnos;
