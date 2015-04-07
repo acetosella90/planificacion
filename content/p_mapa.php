@@ -12,17 +12,17 @@
     <div style="position: absolute; z-index: 999" >
         <h4><span class="glyphicon glyphicon-circle-arrow-down"> <strong>Edificios fuera del campus</strong></span></h4>
         <ul style="list-style:none;">
-            <li style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> ESCUELA DE ECONOMÍA Y NEGOCIOS</li>
-            <li style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> INSTITUTO DE CALIDAD INDUSTRIAL (INCALIN)</li>
-            <li style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> INSTITUTO DE TECNOLOGÍA "PROF. JORGE A. SABATO"</li>
-            <li style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> INSTITUTO DE TECNOLOGÍA NUCLEAR DAN BENINSON</li>
+            <li id="economia" style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> ESCUELA DE ECONOMÍA Y NEGOCIOS</li>
+            <li id="industrial" style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> INSTITUTO DE CALIDAD INDUSTRIAL (INCALIN)</li>
+            <li id="tecnologia" style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> INSTITUTO DE TECNOLOGÍA "PROF. JORGE A. SABATO"</li>
+            <li id="nuclear" style="cursor: pointer;" ><div class="glyphicon glyphicon-home" style="color:#3D89BB;"></div> INSTITUTO DE TECNOLOGÍA NUCLEAR DAN BENINSON</li>
         </ul>
     </div>
 
     <div class="row" >
         <div class="col-xs-18 col-md-12" >  
-          
-            
+
+
             <div  style="margin-left: -30px; margin-top: 35px;" ><?php include_once '../files/MapaUnsam.svg'; ?></div>
         </div>
     </div>
@@ -428,6 +428,114 @@
             var ajax_data = {
                 "id": check,
                 "escuela": "Instituto de Investigaciones Sobre el Patrimonio Cultural"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#economia").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Escuela de Economía y Negocios');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Escuela de Economía y Negocios%"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#industrial").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Instituto de Calidad Industrial');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Instituto de Calidad Industrial"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#tecnologia").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Instituto de Tecnología "PROF. JORGE A. SABATO"');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Instituto de Tecnología 'PROF. JORGE A. SABATO'"
+            };
+            $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
+            $.ajax({
+                data: ajax_data,
+                type: "POST",
+                url: "funciones/funciones_ajax_mapa.php",
+                success: function (a) {
+                    $('#edif_contenido').html(a);
+                }
+            });
+
+            //$("#edif_contenido").html('<strong>Subsuelo:</strong> Escuela de Arte/Alulas 6.2/6.3/6.12/6.13/Sistemas y Soporte Técnico<br><strong>1° Piso:</strong> Aulas 6.6/6.7/6.8/6.9/6.10/6.11/6.14 <br> <strong>2° Piso:</strong> Mantenimiento/ITF/Oficina de Planificación/Investigadores/Sala de Reuniones/Obra social Unsam/SEPTESA<br> ');
+        });
+//********************************************************************************
+        $("#nuclear").click(function () {
+            var check = new Array();
+            var i = 0;
+            $("input:checkbox:checked").each(function () {
+                check[i] = $(this).val();
+                i++;
+            });
+            $("#cont").show();
+            $("#edif_nombre").html('Instituto de Tecnología Nuclear Dan Beninson');
+
+            var ajax_data = {
+                "id": check,
+                "escuela": "Instituto de Tecnología Nuclear Dan Beninson"
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
