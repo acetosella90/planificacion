@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="row" id="cont" style="display: none;">
-        <div class="col-xs-18 col-md-10" >
+        <div class="col-xs-18 col-md-12" >
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title" id="edif_nombre"></h3>
@@ -68,7 +68,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto Tecnológico Ferroviario Scalabrini Ortiz"
+                "escuela": 1
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -103,7 +103,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Escuela de Ciencia y Tecnología"
+                "escuela": 2
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -139,7 +139,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Escuela de Humanidades%"
+                "escuela": 3
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -175,7 +175,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Investigación e Ingeniería Ambiental"
+                "escuela": 4
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -211,7 +211,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Investigaciones Biotecnológicas"
+                "escuela": 5
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -247,7 +247,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Actividades Centrales"
+                "escuela": 6
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -283,7 +283,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de las Artes Mauricio Kagel"
+                "escuela": 7
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -319,7 +319,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Ciencias de la Rehabilitación%"
+                "escuela": 8
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -355,7 +355,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Escuela de Política y Gobierno"
+                "escuela": 9
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -391,7 +391,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Altos Estudios Sociales"
+                "escuela": 10
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -427,7 +427,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Investigaciones Sobre el Patrimonio Cultural"
+                "escuela": 11
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -454,7 +454,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Escuela de Economía y Negocios%"
+                "escuela": 12
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -481,7 +481,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Calidad Industrial"
+                "escuela": 13
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -508,7 +508,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Tecnología 'PROF. JORGE A. SABATO'"
+                "escuela": 14
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
@@ -535,7 +535,7 @@
 
             var ajax_data = {
                 "id": check,
-                "escuela": "Instituto de Tecnología Nuclear Dan Beninson"
+                "escuela": 15
             };
             $('#edif_contenido').html('<div class="col-xs-6 col-md-6"></div><div><img src="img/ajax-loader.gif"/></div>');
             $.ajax({
