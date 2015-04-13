@@ -125,3 +125,19 @@ function getPaises($todo) {
 
     return $paises;
 }
+
+function getFacultades2($todo) {
+
+    $facultades = array();
+    $facultades[0]='Facultad Unsam';
+    $j = 1;
+
+    for ($i = 1; $i < count($todo); $i++) {
+
+        if ($facultades[$j - 1] != $todo[$i]['facultad']) {
+            $facultades[$j] = $todo[$i]['facultad'];
+            $j++;
+        }
+    }
+    return $facultades;
+}

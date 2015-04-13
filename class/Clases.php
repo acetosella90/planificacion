@@ -65,14 +65,13 @@ class Clases {
                $c = "";
         
         }
+
         echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $a . " value='Alumnos'>Alumnos";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $b . " value='Egresados'>Egresados";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $c . " value='Reinscriptos'>Reinscriptos";
-        echo '</div>';
+       
     }
 
-
- 
     static public function getPaises($paises) {
         echo "<select name='combo_paises' id='pais' style='margin-left: 5px;'>";
         for ($i = 0; $i < count($paises); $i++) {
@@ -85,7 +84,6 @@ class Clases {
       
     }
 
-    
       static public function getGenero() {
         
        if($_SERVER["REQUEST_METHOD"]  != 'POST'){
@@ -104,16 +102,13 @@ class Clases {
             if ($_POST[genero][0] == "Masculino" || $_POST[genero][1] == "Masculino" ) 
                 $b = " checked ";
             else 
-               $b = "";
-
-            
+               $b = "";    
         
         }
-        echo '<div id="genero" style="float: left; margin-left: 10px;">';
+        
         echo "<input  style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $a . " value='Femenino'>Femenino";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $b . " value='Masculino'>Masculino";
-        echo '</div>';
+       
     }
-    
     
         }

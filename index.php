@@ -7,7 +7,7 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
     <!DOCTYPE html>
     <html lang="en">
         <head>
-
+          <!-- <meta http-equiv="content-type" content="text/html; charset=utf-8"/> -->
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="">
@@ -30,7 +30,7 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
             <script src="test/js/modules/data.js"></script>
             <script src="test/js/modules/exporting.js"></script>
             <script src="test/js/highcharts-3d.js"></script>
-
+            
             <!-- Custom styles for this template -->
             <link href="css/dashboard.css" rel="stylesheet">
             <link href="css/cosas.css" rel="stylesheet">
@@ -94,8 +94,14 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                         
                         if ($_GET[pagina] == 'araucano2') 
                             include './content/p_tabla-araucano2.php';
-                   
-                       
+
+                        
+                        elseif ($_GET[pagina] == 'araucano3') 
+                            include './content/p_tabla-araucano3.php';
+                        
+                            
+                        
+
                         ?>
                     </div>
 
@@ -115,7 +121,8 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
         </body>
     </html>
     <?php
-} else {
+} else 
     header('Location: login.php');
-}
+
+
 ?>
