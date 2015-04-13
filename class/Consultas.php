@@ -149,13 +149,20 @@ class Consultas {
         return $sql;
     }
 
-    public static function getTodoAraucanoEscuela($escuela) {
-        
+    public static function getTodoAraucanoEscuela($escuela, $egresado = null) {
+
         $escuela = utf8_decode($escuela);
-        $anio = date('Y')-2;
-        
+
+        if (!$egresado) {
+            $anio1 = date('Y') - 2;
+            $anio2 = date('Y') - 2;
+        } else {
+            $anio2 = date('Y') - 2;
+            $anio1 = '1980';
+        }
+
         $sql = "SELECT 
-                    academica_d_facultades.facultad as facultad,
+                    academica_d_facultades.flag as facultad,
                     academica_d_series.nombreserie as tipo_alumno,
                     academica_ft_cuadros1y2.idanioinformado as anio,
                     academica_d_titulos.titulo as titulo,
@@ -173,9 +180,9 @@ class Consultas {
                                     academica_ft_cuadros1y2.idtitulo = academica_d_titulos.idtitulo
                 WHERE
                 
-                facultad like '$escuela'  AND 
+                flag = $escuela  AND 
                 academica_d_series.nombreserie in('Alumnos', 'Egresados') AND
-                academica_ft_cuadros1y2.idanioinformado = $anio
+                academica_ft_cuadros1y2.idanioinformado between '$anio1' AND '$anio2'
                 GROUP BY 1,2,3,4
                 ORDER BY academica_d_series.nombreserie,titulo;";
 
@@ -240,9 +247,36 @@ class Consultas {
         return $sql;
     
     }
+  }
+    
+    public static function getTodoPilagaEscuela($escuela) {
+        
+        $anio = date('Y') - 1;
+        
+        $sql = "select
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
+                    d_fecha.anio as c1,
+                    sum(ft_movimientos.credito_original) as m0,
+                    sum(ft_movimientos.credito) as m1,
+                    sum(ft_movimientos.preventivo) as m2
+                    from
+                    pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
+                    pilaga.ft_movimientos as ft_movimientos,
+                    pilaga.d_fecha as d_fecha
+                    where
+                    ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
+                    and
+                    d_unidad_presupuestaria.flag = $escuela
+                    and
+                    ft_movimientos.fecha_id = d_fecha.fecha_id
+                    and
+                    d_fecha.anio = ". $anio ."
+                    group by
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc,
+                    d_fecha.anio";
+        
+        return $sql;
     }
-    
-    
-    
-    
-    }
+
+}
+

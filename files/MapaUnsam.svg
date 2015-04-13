@@ -1,9 +1,5 @@
-
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
-
 <svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1750px" height="517px"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
      viewBox="0 0 1341 417" enable-background="new 0 0 1341 417" xml:space="preserve">
          
 <switch>
@@ -3827,6 +3823,11 @@
                     <circle r="7" cx="580" cy="335" style="fill:#3D89BB;"/>
                     <circle r="5" cx="580" cy="335" style="fill:white;"/>
                     <circle r="4" cx="580" cy="335" style="fill:#3D89BB;"/>
+                    
+                      <rect id='rectangulo_Rehabilitacion' x="575" y="350" width="330" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="740" y="353" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Rehabilitacion' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Instituto de Ciencias de la Rehabilitació y el Movimiento</tspan>
+                    </text>
                 </g>
                 <g id="Actividades_Centrales">
                     <circle r="7" cx="350" cy="345" style="fill:#3D89BB;"/>
@@ -3842,16 +3843,31 @@
                     <circle r="7" cx="835" cy="335" style="fill:#3D89BB;"/>
                     <circle r="5" cx="835" cy="335" style="fill:white;"/>
                     <circle r="4" cx="835" cy="335" style="fill:#3D89BB;"/>
+                    
+                      <rect id='rectangulo_Politica' x="830" y="353" width="185" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="923" y="356" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Politica' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Escuela de Política y Gobierno</tspan>
+                    </text>
                 </g>
                 <g id="Sociales">
                     <circle r="7" cx="858" cy="335" style="fill:#3D89BB;"/>
                     <circle r="5" cx="858" cy="335" style="fill:white;"/>
                     <circle r="4" cx="858" cy="335" style="fill:#3D89BB;"/>
+                    
+                     <rect id='rectangulo_Sociales' x="875" y="325" width="210" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="980" y="328" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Sociales' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Instituto de Altos Estudios Sociales</tspan>
+                    </text>
                 </g>
                 <g id="Investigacion">
                     <circle r="7" cx="1100" cy="320" style="fill:#3D89BB;"/>
                     <circle r="5" cx="1100" cy="320" style="fill:white;"/>
                     <circle r="4" cx="1100" cy="320" style="fill:#3D89BB;"/>
+                    
+                     <rect id='rectangulo_Investigacion' x="950" y="340" width="335" height="17" style="fill:#3D89BB; display:none;"/>
+                    <text x="1117" y="343" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: Arial;" font-size="35px">
+                        <tspan id='texto_Investigacion' dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); display:none;">Instituto de Investigaciones Sobre el Patrimonio Cultural</tspan>
+                    </text>
                 </g>
                 
 	</g>

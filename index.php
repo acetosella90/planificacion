@@ -81,24 +81,27 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                             <li><a href="#">Exportar</a></li>
                         </ul>
                         <ul class="nav nav-sidebar">
-                            <li><a href="#">Historia</a></li>
+                            <li id="p_historia"><a href="#">Historia</a></li>
                             <li><a href="http://www.unsam.edu.ar">Ir a Unsam</a></li>
-                            <li><a href="#">Contactenos</a></li>
+                            <li id="p_contacto"><a href="#">Contactenos</a></li>
                         </ul>
                     </div>
 
                     <div id="contenido" ><!-- CONTENIDO -->
                         <?php
-                        if ($_GET[pagina] == 'araucano') {
+                        if ($_GET[pagina] == 'araucano') 
                             include './content/p_tabla-araucano.php';
-                        } elseif ($_GET[pagina] == 'araucano2') {
+                        
+                        if ($_GET[pagina] == 'araucano2') 
                             include './content/p_tabla-araucano2.php';
-                        }
-                        elseif ($_GET[pagina] == 'araucano3') {
+
+                        
+                        elseif ($_GET[pagina] == 'araucano3') 
                             include './content/p_tabla-araucano3.php';
                         
                             
-                        }
+                        
+
                         ?>
                     </div>
 
@@ -118,7 +121,8 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
         </body>
     </html>
     <?php
-} else {
+} else 
     header('Location: login.php');
-}
+
+
 ?>
