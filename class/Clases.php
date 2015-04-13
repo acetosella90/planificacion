@@ -31,6 +31,12 @@ class Clases {
        
     }
 
+    
+   
+
+    
+    
+    
     static public function geTitulos($titulo) {
 
         for ($i = 0; $i < count($titulo); $i++) {
@@ -64,11 +70,11 @@ class Clases {
                $c = "";
         
         }
-        echo '<div id="alumnos" style="float: left; margin-left: 10px;">';
+        
         echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $a . " value='Alumnos'>Alumnos";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $b . " value='Egresados'>Egresados";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_alumno[]'" . $c . " value='Reinscriptos'>Reinscriptos";
-        echo '</div>';
+       
     }
 
 
@@ -109,10 +115,10 @@ class Clases {
             
         
         }
-        echo '<div id="genero" style="float: left; margin-left: 10px;">';
+        
         echo "<input  style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $a . " value='Femenino'>Femenino";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='genero[]'" . $b . " value='Masculino'>Masculino";
-        echo '</div>';
+       
     }
     
     

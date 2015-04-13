@@ -30,12 +30,13 @@
         <div class="col-xs-18 col-md-12">
             <form  method="POST">
                 <?php
-                
+                echo "<div  style='float: left;'>";
                 Clases::getFacultades($facultades); // Combo facultades
                 Clases::getPaises($paises); // Combo paises
                 Clases::getGenero(); // Checks
-                ?>
-                <input style="margin-left: 10px;" type="submit" value="Buscar">
+                
+                 ?>
+                <input style="margin-left: 10px; " type="submit" value="Buscar"></div>
             </form>
         </div>
     </div>

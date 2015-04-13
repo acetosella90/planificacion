@@ -39,3 +39,71 @@ $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($POST));
                 group by 1,2,3,4
 
                 ORDER BY titulo;
+    
+    
+    p_tabla-araucano3
+    
+     for{$i=0;$i < count($todo);$i++ }{
+                                if ($todo[$i][tipo_alumno]=='Egresados')
+                            $y='si';
+                            break;       
+                            }
+                            
+                            
+                            
+                            
+     
+                            
+                
+        series: [{<?php if($a1){
+       echo" name:"."'"."Alumnos"."'".",";
+       
+       echo "data:[";
+       foreach ($a as $cuadro) {
+       echo $cuadro.",";
+         }
+    echo"]}";
+         }
+        ?>
+      , 
+       
+         {
+           <?php
+       if ($e1){
+           
+       
+       echo  "  name: "."'"."Egresados"."'".",";
+       
+       echo "data:[";
+       foreach ($e as $cuadro) {
+       echo $cuadro . ", ";
+         }
+    echo"]}";
+         }
+         
+       ?>
+               
+       ,
+       
+       
+            {
+       
+           <?php
+       if ($r1){
+           
+      
+       echo  "  name: "."'"."Reinscriptos"."'".",";
+       echo "data:[";
+       foreach ($r as $cuadro) {
+       echo $cuadro . ", ";
+         }
+    echo"]}"; 
+       
+       }
+        ?> 
+       
+       ]
+       });
+       }});
+       
+                                

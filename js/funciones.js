@@ -73,7 +73,21 @@ $('#tabla_araucano2').click(function() {
         });
     });
     
-    
+$('#tabla_araucano3').click(function() {
+         $('#p_base').removeClass("active");
+        $('#tabla_araucano3').addClass("active");
+        var ajax_data = {
+            "id": "p_tabla-araucano3"
+        };
+        $.ajax({
+            data: ajax_data,
+            type: "POST",
+            url: "funciones/funciones_ajax.php",
+            success: function(a) {
+                $('#contenido').html(a);
+            }
+        });
+    });    
 
 });
 

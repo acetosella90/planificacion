@@ -7,7 +7,7 @@
  */
 
 class Consultas {
-
+    
     public static function getTodoAraucano() {
 
         $sql = "
@@ -182,4 +182,67 @@ class Consultas {
         return $sql;
     }
 
-}
+    public static function getFiltroAraucano3($POST) {
+        
+        $combo_facultades = $POST[combo_facultades];
+        if ( $combo_facultades == 'Facultad Unsam'){
+
+        $sql = "SELECT
+                    
+                    academica_d_series.nombreserie as tipo_alumno,
+                    academica_ft_cuadros1y2.idanioinformado as anio,
+               
+
+                    sum(academica_ft_cuadros1y2.cantidad) as total
+                FROM
+                    araucano.academica_ft_cuadros1y2 
+                        INNER JOIN araucano.academica_d_series 
+                                ON academica_ft_cuadros1y2.idserie = academica_d_series.idserie 
+                        INNER JOIN araucano.academica_d_facultades 
+                                ON academica_ft_cuadros1y2.idfacultad = academica_d_facultades.idfacultad 
+                    
+                WHERE
+                        
+                         idanioinformado <> 1995
+                         AND nombreserie in ('" . $POST[tipo_alumno][0] . "','" . $POST[tipo_alumno][1] . "','" . $POST[tipo_alumno][2] . "')
+
+                group by 1,2
+
+                ORDER BY anio;";
+
+        return $sql;
+    }
+      
+    else{
+    $sql = "SELECT
+                    academica_d_facultades.facultad as facultad,
+                    academica_d_series.nombreserie as tipo_alumno,
+                    academica_ft_cuadros1y2.idanioinformado as anio,
+               
+
+                    sum(academica_ft_cuadros1y2.cantidad) as total
+                FROM
+                    araucano.academica_ft_cuadros1y2 
+                        INNER JOIN araucano.academica_d_series 
+                                ON academica_ft_cuadros1y2.idserie = academica_d_series.idserie 
+                        INNER JOIN araucano.academica_d_facultades 
+                                ON academica_ft_cuadros1y2.idfacultad = academica_d_facultades.idfacultad 
+                    
+                WHERE
+                        facultad like '$combo_facultades'
+                        AND idanioinformado <> 1995
+                        AND nombreserie in ('" . $POST[tipo_alumno][0] . "','" . $POST[tipo_alumno][1] . "','" . $POST[tipo_alumno][2] . "')
+
+                group by 1,2,3
+
+                ORDER BY facultad,anio;";
+
+        return $sql;
+    
+    }
+    }
+    
+    
+    
+    
+    }
