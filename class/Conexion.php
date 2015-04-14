@@ -4,7 +4,7 @@ class Conexion extends PDO {
 
     private $tipo_de_base = 'mysql';
     private $host = 'localhost';
-    private $nombre_de_base = 'araucano';
+    private $nombre_de_base = '';
     private $usuario = 'root';
     private $contrasena = 'root';
 
