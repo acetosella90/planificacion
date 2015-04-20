@@ -141,3 +141,19 @@ function getFacultades2($todo) {
     }
     return $facultades;
 }
+
+function getUnidades($todo) {
+
+    $unidades = array();
+    $unidades[0]='Facultad Unsam';
+    $j = 1;
+
+    for ($i = 1; $i < count($todo); $i++) {
+
+        if ($unidades[$j - 1] != $todo[$i]['unidad']) {
+            $unidades[$j] = $todo[$i]['unidad'];
+            $j++;
+        }
+    }
+    return $unidades;
+}

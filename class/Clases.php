@@ -111,4 +111,54 @@ class Clases {
        
     }
     
+       
+    
+        static public function getTipoCredito() {
+        
+       if($_SERVER["REQUEST_METHOD"]  != 'POST'){
+           $a = " checked ";
+           $b = " checked ";
+           $c = " checked ";
+       }
+       else{
+
+            if ($_POST[tipo_alumno][0] == "credito_original" || $_POST[tipo_alumno][1] == "credito_original" || $_POST[tipo_alumno][2] == "credito_original") 
+                $a = " checked ";
+            else 
+               $a = ""; 
+
+
+            if ($_POST[tipo_alumno][0] == "credito" || $_POST[tipo_alumno][1] == "credito" || $_POST[tipo_alumno][2] == "credito") 
+                $b = " checked ";
+            else 
+               $b = "";
+
+            if ($_POST[tipo_alumno][0] == "preventivo" || $_POST[tipo_alumno][1] == "preventivo" || $_POST[tipo_alumno][2] == "preventivo") 
+                $c = " checked ";
+            else 
+               $c = "";
+        
         }
+
+        echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $a . " value='credito_original'>credito_original";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $b . " value='credito'>credito";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $c . " value='preventivo'>preventivo";
+       
+    }
+
+    
+    
+     static public function getUnidades($unidades) {
+        echo "<select name='combo_unidades' id='unidad' style='margin-left: 5px;'>";
+        for ($i = 0; $i < count($unidades); $i++) {
+            echo "<option";
+            if ($_POST[combo_unidades] == $unidades[$i])
+                echo " selected ";
+            echo " value='$unidades[$i]'>" . $unidades[$i] . "</option>";
+        }
+        echo "</select>";
+       
+    }
+    
+    
+       }

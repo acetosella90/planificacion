@@ -247,7 +247,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td><a href="#">Presupuesto total pagado</a></td>
+                        <td><a href="index.php?pagina=pilaga" >Presupuesto total pagado</a></td>
                         <td>Muestra el presupuesto total anual pagado por la facultad</td>
                         <td>none</td>
                         <td>sit</td>

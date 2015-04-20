@@ -21,4 +21,6 @@ if ($_POST[id] == 'p_historia')
 if ($_POST[id] == 'p_contacto')
     include_once '../content/p_contacto.php';
 
+if ($_POST[id] == 'p_tabla-pilaga')
+    include_once '../content/p_tabla-pilaga.php';
 ?>

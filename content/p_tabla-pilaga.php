@@ -1,3 +1,5 @@
+
+
 <script>
     $('body').css("background-image", "url()");
 </script>
@@ -11,11 +13,13 @@
 
     $conexion = new Conexion();
 
-    $consulta = $conexion->prepare(Consultas::getTodoAraucano());
+    $consulta = $conexion->prepare(Consultas::getTodoPilaga());
     $consulta->execute();
     $todo2 = $consulta->fetchAll();
 
-    $facultades = getFacultades2($todo2);
+    $unidades = getUnidades($todo2);
+  
+    
     ?>
 
     <div class="row">
@@ -23,8 +27,8 @@
             <form  method="POST">
                 <?php
                 echo "<div  style='float: left;'>";
-                Clases::getFacultades($facultades); // Combo facultades
-                Clases::getTipoAlumno(); // Checks
+                Clases::getUnidades($unidades); // Combo facultades
+                Clases::getTipoCredito(); // Checks
                 ?>
                 <input style="margin-left: 10px;" type="submit" value="Buscar"></div>
             </form>
@@ -34,12 +38,11 @@
     <?php
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $consulta = $conexion->prepare(Consultas::getFiltroAraucano3($_POST));
+        $consulta = $conexion->prepare(Consultas::getFiltroPilaga($_POST));
         $consulta->execute();
         $todo = $consulta->fetchAll();
     
-        ;
-      
+     
         ?>
 
         <div class="row" style="margin-top: 40px;">
@@ -52,15 +55,15 @@
         <div class="row"  id="tabla1" style="display: none;">
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
-                    <h2>Tabla de Escuelas por titulos y tipos de alumnos</h2>
+                    <h2>Tabla de Tipo de Credito por Unidad</h2>
                     <table style='float: left;'  class="table table-hover">
                         <tbody>
-                        <td><strong>Escuela/Facultad</strong></td>
+                        <td><strong>Unidad Presupuestaria</strong></td>
 
-                        <td><strong>Tipo de alumnos</strong></td>
+                        <td><strong>Tipo de Credito</strong></td>
 
                         <?php
-                        for ($i = 1995; $i < (date('Y')-1); $i++) {
+                        for ($i = 1995; $i < date('Y'); $i++) {
 
 
                             echo "<td><strong>" . $i . "</strong></td>";
@@ -75,21 +78,21 @@
 
 
 
-                        <tr><td rowspan="3"><?php if($todo[0][facultad]){echo$todo[0][facultad];}else{echo 'Facultad Unsam';} ?></td>
+                        <tr><td rowspan="3"><?php if($todo[0][unidad]){echo$todo[0][unidad];}else{echo 'Facultad Unsam';} ?></td>
  <?php      
  
-                        for($i=0 ; $i < count($_POST[tipo_alumno]); $i++){
-                                if($_POST[tipo_alumno][$i] == "Egresados")
+                        for($i=0 ; $i < count($_POST[tipo_credito]); $i++){
+                                if($_POST[tipo_credito][$i] == "credito_original")
                                     $e1 = 1;
-                                if($_POST[tipo_alumno][$i] == "Alumnos"){
+                                if($_POST[tipo_credito][$i] == "credito"){
                                     $a1=1;
                                 }
-                                if($_POST[tipo_alumno][$i] == "Reinscriptos")
+                                if($_POST[tipo_credito][$i] == "preventivo")
                                     $r1=1;
                             }
 
                    
-                            if($a1){echo "<td>Alumnos</td>"; 
+                   if($e1){echo "<td>Credito original</td>"; 
 
     $a=array();
     $i = 1995;
@@ -100,17 +103,14 @@
 
 
 
-
-            if ($todo[$g][tipo_alumno] == 'Alumnos' && $todo[$g][anio] != $i) {
+             
+            if ( $todo[$g][anio] != $i) {
                 echo"<td></td>"; $a[$p]=0; $p+=1;
-            } elseif ($todo[$g][anio] == $i && $todo[$g][tipo_alumno] == 'Alumnos') {
-                echo"<td>" . $todo[$g][total] . "</td>"; $a[$p]= $todo[$g][total]; $p+=1;
+            } elseif ($todo[$g][anio] == $i ) {
+                echo"<td>" . $todo[$g][credito_original] . "</td>"; $a[$p]= $todo[$g][credito_original]; $p+=1;
                 $t = $i + 1;
                 $i = date('Y');
-            } else {
-
-                $i = date('Y');
-            }
+            } 
         }
     
                           }
@@ -122,7 +122,7 @@
                         <tr> 
                             <?php  
                             
-                    if($e1) {echo "<td>Egresados</td>"; 
+                    if($a1) {echo "<td>Credito</td>"; 
                              
                            
                             $e=array();
@@ -132,14 +132,12 @@
                             for ($g = 0; $g < count($todo); $g++) {
                                 for ($i = $t; $i < date('Y'); $i++) {
 
-                                    if ($todo[$g][anio] == $i && $todo[$g][tipo_alumno] == 'Egresados') {
-                                        echo"<td>" . $todo[$g][total] . "</td>"; $e[$p]= $todo[$g][total]; $p+=1;
+                                    if ($todo[$g][anio] == $i ) {
+                                        echo"<td>" . $todo[$g][credito] . "</td>"; $e[$p]= $todo[$g][credito]; $p+=1;
                                         $t = $i + 1;
                                         $i = date('Y');
-                                    } elseif ($todo[$g][tipo_alumno] == 'Egresados' && $todo[$g][anio] != $i) {
+                                    } elseif ($todo[$g][anio] != $i) {
                                         echo"<td></td>"; $e[$p]=0; $p+=1;
-                                    } else {
-                                        $i = date('Y');
                                     }
                                 }
                             }
@@ -152,7 +150,7 @@
                         <tr>
                             
                             <?php
-                           if($r1) {echo "<td>Reinscrptos</td>"; 
+                           if($r1) {echo "<td>Preventivo</td>"; 
                             $r=array();
                             $i = 1995;
                             $t = 1995;
@@ -160,15 +158,13 @@
                             for ($g = 0; $g < count($todo); $g++) {
                                 for ($i = $t; $i < date('Y'); $i++) {
 
-                                    if ($todo[$g][anio] == $i && $todo[$g][tipo_alumno] == 'Reinscriptos') {
-                                        echo"<td>" . $todo[$g][total] . "</td>";$r[$p]= $todo[$g][total]; $p+=1;
+                                    if ($todo[$g][anio] == $i ) {
+                                        echo"<td>" . $todo[$g][preventivo] . "</td>";$r[$p]= $todo[$g][preventivo]; $p+=1;
                                         $t = $i + 1;
                                         $i = date('Y');
-                                    } elseif ($todo[$g][tipo_alumno] == 'Reinscriptos' && $todo[$g][anio] != $i) {
+                                    } elseif ( $todo[$g][anio] != $i) {
                                         echo"<td></td>";$r[$p]=0; $p+=1;
-                                    } else {
-                                        $i = date('Y');
-                                    }
+                                    } 
                                 }
                             }
                            }
@@ -177,14 +173,13 @@
 
 
 
-
                             <?php
-                            if ($todo[$i][tipo_alumno] == "Alumnos")
-                                $total[alumnos]+= $todo[$i][total];
-                            if ($todo[$i][tipo_alumno] == "Egresados")
-                                $total[egresados]+= $todo[$i][total];
-                            if ($todo[$i][tipo_alumno] == "Reinscriptos")
-                                $total[reinscriptos]+= $todo[$i][total];
+                            if ($todo[$i][tipo_credito] == "credito_original")
+                                $total[credito_original]+= $todo[$i][total];
+                            if ($todo[$i][tipo_credito] == "credito")
+                                $total[credito]+= $todo[$i][total];
+                            if ($todo[$i][tipo_credito] == "preventivo")
+                                $total[preventivo]+= $todo[$i][total];
                             ?>
                     </table>
 
@@ -231,7 +226,7 @@
             type: 'line'
         },
         title: {
-            text: 'Tipos de Alumnos Totales por a\u00f1os'
+            text: 'Tipos de Creditos Totales por a\u00f1os'
         },
         subtitle: {
           
@@ -245,7 +240,7 @@
         yAxis: {
             min: 0,
             title: {
-                text: 'Cantidad de alumnos'
+                text: 'Cantidad $'
             }
         },
         plotOptions: {
@@ -260,7 +255,7 @@
        
            
 series: [{
-                            name: 'Alumnos',
+                            name: 'Credito Original',
                             data: [<?php
     foreach ($a as $cuadro) {
         echo $cuadro . ", ";
@@ -268,7 +263,7 @@ series: [{
     ?>]
                         },
                         {
-                            name: 'Egresados',
+                            name: 'Credito',
                             data: [<?php
     foreach ($e as $cuadro) {
         echo $cuadro . ", ";
@@ -276,7 +271,7 @@ series: [{
     ?>]
             },
                         {
-                            name: 'Reinscriptos',
+                            name: 'Preventivo',
                             data: [<?php
     foreach ($r as $cuadro) {
         echo $cuadro . ", ";

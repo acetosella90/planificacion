@@ -99,7 +99,8 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                         elseif ($_GET[pagina] == 'araucano3') 
                             include './content/p_tabla-araucano3.php';
                         
-                            
+                        elseif ($_GET[pagina] == 'pilaga') 
+                            include './content/p_tabla-pilaga.php';    
                         
 
                         ?>
