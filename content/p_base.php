@@ -247,7 +247,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td><a href="#">Presupuesto total pagado</a></td>
+                        <td><a href="index.php?pagina=pilaga" >Presupuesto total pagado</a></td>
                         <td>Muestra el presupuesto total anual pagado por la facultad</td>
                         <td>none</td>
                         <td>sit</td>
@@ -403,7 +403,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td><a href="#">Cantidad de alumnos</a></td>
+                        <td><a href="index.php?pagina=araucano3" >Cantidad de alumnos</a></td>
                         <td>Muestra la cantidad total por año de almnos en la facultad</td>
                         <td>Barras</td>
                         <td>sit</td>

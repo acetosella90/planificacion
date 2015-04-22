@@ -125,3 +125,35 @@ function getPaises($todo) {
 
     return $paises;
 }
+
+function getFacultades2($todo) {
+
+    $facultades = array();
+    $facultades[0]='Facultad Unsam';
+    $j = 1;
+
+    for ($i = 1; $i < count($todo); $i++) {
+
+        if ($facultades[$j - 1] != $todo[$i]['facultad']) {
+            $facultades[$j] = $todo[$i]['facultad'];
+            $j++;
+        }
+    }
+    return $facultades;
+}
+
+function getUnidades($todo) {
+
+    $unidades = array();
+    $unidades[0]='Facultad Unsam';
+    $j = 1;
+
+    for ($i = 1; $i < count($todo); $i++) {
+
+        if ($unidades[$j - 1] != $todo[$i]['unidad']) {
+            $unidades[$j] = $todo[$i]['unidad'];
+            $j++;
+        }
+    }
+    return $unidades;
+}
