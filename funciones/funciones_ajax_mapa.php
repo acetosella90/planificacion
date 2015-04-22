@@ -72,16 +72,16 @@ if ($pilaga) {
 
 if ($mapuche) {
     
-    $consulta = $conexion->prepare(Consultas::getTodoPilagaEscuela($_POST["escuela"]));
+    $consulta = $conexion->prepare(Consultas::getTodoMapuche($_POST["escuela"]));
     $consulta->execute();
     $todo = $consulta->fetchAll();
       
     
     echo "<div  class='col-xs-18 col-md-3'>";
     echo"<strong><h4 style='text-decoration: underline;'>Información de Mapuche</h4></strong>";
-    echo "<strong>Credito Original: </strong> $ ". $todo[0][m0];
-    echo "<br><strong>Credito: </strong> $ ". $todo[0][m1];
-    echo "<br><strong>Saldo presupuestario: </strong> $ ". $todo[0][m2];
+    echo "<strong>Docentes: </strong>". $todo[0][cantcargosliq];
+    echo "<br><strong>No Docentes: </strong>". $todo[1][cantcargosliq];
+    echo "<br><strong>Superior: </strong>"; if($todo[2][cantcargosliq]) echo $todo[2][cantcargosliq]; else echo "0";
     echo "</div>";
 }
 

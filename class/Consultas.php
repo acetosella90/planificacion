@@ -248,7 +248,7 @@ class Consultas {
 
     public static function getTodoPilagaEscuela($escuela) {
 
-        $anio = date('Y') - 1;
+        $anio = date('Y');
 
         $sql = "select
                     d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
@@ -275,6 +275,41 @@ class Consultas {
         return $sql;
     }
 
+    public static function getTodoMapuche($escuela) {
+
+        $anio = date('Y-m');
+
+        $sql = "SELECT
+                    dim_periodo2.fecha_id ,
+                    map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc ,
+                    -- map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_desc as c3,
+                    map_dw_lt_categoriascargo.escalafon_desc ,
+                    sum(ft_lt_cargos.importenetocargo) as importenetocargo ,
+                    sum(ft_lt_cargos.cantcargosliq) as cantcargosliq
+                FROM
+                    mapuche.dim_periodo2 as dim_periodo2,
+                    mapuche.ft_lt_cargos as ft_lt_cargos,
+                    mapuche.map_dw_lt_imppresupsubdependencia as map_dw_lt_imppresupsubdependencia,
+                    mapuche.map_dw_lt_categoriascargo as map_dw_lt_categoriascargo
+                WHERE
+                    ft_lt_cargos.periodoinfo = dim_periodo2.fecha_id
+                    AND
+                    dim_periodo2.fecha_id = '2015-02-01'
+                    AND
+                    ft_lt_cargos.imppresupsubdependencia_id = map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_id
+                    AND
+                    ft_lt_cargos.categoria_id = map_dw_lt_categoriascargo.categoria_id
+                    AND
+                    mapuche.map_dw_lt_imppresupsubdependencia.flag = $escuela
+                GROUP BY
+                    dim_periodo2.fecha_id,
+                    map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc,
+                    -- map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_desc,
+                    map_dw_lt_categoriascargo.escalafon_desc";       
+
+        return $sql;
+    }
+    
     public static function getTodoPilaga() {
 
 
@@ -368,8 +403,13 @@ class Consultas {
                        ft_movimientos.fecha_id = d_fecha.fecha_id 
                 group by
                     d_unidad_presupuestaria.unidad_presupuestaria_desc,
+
                     d_fecha.anio,
                      d_fecha.mes";}
+
+                    
+
+
         return $sql;
     }
 
