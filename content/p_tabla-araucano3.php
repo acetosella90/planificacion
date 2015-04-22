@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="row"  id="tabla1" style="display: none;">
+        <div class="row"  id="tabla1" >
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
                     <h2>Tabla de Escuelas por titulos y tipos de alumnos</h2>

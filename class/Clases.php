@@ -140,7 +140,7 @@ class Clases {
         
         }
 
-        echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $a . " value='credito_original'>credito_original";
+        echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $a . " value='credito_original'>credito original";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $b . " value='credito'>credito";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $c . " value='preventivo'>preventivo";
        

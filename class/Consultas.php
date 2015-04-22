@@ -330,7 +330,8 @@ class Consultas {
         if ($combo_unidades == 'Facultad Unsam') {
         $sql = "select
                   
-                    d_fecha.anio as anio, " .
+                    d_fecha.anio as anio,  
+                d_fecha.mes_desc as mes,".
                 $or.$coma1.$cred.$coma2. $prev ." 
                 from
                     pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
@@ -342,14 +343,16 @@ class Consultas {
                  
                    
                    and 
-                       d_fecha.anio BETWEEN '1995' AND '2014' 
+                       ft_movimientos.fecha_id = d_fecha.fecha_id
                 group by
                     d_unidad_presupuestaria.unidad_presupuestaria_desc,
-                    d_fecha.anio";
+                    d_fecha.anio,
+                     d_fecha.mes";
         }
         else{ $sql = "select
                     d_unidad_presupuestaria.unidad_presupuestaria_desc as unidad,
-                    d_fecha.anio as anio, " .
+                    d_fecha.anio as anio,  
+                  d_fecha.mes_desc as mes,".
                 $or.$coma1.$cred.$coma2. $prev ." 
                 from
                     pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
@@ -362,10 +365,11 @@ class Consultas {
                     d_unidad_presupuestaria.unidad_presupuestaria_desc= " . "'" . $combo_unidades . "'" .
                    
                   " and 
-                       d_fecha.anio BETWEEN '1995' AND '2014' 
+                       ft_movimientos.fecha_id = d_fecha.fecha_id 
                 group by
                     d_unidad_presupuestaria.unidad_presupuestaria_desc,
-                    d_fecha.anio";}
+                    d_fecha.anio,
+                     d_fecha.mes";}
         return $sql;
     }
 

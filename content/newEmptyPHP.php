@@ -145,4 +145,178 @@ $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($POST));
                     d_fecha.anio";
         
         return $sql;
-    }
+  
+        }
+        
+        
+        
+        select
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc as unidad,
+                    d_fecha.anio as anio,
+                     d_fecha.mes_desc as mes,
+                    sum(ft_movimientos.credito_original) as credito_original,
+                    sum(ft_movimientos.credito) as credito,
+                    sum(ft_movimientos.preventivo) as preventivo
+                    from
+                    pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
+                    pilaga.ft_movimientos as ft_movimientos,
+                    pilaga.d_fecha as d_fecha
+                    where
+                    ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
+                    
+                    
+                    and
+                    ft_movimientos.fecha_id = d_fecha.fecha_id
+                    
+                   
+                    group by
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc,
+                    d_fecha.anio,
+                    d_fecha.mes
+                    
+                                  if($e1){echo "<td>Credito original</td>"; 
+
+    $a=array();
+    $i = 1995;
+    $t = 0;
+    $p= 0;
+    for ($g = 0; $g < count($todo); $g++) {
+        
+         echo"<td>". $todo[$g][credito_original] ."</td>";
+
+
+             
+       
+    
+                          }
+                            }
+                          ?>
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          $a=array();
+    $i = 1995;
+    $t = 1995;
+    $p= 0;
+    for ($g = 0; $g < count($todo); $g++) {
+        for ($i = $t; $i < 12; $i++) {
+
+
+
+             
+            if ( $todo[$g][anio] != $i) {
+                echo"<td></td>"; $a[$p]=0; $p+=1;
+            } elseif ($todo[$g][anio] == $i ) {
+                echo"<td>" . $todo[$g][credito_original] . "</td>"; $a[$p]= $todo[$g][credito_original]; $p+=1;
+                $t = $i + 1;
+                $i = date('Y');
+            } 
+        }
+    
+                          }
+                            }
+                          ?>
+                        </tr>
+
+
+                        <tr> 
+                            <?php  
+                            
+                    if($a1) {echo "<td>Credito</td>"; 
+                             
+                           
+                            $e=array();
+                            $i = 1995;
+                            $t = 1995;
+                            $p= 0;
+                            for ($g = 0; $g < count($todo); $g++) {
+                                for ($i = $t; $i < date('Y'); $i++) {
+
+                                    if ($todo[$g][anio] == $i ) {
+                                        echo"<td>" . $todo[$g][credito] . "</td>"; $e[$p]= $todo[$g][credito]; $p+=1;
+                                        $t = $i + 1;
+                                        $i = date('Y');
+                                    } elseif ($todo[$g][anio] != $i) {
+                                        echo"<td></td>"; $e[$p]=0; $p+=1;
+                                    }
+                                }
+                            }
+                    }
+                            ?>
+                        </tr>
+
+
+
+                        <tr>
+                            
+                            <?php
+                           if($r1) {echo "<td>Preventivo</td>"; 
+                            $r=array();
+                            $i = 1995;
+                            $t = 1995;
+                            $p= 0;
+                            for ($g = 0; $g < count($todo); $g++) {
+                                for ($i = $t; $i < date('Y'); $i++) {
+
+                                    if ($todo[$g][anio] == $i ) {
+                                        echo"<td>" . $todo[$g][preventivo] . "</td>";$r[$p]= $todo[$g][preventivo]; $p+=1;
+                                        $t = $i + 1;
+                                        $i = date('Y');
+                                    } elseif ( $todo[$g][anio] != $i) {
+                                        echo"<td></td>";$r[$p]=0; $p+=1;
+                                    } 
+                                }
+                            }
+                           }
+                            ?>
+                        </tr>
+
+
+
+                            <?php
+                            if ($todo[$i][tipo_credito] == "credito_original")
+                                $total[credito_original]+= $todo[$i][total];
+                            if ($todo[$i][tipo_credito] == "credito")
+                                $total[credito]+= $todo[$i][total];
+                            if ($todo[$i][tipo_credito] == "preventivo")
+                                $total[preventivo]+= $todo[$i][total];
+                            ?>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+    
+         
+
+
+
+
+   
+    
+        
+
+    
+<?php
+ $años=array();
+  $o=0;         
+ for ($i = 1995; $i < date('Y'); $i++) {
+       $años[$o] = $i;
+       $o +=1;    
+        } 
+        
+ foreach ($años as $cuadro) {
+       $c.=  $cuadro . ", ";
+         } 
+     
+   $c = substr($c, 0, -1);
+    
+   
+   
+   ?>

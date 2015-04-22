@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <div class="row"  id="tabla1" style="display: none;">
+        <div class="row"  id="tabla1" >
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
                     <h2>Tabla de Tipo de Credito por Unidad</h2>
@@ -62,26 +62,27 @@
 
                         <td><strong>Tipo de Credito</strong></td>
 
-                        <?php
-                        for ($i = 1995; $i < date('Y'); $i++) {
-
-
-                            echo "<td><strong>" . $i . "</strong></td>";
-                        }
-                        ?>
-
-
-
-
-
-                        </tbody>
+                            <td><strong>Enero</strong></td>
+                            <td><strong>Febrero</strong></td>
+                            <td><strong>Marzo</strong></td>
+                            <td><strong>Abril</strong></td>
+                            <td><strong>Mayo</strong></td>
+                            <td><strong>Junio</strong></td>
+                            <td><strong>Julio</strong></td>
+                            <td><strong>Agosto</strong></td>
+                            <td><strong>Septiembre</strong></td>   
+                            <td><strong>Octubre</strong></td>
+                            <td><strong>Noviembre</strong></td>
+                            <td><strong>Diciembre</strong></td>
+                    </tbody>
 
 
 
                         <tr><td rowspan="3"><?php if($todo[0][unidad]){echo$todo[0][unidad];}else{echo 'Facultad Unsam';} ?></td>
  <?php      
- 
-                        for($i=0 ; $i < count($_POST[tipo_credito]); $i++){
+  $meses=array(Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre);
+                        
+                      for($i=0 ; $i < count($_POST[tipo_credito]); $i++){
                                 if($_POST[tipo_credito][$i] == "credito_original")
                                     $e1 = 1;
                                 if($_POST[tipo_credito][$i] == "credito"){
@@ -92,26 +93,19 @@
                             }
 
                    
-                   if($e1){echo "<td>Credito original</td>"; 
+              if($e1){echo "<td>Credito original</td>"; 
 
     $a=array();
     $i = 1995;
-    $t = 1995;
+    $t = 0;
     $p= 0;
     for ($g = 0; $g < count($todo); $g++) {
-        for ($i = $t; $i < date('Y'); $i++) {
+        
+         echo"<td>". $todo[$g][credito_original] ."</td>";
 
 
-
-             
-            if ( $todo[$g][anio] != $i) {
-                echo"<td></td>"; $a[$p]=0; $p+=1;
-            } elseif ($todo[$g][anio] == $i ) {
-                echo"<td>" . $todo[$g][credito_original] . "</td>"; $a[$p]= $todo[$g][credito_original]; $p+=1;
-                $t = $i + 1;
-                $i = date('Y');
-            } 
-        }
+             $a[$g]=$todo[$g][credito_original];
+       
     
                           }
                             }
@@ -126,23 +120,20 @@
                              
                            
                             $e=array();
-                            $i = 1995;
-                            $t = 1995;
-                            $p= 0;
-                            for ($g = 0; $g < count($todo); $g++) {
-                                for ($i = $t; $i < date('Y'); $i++) {
+    $i = 1995;
+    $t = 0;
+    $p= 0;
+    for ($g = 0; $g < count($todo); $g++) {
+        
+         echo"<td>". $todo[$g][credito] ."</td>";
+            $e[$g]=$todo[$g][credito];
 
-                                    if ($todo[$g][anio] == $i ) {
-                                        echo"<td>" . $todo[$g][credito] . "</td>"; $e[$p]= $todo[$g][credito]; $p+=1;
-                                        $t = $i + 1;
-                                        $i = date('Y');
-                                    } elseif ($todo[$g][anio] != $i) {
-                                        echo"<td></td>"; $e[$p]=0; $p+=1;
-                                    }
-                                }
+             
+       
+    
+                          }
                             }
-                    }
-                            ?>
+                          ?>
                         </tr>
 
 
@@ -151,24 +142,21 @@
                             
                             <?php
                            if($r1) {echo "<td>Preventivo</td>"; 
-                            $r=array();
-                            $i = 1995;
-                            $t = 1995;
-                            $p= 0;
-                            for ($g = 0; $g < count($todo); $g++) {
-                                for ($i = $t; $i < date('Y'); $i++) {
+                             $r=array();
+    $i = 1995;
+    $t = 0;
+    $p= 0;
+    for ($g = 0; $g < count($todo); $g++) {
+        
+         echo"<td>". $todo[$g][preventivo] ."</td>";
 
-                                    if ($todo[$g][anio] == $i ) {
-                                        echo"<td>" . $todo[$g][preventivo] . "</td>";$r[$p]= $todo[$g][preventivo]; $p+=1;
-                                        $t = $i + 1;
-                                        $i = date('Y');
-                                    } elseif ( $todo[$g][anio] != $i) {
-                                        echo"<td></td>";$r[$p]=0; $p+=1;
-                                    } 
-                                }
+           $r[$g]=$todo[$g][preventivo];
+             
+       
+    
+                          }
                             }
-                           }
-                            ?>
+                          ?>
                         </tr>
 
 
@@ -207,13 +195,13 @@
        $o +=1;    
         } 
         
- foreach ($años as $cuadro) {
-       $c.=  $cuadro . ", ";
+ foreach ($meses as $mes) {
+       $meses2.=  $mes . ", ";
          } 
      
-   $c = substr($c, 0, -1);
-    
    
+    
+   $meses2 = substr($meses2, 0, -1);
    
    ?>
        
@@ -226,19 +214,19 @@
             type: 'line'
         },
         title: {
-            text: 'Tipos de Creditos Totales por a\u00f1os'
+            text: 'Tipos de Creditos Desarrollados por meses'
         },
         subtitle: {
           
         },
         xAxis: {
-            categories:[<?php echo $c ?>],
+            categories:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
         title: {
-                text: 'A\u00f1os'
+                text: 'meses'
             }
         },
         yAxis: {
-            min: 0,
+            
             title: {
                 text: 'Cantidad $'
             }
