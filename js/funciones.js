@@ -36,6 +36,25 @@ $(document).ready(function() {
         });
     });
     
+    $('#p_mapa_sigeva').click(function() {
+        $('body').css("background-image","url()");
+        $('#p_base').removeClass("active");
+        $('#p_mapa').addClass("active");
+        $('#p_historia').removeClass("active");
+        $('#p_contacto').removeClass("active");
+        var ajax_data = {
+            "id": "p_mapa_sigeva"
+        };
+        $.ajax({
+            data: ajax_data,
+            type: "POST",
+            url: "funciones/funciones_ajax.php",
+            success: function(a) {
+                $('#contenido').html(a);
+            }
+        });
+    });
+    
     $('#p_historia').click(function() {
         $('body').css("background-image","url()");
         $('#p_base').removeClass("active");

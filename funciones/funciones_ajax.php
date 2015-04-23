@@ -23,4 +23,7 @@ if ($_POST[id] == 'p_contacto')
 
 if ($_POST[id] == 'p_tabla-pilaga')
     include_once '../content/p_tabla-pilaga.php';
+
+if ($_POST[id] == 'p_mapa_sigeva')
+    include_once '../content/p_mapa_sigeva.php';
 ?>

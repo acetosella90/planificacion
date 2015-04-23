@@ -305,11 +305,11 @@ class Consultas {
                     dim_periodo2.fecha_id,
                     map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc,
                     -- map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_desc,
-                    map_dw_lt_categoriascargo.escalafon_desc";       
+                    map_dw_lt_categoriascargo.escalafon_desc";
 
         return $sql;
     }
-    
+
     public static function getTodoPilaga() {
 
 
@@ -344,29 +344,33 @@ class Consultas {
         $or = "";
         $cred = "";
         $prev = "";
-        $coma1="";
-        $coma2="";
+        $coma1 = "";
+        $coma2 = "";
         if ($POST[tipo_credito][0] == 'credito_original' || $POST[tipo_credito][1] == 'credito_original' || $POST[tipo_credito][2] == 'credito_original') {
             $or = "sum(ft_movimientos.credito_original) as credito_original";
-        } 
-        
+        }
+
         if ($POST[tipo_credito][0] == 'credito' || $POST[tipo_credito][1] == 'credito' || $POST[tipo_credito][2] == 'credito') {
             $cred = "sum(ft_movimientos.credito) as credito";
-        } 
-      
-        
+        }
+
+
         if ($POST[tipo_credito][0] == 'preventivo' || $POST[tipo_credito][1] == 'preventivo' || $POST[tipo_credito][2] == 'preventivo') {
             $prev = "sum(ft_movimientos.preventivo) as preventivo";
         }
 
-        if(($or!=""&& $cred!=""&& $prev =="")||($or!=""&& $cred!=""&& $prev !="")){$coma1 = ",";}
-        if(($or!=""&& $cred==""&& $prev !="")||($or==""&& $cred!=""&& $prev !="")||($or!=""&& $cred!=""&& $prev !="")){$coma2 = ",";}
-        
+        if (($or != "" && $cred != "" && $prev == "") || ($or != "" && $cred != "" && $prev != "")) {
+            $coma1 = ",";
+        }
+        if (($or != "" && $cred == "" && $prev != "") || ($or == "" && $cred != "" && $prev != "") || ($or != "" && $cred != "" && $prev != "")) {
+            $coma2 = ",";
+        }
+
         if ($combo_unidades == 'Facultad Unsam') {
-        $sql = "select
+            $sql = "select
                   
                     d_fecha.anio as anio, " .
-                $or.$coma1.$cred.$coma2. $prev ." 
+                    $or . $coma1 . $cred . $coma2 . $prev . " 
                 from
                     pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
                     pilaga.ft_movimientos as ft_movimientos,
@@ -381,11 +385,11 @@ class Consultas {
                 group by
                     d_unidad_presupuestaria.unidad_presupuestaria_desc,
                     d_fecha.anio";
-        }
-        else{ $sql = "select
+        } else {
+            $sql = "select
                     d_unidad_presupuestaria.unidad_presupuestaria_desc as unidad,
                     d_fecha.anio as anio, " .
-                $or.$coma1.$cred.$coma2. $prev ." 
+                    $or . $coma1 . $cred . $coma2 . $prev . " 
                 from
                     pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
                     pilaga.ft_movimientos as ft_movimientos,
@@ -395,14 +399,21 @@ class Consultas {
                     
                     and
                     d_unidad_presupuestaria.unidad_presupuestaria_desc= " . "'" . $combo_unidades . "'" .
-                   
-                  " and 
+                    " and 
                        d_fecha.anio BETWEEN '1995' AND '2014' 
                 group by
                     d_unidad_presupuestaria.unidad_presupuestaria_desc,
-                    d_fecha.anio";}
+                    d_fecha.anio";
+        }
 
         return $sql;
+    }
+
+    public static function getSigeva($escuela) {
+
+        return $sql = "SELECT  flag, sum(cantidad) as cantidad FROM sigeva.mapa1 WHERE flag = $escuela group by 1";
+        
+        
     }
 
 }

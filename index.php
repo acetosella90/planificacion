@@ -8,6 +8,7 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
     <html lang="en">
         <head>
           <!-- <meta http-equiv="content-type" content="text/html; charset=utf-8"/> -->
+          
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="">
@@ -23,13 +24,24 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
             <link href="css/Hover-master/css/hover-min.css" rel="stylesheet">
             <!-- Bootstrap core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
-
+            
+            
+            
+            
             <script src="js/jquery.min.js"></script>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            
+            <script src="js/ammap.js"></script>
+            <script src="js/worldHigh.js"></script>
+            <script src="js/dark.js"></script>
+            
             <script src="test/js/highcharts.js"></script>
             <script src="test/js/modules/data.js"></script>
             <script src="test/js/modules/exporting.js"></script>
             <script src="test/js/highcharts-3d.js"></script>
+            
+            
+           
             
             <!-- Custom styles for this template -->
             <link href="css/dashboard.css" rel="stylesheet">
@@ -76,6 +88,7 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                     <div  class="col-sm-3 col-md-1 sidebar">
                         <ul id="div" class="nav nav-sidebar">
                             <li id="p_mapa" ><a href="#">Mapa Unsam <span class="sr-only">(current)</span></a></li>
+                            <li id="p_mapa_sigeva" ><a href="index.php?p=mapa">Mapa<span class="sr-only">(current)</span></a></li>
                             <li id="p_base"><a href="#">Cubos/Reportes</a></li>
                             <li><a href="#">Analisis</a></li>
                             <li><a href="#">Exportar</a></li>
@@ -96,11 +109,14 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                             include './content/p_tabla-araucano2.php';
 
                         
-                        elseif ($_GET[pagina] == 'araucano3') 
+                        if ($_GET[pagina] == 'araucano3') 
                             include './content/p_tabla-araucano3.php';
                         
-                        elseif ($_GET[pagina] == 'pilaga') 
-                            include './content/p_tabla-pilaga.php';    
+                        if ($_GET[pagina] == 'pilaga') 
+                            include './content/p_tabla-pilaga.php';   
+                        
+                        if ($_GET[p] == 'mapa') 
+                            include './content/p_mapa_sigeva.php';    
                         
 
                         ?>
@@ -118,6 +134,9 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
 
             <script src='js/botones.js'></script>
             <script src='js/funciones.js'></script>
+            
+           
+
 
         </body>
     </html>
