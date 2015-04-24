@@ -2,11 +2,13 @@
     <h1 class="page-header" style="text-shadow: -5px -5px 5px #aaa;">Mapa Interactivo de la Universidad Nacional San Martin</h1>
     <div class="row" style="margin-left: 0px;" >
         <h4><span class="glyphicon glyphicon-circle-arrow-down"> <strong>Filtros</strong></span></h4>
+
         <div  style="text-align: right;float: left; margin-left: 45px;">
-            <div> Araucano <input name="check_base1" value="araucano" id="araucano_chk" type="checkbox"></div>
-            <div>  Pilaga <input name="check_base2" value="pilaga" id="pilaga_chk"type="checkbox"></div>
-            <div>  Mapuche <input name="check_base3" value="mapuche" id="mapuche_chk" type="checkbox"></div>
-            <div>  Sigeva <input name="check_base4" value="sigeva" id="sigeva_chk"type="checkbox"></div>
+            <div id="p1"> Alumnos <input name="check_base1" value="araucano" id="araucano_chk" type="checkbox"></div>
+            <div  id="p2">  Presupuesto <input name="check_base2" value="pilaga" id="pilaga_chk"type="checkbox"></div>
+            <div  id="p3">  Personal <input name="check_base3" value="mapuche" id="mapuche_chk" type="checkbox"></div>
+            <div id="p4"> Investigación <input name="check_base4" value="sigeva" id="sigeva_chk"type="checkbox"></div>
+
         </div>
     </div><br>
     <div style="position: absolute; z-index: 999" >
