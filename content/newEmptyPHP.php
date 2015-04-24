@@ -320,3 +320,56 @@ $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($POST));
    
    
    ?>
+
+        
+        
+        
+        
+        
+ """"codigo pilaga cambiado por el defer"""""
+ SELECT
+                 "select
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
+                    d_fecha.anio as c1,
+                    sum(ft_movimientos.credito_original) as m0,
+                    sum(ft_movimientos.credito) as m1,
+                    sum(ft_movimientos.preventivo) as m2
+                    from
+                    pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
+                    pilaga.ft_movimientos as ft_movimientos,
+                    pilaga.d_fecha as d_fecha
+                    where
+                    ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
+                    and
+                    d_unidad_presupuestaria.flag = $escuela
+                    and
+                    ft_movimientos.fecha_id = d_fecha.fecha_id
+                    and
+                    d_fecha.anio = " . $anio . "
+                    group by
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc,
+                    d_fecha.anio"
+                    
+                    
+                    
+                    
+                           $or = "";
+       $cred = "";
+       $prev = "";
+       $coma1="";
+       $coma2="";
+       if ($POST[tipo_credito][0] == 'credito_original' || $POST[tipo_credito][1] == 'credito_original' || $POST[tipo_credito][2] == 'credito_original') {
+           $or = "sum(ft_movimientos.credito_original) as credito_original";
+       } 
+       
+       if ($POST[tipo_credito][0] == 'credito' || $POST[tipo_credito][1] == 'credito' || $POST[tipo_credito][2] == 'credito') {
+           $cred = "sum(ft_movimientos.credito) as credito";
+       } 
+     
+       
+       if ($POST[tipo_credito][0] == 'preventivo' || $POST[tipo_credito][1] == 'preventivo' || $POST[tipo_credito][2] == 'preventivo') {
+           $prev = "sum(ft_movimientos.preventivo) as preventivo";
+       }
+
+       if(($or!=""&& $cred!=""&& $prev =="")||($or!=""&& $cred!=""&& $prev !="")){$coma1 = ",";}
+       if(($or!=""&& $cred==""&& $prev !="")||($or==""&& $cred!=""&& $prev !="")||($or!=""&& $cred!=""&& $prev !="")){$coma2 = ",";}
