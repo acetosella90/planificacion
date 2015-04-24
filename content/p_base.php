@@ -226,14 +226,14 @@
                         <td class="principal3-1 boton hvr-fade">DATOS AGREGADOS TOTALES DE LA UNIVERSIDAD</td>
                         <td>    </td>
                              <td>    </td>
-                         <td>    </td>
+                         <td>   1 </td>
                     
                     </tr>
                     <tr>  
                         <td class="principal3-2 boton hvr-fade">DATOS POR UNIDAD ACADÉMICA</td>
                    <td>    </td>
                              <td>    </td>
-                         <td>    </td>
+                         <td>  2  </td>
                     </tr>
                 
                 </tbody>

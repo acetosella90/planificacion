@@ -6,10 +6,10 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
     <?php
     
-    require_once 'class/Conexion.php';
-    require_once 'class/Clases.php';
-    require_once 'class/Consultas.php';
-    require_once 'funciones/parseo.php';
+    
+include 'funciones/parseo.php';
+include 'class/Clases.php';
+
 
     $conexion = new Conexion();
 

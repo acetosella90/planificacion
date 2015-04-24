@@ -1,9 +1,7 @@
 <?php
 
-require_once '../class/Conexion.php';
-require_once '../class/Clases.php';
-require_once '../class/Consultas.php';
-require_once '../funciones/parseo.php';
+
+require '../class/Clases.php';
 
 $conexion = new Conexion();
 
@@ -87,15 +85,13 @@ if ($mapuche) {
 
 if ($sigeva) {
     
-    $consulta = $conexion->prepare(Consultas::getTodoPilagaEscuela($_POST["escuela"]));
+    $consulta = $conexion->prepare(Consultas::getSigeva($_POST["escuela"]));
     $consulta->execute();
     $todo = $consulta->fetchAll();
-        
+
     echo "<div  class='col-xs-18 col-md-3'>";
     echo"<strong><h4 style='text-decoration: underline;'>Información de Sigeva</h4></strong>";
-    echo "<strong>Credito Original: </strong> $ ". number_format($todo[0][m0], 2, '.', ' ');
-    echo "<br><strong>Credito: </strong> $ ". $todo[0][m1];
-    echo "<br><strong>Saldo presupuestario: </strong> $ ". $todo[0][m2];
+    echo "<strong>Investigadores: </strong>".$todo[0][cantidad];
     echo "</div>";
 }
 

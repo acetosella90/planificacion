@@ -349,3 +349,27 @@ $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($POST));
                     group by
                     d_unidad_presupuestaria.unidad_presupuestaria_desc,
                     d_fecha.anio"
+                    
+                    
+                    
+                    
+                           $or = "";
+       $cred = "";
+       $prev = "";
+       $coma1="";
+       $coma2="";
+       if ($POST[tipo_credito][0] == 'credito_original' || $POST[tipo_credito][1] == 'credito_original' || $POST[tipo_credito][2] == 'credito_original') {
+           $or = "sum(ft_movimientos.credito_original) as credito_original";
+       } 
+       
+       if ($POST[tipo_credito][0] == 'credito' || $POST[tipo_credito][1] == 'credito' || $POST[tipo_credito][2] == 'credito') {
+           $cred = "sum(ft_movimientos.credito) as credito";
+       } 
+     
+       
+       if ($POST[tipo_credito][0] == 'preventivo' || $POST[tipo_credito][1] == 'preventivo' || $POST[tipo_credito][2] == 'preventivo') {
+           $prev = "sum(ft_movimientos.preventivo) as preventivo";
+       }
+
+       if(($or!=""&& $cred!=""&& $prev =="")||($or!=""&& $cred!=""&& $prev !="")){$coma1 = ",";}
+       if(($or!=""&& $cred==""&& $prev !="")||($or==""&& $cred!=""&& $prev !="")||($or!=""&& $cred!=""&& $prev !="")){$coma2 = ",";}

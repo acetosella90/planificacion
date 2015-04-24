@@ -250,20 +250,22 @@ class Consultas {
 
         $anio = date('Y');
 
-        $sql = "select
-d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
-anio_id as c1,
-sum(ft_movimientos.credito_original) as m0,
-sum(ft_movimientos.credito) as m1,
-sum(ft_movimientos.preventivo) as m2
-
-from pilaga.ft_movimientos as ft_movimientos inner join pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria on 
-ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
-
-where 
-d_unidad_presupuestaria.flag = $escuela and
-and anio_id = " . $anio . "
-group by 1,2";
+       echo $sql = "select
+                   d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
+                   anio_id as c1,
+                   sum(ft_movimientos.credito_original) as m0,
+                   sum(ft_movimientos.credito) as m1,
+                   sum(ft_movimientos.preventivo) as m2
+                   from pilaga.ft_movimientos as ft_movimientos inner join pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria on 
+                               ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id                    
+                   where                    
+                       d_unidad_presupuestaria.flag = $escuela
+                   
+                   and
+                   anio_id = " . $anio . "
+                   group by
+                   1,2"
+;
 
         return $sql;
     }
@@ -298,11 +300,11 @@ group by 1,2";
                     dim_periodo2.fecha_id,
                     map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc,
                     -- map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_desc,
-                    map_dw_lt_categoriascargo.escalafon_desc";       
+                    map_dw_lt_categoriascargo.escalafon_desc";
 
         return $sql;
     }
-    
+
     public static function getTodoPilaga() {
 
 
@@ -333,43 +335,26 @@ group by 1,2";
 
     public static function getFiltroPilaga($POST) {
 
-        $combo_unidades = $POST[combo_unidades];
-        $or = "";
-        $cred = "";
-        $prev = "";
-        $coma1="";
-        $coma2="";
-        if ($POST[tipo_credito][0] == 'credito_original' || $POST[tipo_credito][1] == 'credito_original' || $POST[tipo_credito][2] == 'credito_original') {
-            $or = "sum(ft_movimientos.credito_original) as credito_original";
-        } 
-        
-        if ($POST[tipo_credito][0] == 'credito' || $POST[tipo_credito][1] == 'credito' || $POST[tipo_credito][2] == 'credito') {
-            $cred = "sum(ft_movimientos.credito) as credito";
-        } 
-      
-        
-        if ($POST[tipo_credito][0] == 'preventivo' || $POST[tipo_credito][1] == 'preventivo' || $POST[tipo_credito][2] == 'preventivo') {
-            $prev = "sum(ft_movimientos.preventivo) as preventivo";
-        }
+       $combo_unidades = $POST[combo_unidades];
 
-        if(($or!=""&& $cred!=""&& $prev =="")||($or!=""&& $cred!=""&& $prev !="")){$coma1 = ",";}
-        if(($or!=""&& $cred==""&& $prev !="")||($or==""&& $cred!=""&& $prev !="")||($or!=""&& $cred!=""&& $prev !="")){$coma2 = ",";}
-        
-        if ($combo_unidades == 'Facultad Unsam') {
-        $sql = "select
-                  
-                    d_fecha.anio as anio,  
-                d_fecha.mes_desc as mes,".
-                $or.$coma1.$cred.$coma2. $prev ." 
-                from
-                    pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
-                    pilaga.ft_movimientos as ft_movimientos,
-                    pilaga.d_fecha as d_fecha
-                    where
-                    ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
-                    
+       
+       if ($combo_unidades == 'Facultad Unsam') {
+       $sql = "select
                  
+                   d_fecha.anio as anio,  
+               d_fecha.mes_desc as mes,
+               sum(ft_movimientos.credito_original) as credito_original,
+               sum(ft_movimientos.credito) as credito,
+               sum(ft_movimientos.preventivo) as preventivo
+              
+               from
+                   pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
+                   pilaga.ft_movimientos as ft_movimientos,
+                   pilaga.d_fecha as d_fecha
+                   where
+                   ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
                    
+
                    and 
                        ft_movimientos.fecha_id = d_fecha.fecha_id
                 group by
@@ -380,8 +365,11 @@ group by 1,2";
         else{ $sql = "select
                     d_unidad_presupuestaria.unidad_presupuestaria_desc as unidad,
                     d_fecha.anio as anio,  
-                  d_fecha.mes_desc as mes,".
-                $or.$coma1.$cred.$coma2. $prev ." 
+                  d_fecha.mes_desc as mes,
+                d_fecha.mes_desc as mes,
+               sum(ft_movimientos.credito_original) as credito_original,
+               sum(ft_movimientos.credito) as credito,
+               sum(ft_movimientos.preventivo) as preventivo
                 from
                     pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
                     pilaga.ft_movimientos as ft_movimientos,
@@ -391,19 +379,40 @@ group by 1,2";
                     
                     and
                     d_unidad_presupuestaria.unidad_presupuestaria_desc= " . "'" . $combo_unidades . "'" .
+
+                
+                  
+                  "and 
+                      ft_movimientos.fecha_id = d_fecha.fecha_id
+               group by
+                  
+                   d_fecha.anio,
+                    d_fecha.mes";
+       }
+ 
+
                    
-                  " and 
-                       ft_movimientos.fecha_id = d_fecha.fecha_id 
-                group by
-                    d_unidad_presupuestaria.unidad_presupuestaria_desc,
-
-                    d_fecha.anio,
-                     d_fecha.mes";}
-
-                    
 
 
-        return $sql;
+       return $sql;
+   }
+
+
+    
+    public static function getSigeva($escuela) {
+
+        return $sql = "SELECT  flag, sum(cantidad) as cantidad FROM sigeva.mapa1 WHERE flag = $escuela group by 1";    
+    }
+    
+    public static function getMapa2() {
+
+        return $sql = "select
+                        pais.codigo_iso2 as pais,
+                        pais.pais as pais_nombre,
+                        count(1) as cantidad
+                        from sigeva.ft_pc_articulos inner join sigeva.pais on 
+                        ft_pc_articulos.pais_edicion_id = pais.id
+                        group by 1";    
     }
 
 }
