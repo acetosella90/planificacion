@@ -4,10 +4,10 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
     <?php
     
-    require_once 'class/Conexion.php';
-    require_once 'class/Clases.php';
-    require_once 'class/Consultas.php';
-    require_once 'funciones/parseo.php';
+   
+include 'funciones/parseo.php';
+include 'class/Clases.php';
+
 
     $conexion = new Conexion();
 
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="row"  id="tabla1" style="display: none;">
+        <div class="row"  id="tabla1" >
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
                     <h2>Tabla de Escuelas por titulos y tipos de alumnos</h2>

@@ -1,9 +1,7 @@
 <?php
 
-require_once '../class/Conexion.php';
-require_once '../class/Clases.php';
-require_once '../class/Consultas.php';
-require_once '../funciones/parseo.php';
+
+require '../class/Clases.php';
 
 $conexion = new Conexion();
 

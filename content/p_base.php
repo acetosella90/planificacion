@@ -85,7 +85,7 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><a href="#">Cantidad y tipo de docente </a></td>
+                            <td>Cantidad y tipo de docente </td>
                             <td>Muestra la cantidad y tipo de docentes totales en la facultad</td>
                             <td>Barras</td>
                             <td>sit</td>
@@ -126,7 +126,7 @@
                     <tbody>
                         <tr>
                               <td>1</td>
-                            <td><a href="#">Cantidades totales y tipo de docente por unidad academica </a></td>
+                            <td>Cantidades totales y tipo de docente por unidad academica</td>
                             <td>Muestra la cantidad y tipo de docentes totales de cada unidad academica</td>
                             <td>Barras</td>
                             <td>sit</td>
@@ -166,7 +166,7 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><a href="#">Designacion y tipo de docente por unidad academica </a></td>
+                            <td>Designacion y tipo de docente por unidad academica </td>
                             <td>Muestra las designaciones asignadas a cada docente en las distitnas unidades academicas</td>
                             <td>Lineal</td>
                             <td>sit</td>
@@ -287,7 +287,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td><a href="#">Presupuesto total pagado por unidad</a></td>
+                        <td>Presupuesto total pagado por unidad</td>
                         <td>Presupuesto total pagado por cada unidad academica de la facultad</td>
                         <td>Barras</td>
                         <td>sit</td>
@@ -327,7 +327,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td><a href="#">Presupuesto desagregado por unidad academica</a></td>
+                        <td>Presupuesto desagregado por unidad academica</td>
                         <td>Muestra los gastos de presupuesto de cada unidad academica de la facultad, desagregado en salarios y otros gastos</td>
                         <td>Barras/Torta</td>
                         <td>sit</td>
@@ -410,7 +410,7 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td><a href="#">Cantidad de egresados</a></td>
+                        <td>Cantidad de egresados</td>
                         <td>Muestra la cantidad total por año de egresados en la facultad</td>
                         <td>Barras</td>
                         <td>elit</td>
@@ -475,7 +475,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                         <td><a href="#">Cantidad de alumnos desagregados por unidad y datos</a></td>
+                         <td>Cantidad de alumnos desagregados por unidad y datos</td>
                         <td>Muestra la cantidad desagregadas por año junto con datos de los alumnos  por unidad academica</td>
                         <td>dolor</td>
                         <td>sit</td>
@@ -557,14 +557,14 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><a href="#" >Cantidad y tipo de investigadores </a></td>
+                            <td>Cantidad y tipo de investigadores </td>
                             <td>Muestra la cantidad y tipo de investigadores totales por año en la facultad</td>
                             <td>Barras</td>
                             <td>sit</td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><a href="#">Producción academica </a></td>
+                            <td>Producción academica </td>
                             <td>Muestra total de produccion academica divididas en categorias (ej:publicacion en revistas) </td>
                             <td>Barras</td>
                             <td>elit</td>
@@ -594,14 +594,14 @@
                     <tbody>
                         <tr>
                               <td>1</td>
-                            <td><a href="#">Cantidad y tipo de investigadores por unidad academica </a></td>
+                            <td>Cantidad y tipo de investigadores por unidad academica </td>
                             <td>Muestra la cantidad y tipo de investigadores totales de cada unidad academica</td>
                             <td>Barras</td>
                             <td>sit</td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><a href="#">Producción academica por unidad</a></td>
+                            <td>Producción academica por unidad</td>
                             <td>Muestra total de produccion academica por cada unidad academica divididas en categorias (ej:publicacion en revistas)</td>
                             <td>Barras/Torta</td>
                             <td>elit</td>

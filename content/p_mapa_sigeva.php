@@ -1,5 +1,5 @@
 <?php
-require_once 'class/Clases.php';
+require 'class/Clases.php';
 
 $puntos = new Clases();
 
@@ -282,7 +282,7 @@ $p = $puntos->getPuntosMapa();
 
     var mapData = [
 <?php foreach ($p as $val) { ?>
-            {"code": "<?php echo $val[pais] ?>", "name": "<?php echo $val[pais_nombre] ?>", "value": <?php echo $val[cantidad] ?>, "color": "red"},
+            {"code": "<?php echo $val[pais] ?>", "name": "<?php echo $val[pais_nombre] ?>", "value": <?php echo $val[cantidad] ?>, "color": "#428BCA"},
 <?php } ?>
 
     ]
@@ -426,9 +426,9 @@ $p = $puntos->getPuntosMapa();
 
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
-    <h1 class="page-header" style="text-shadow: -5px -5px 5px #aaa;">Mapa Investigadores </h1>
+    <h1 class="page-header" style="border-bottom: 2px solid #428BCA;">Mapa Investigadores - Global </h1>
     <div class="row" style="margin-left: 0px;" >
-        <div style="float: left" id="chartdiv"></div>
-        <div style="float: left" id="info"></div>
+        <div  id="chartdiv"></div>
+        <div  id="info"></div>
     </div>
 </div>

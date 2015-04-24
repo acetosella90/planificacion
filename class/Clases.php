@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Conexion.php';
-require_once 'Consultas.php';
-require_once 'funciones/parseo.php';
+require 'Conexion.php';
+require 'Consultas.php';
+include '../funciones/parseo.php';
 
 /**
  * Description of Clases
@@ -130,7 +130,7 @@ class Clases {
                 $c = "";
         }
 
-        echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $a . " value='credito_original'>credito_original";
+        echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $a . " value='credito_original'>credito original";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $b . " value='credito'>credito";
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_credito[]'" . $c . " value='preventivo'>preventivo";
     }
