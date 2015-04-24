@@ -87,8 +87,8 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                 <div class="row">
                     <div  class="col-sm-3 col-md-1 sidebar">
                         <ul id="div" class="nav nav-sidebar">
-                            <li id="p_mapa" ><a href="#">Mapa Unsam <span class="sr-only">(current)</span></a></li>
-                            <li id="p_mapa_sigeva" ><a href="index.php?p=mapa">Mapa<span class="sr-only">(current)</span></a></li>
+                            <li id="p_mapa" ><a href="#">Mapa Unsam <span class="sr-only"></span></a></li>
+                            <li id="p_mapa_sigeva" ><a href="index.php?p=mapa">Mapa Investigadores<span class="sr-only"></span></a></li>
                             <li id="p_base"><a href="#">Cubos/Reportes</a></li>
                             <li><a href="#">Analisis</a></li>
                             <li><a href="#">Exportar</a></li>

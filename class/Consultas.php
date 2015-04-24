@@ -411,9 +411,18 @@ class Consultas {
 
     public static function getSigeva($escuela) {
 
-        return $sql = "SELECT  flag, sum(cantidad) as cantidad FROM sigeva.mapa1 WHERE flag = $escuela group by 1";
-        
-        
+        return $sql = "SELECT  flag, sum(cantidad) as cantidad FROM sigeva.mapa1 WHERE flag = $escuela group by 1";    
+    }
+    
+    public static function getMapa2() {
+
+        return $sql = "select
+                        pais.codigo_iso2 as pais,
+                        pais.pais as pais_nombre,
+                        count(1) as cantidad
+                        from sigeva.ft_pc_articulos inner join sigeva.pais on 
+                        ft_pc_articulos.pais_edicion_id = pais.id
+                        group by 1";    
     }
 
 }
