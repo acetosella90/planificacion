@@ -251,26 +251,19 @@ class Consultas {
         $anio = date('Y');
 
         $sql = "select
-                    d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
-                    d_fecha.anio as c1,
-                    sum(ft_movimientos.credito_original) as m0,
-                    sum(ft_movimientos.credito) as m1,
-                    sum(ft_movimientos.preventivo) as m2
-                    from
-                    pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
-                    pilaga.ft_movimientos as ft_movimientos,
-                    pilaga.d_fecha as d_fecha
-                    where
-                    ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
-                    and
-                    d_unidad_presupuestaria.flag = $escuela
-                    and
-                    ft_movimientos.fecha_id = d_fecha.fecha_id
-                    and
-                    d_fecha.anio = " . $anio . "
-                    group by
-                    d_unidad_presupuestaria.unidad_presupuestaria_desc,
-                    d_fecha.anio";
+d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
+anio_id as c1,
+sum(ft_movimientos.credito_original) as m0,
+sum(ft_movimientos.credito) as m1,
+sum(ft_movimientos.preventivo) as m2
+
+from pilaga.ft_movimientos as ft_movimientos inner join pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria on 
+ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
+
+where 
+d_unidad_presupuestaria.flag = $escuela and
+and anio_id = " . $anio . "
+group by 1,2";
 
         return $sql;
     }
@@ -380,7 +373,7 @@ class Consultas {
                    and 
                        ft_movimientos.fecha_id = d_fecha.fecha_id
                 group by
-                    d_unidad_presupuestaria.unidad_presupuestaria_desc,
+                   
                     d_fecha.anio,
                      d_fecha.mes";
         }

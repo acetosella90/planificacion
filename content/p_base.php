@@ -59,12 +59,7 @@
                              <td>    </td>
                          <td>    </td>
                         </tr>
-                        <tr>
-                            <td class="principal1-3 boton hvr-fade">DATOS DESAGREGADOS POR UNIDAD ACADÉMICA</td>
-                        <td>    </td>
-                             <td>    </td>
-                         <td>    </td>
-                        </tr>
+                      
                     </tbody>
 
                 </table>
@@ -90,20 +85,7 @@
                             <td>Barras</td>
                             <td>sit</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>amet</td>
-                            <td>consectetur</td>
-                            <td>adipiscing</td>
-                            <td>elit</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Integer</td>
-                            <td>nec</td>
-                            <td>odio</td>
-                            <td>Praesent</td>
-                        </tr>
+                  
                         <tr>
                             <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
                         </tr>
@@ -131,70 +113,14 @@
                             <td>Barras</td>
                             <td>sit</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>amet</td>
-                            <td>consectetur</td>
-                            <td>adipiscing</td>
-                            <td>elit</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Integer</td>
-                            <td>nec</td>
-                            <td>odio</td>
-                            <td>Praesent</td>
-                        </tr>
+                  
                         <tr>
                             <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <!--Tabla secundaria mapuche DATOS DESAGREGADOS POR UNIDAD ACADEMICA -->
-            <div id="tabla1-3" class="table-responsive internas" style="display:none;">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Reportes</th>
-                            <th>Descripcion</th>
-                            <th>Tipo de grafico</th>
-                            <th>Header</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Designacion y tipo de docente por unidad academica </td>
-                            <td>Muestra las designaciones asignadas a cada docente en las distitnas unidades academicas</td>
-                            <td>Lineal</td>
-                            <td>sit</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>amet</td>
-                            <td>consectetur</td>
-                            <td>adipiscing</td>
-                            <td>elit</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Integer</td>
-                            <td>nec</td>
-                            <td>odio</td>
-                            <td>Praesent</td>
-                        </tr>
-                        <tr>
-                            
-                        </tr>
-                        
-                        <tr>
-                            <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+ 
         </div>
        </div>
             <!--FIN TABLAS MAPUCHE -->
@@ -211,11 +137,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr >
                         <td class="principal2-1 boton hvr-fade">DATOS AGREGADOS TOTALES DE LA UNIVERSIDAD</td>
                         <td >      </td>
                         <td>      </td>
-                        <td>      </td>
+                        <td>  1    </td>
                     </tr>
                     <tr>  
                         <td class="principal2-2 boton hvr-fade">DATOS POR UNIDAD ACADÉMICA</td>
@@ -223,12 +149,7 @@
                              <td>    </td>
                          <td>    </td>
                     </tr>
-                    <tr>
-                        <td class="principal2-3 boton hvr-fade">DATOS DESAGREGADOS POR UNIDAD ACADÉMICA</td>
-                    <td>    </td>
-                             <td>    </td>
-                         <td>    </td>
-                    </tr>
+                 
                 </tbody>
             </table>
         </div>
@@ -241,7 +162,7 @@
                         <th>Reportes</th>
                         <th>Descripcion</th>
                         <th>Tipo de grafico</th>
-                        <th>Header</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -249,23 +170,10 @@
                         <td>1</td>
                         <td><a href="index.php?pagina=pilaga" >Presupuesto total pagado</a></td>
                         <td>Muestra el presupuesto total anual pagado por la facultad</td>
-                        <td>none</td>
-                        <td>sit</td>
+                        <td>serie</td>
+                        
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
+
                     <tr>
                         <td class='volver boton hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
                     </tr>
@@ -281,7 +189,7 @@
                         <th>Reportes</th>
                         <th>Descripcion</th>
                         <th>Tipo de grafico</th>
-                        <th>Header</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -290,68 +198,16 @@
                         <td>Presupuesto total pagado por unidad</td>
                         <td>Presupuesto total pagado por cada unidad academica de la facultad</td>
                         <td>Barras</td>
-                        <td>sit</td>
+                        
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
+                 
                     <tr>
                         <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <!--Tabla secundaria pilaga DATOS DESAGREGADOS POR UNIDAD ACADEMICA -->
-        <div  id="tabla2-3" class="table-responsive internas" style="display:none;">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Reportes</th>
-                        <th>Descripcion</th>
-                        <th>Tipo de grafico</th>
-                        <th>Header</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Presupuesto desagregado por unidad academica</td>
-                        <td>Muestra los gastos de presupuesto de cada unidad academica de la facultad, desagregado en salarios y otros gastos</td>
-                        <td>Barras/Torta</td>
-                        <td>sit</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
-                    <tr>
-                        <td class='volver boton hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
         <!--FIN TABLAS PILAGA-->
 
         <!--INICIO TABLAS ARAUCANO-->
@@ -379,12 +235,7 @@
                              <td>    </td>
                          <td>    </td>
                     </tr>
-                    <tr>
-                        <td class="principal3-3 boton hvr-fade">DATOS DESAGREGADOS POR UNIDAD ACADÉMICA</td>
-                    <td>    </td>
-                             <td>    </td>
-                         <td>    </td>
-                    </tr>
+                
                 </tbody>
             </table>
         </div>
@@ -397,27 +248,20 @@
                         <th>Reportes</th>
                         <th>Descripcion</th>
                         <th>Tipo de grafico</th>
-                        <th>Header</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
                         <td><a href="index.php?pagina=araucano3" >Cantidad de alumnos</a></td>
-                        <td>Muestra la cantidad total por año de almnos en la facultad</td>
-                        <td>Barras</td>
-                        <td>sit</td>
+                        <td>Serie que muestra el numero total de alumnos por tipo a traves de los años</td>
+                        <td>serie</td>
+                       
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Cantidad de egresados</td>
-                        <td>Muestra la cantidad total por año de egresados en la facultad</td>
-                        <td>Barras</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
+                 
                             
-                        </tr>
+                        
                     <tr>
                         <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
                     </tr>
@@ -433,23 +277,23 @@
                         <th>Reportes</th>
                         <th>Descripcion</th>
                         <th>Tipo de grafico</th>
-                        <th>Header</th>
+                    
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td ><a href="index.php?pagina=araucano" >Cantidad de alumnos por unidad</a></td>
-                        <td>Muestra la cantidad total por año de alumnos por unidad academica</td>
-                        <td>Barras</td>
-                        <td>sit</td>
+                        <td ><a href="index.php?pagina=araucano" >Cantidad y tipo de alumnos por unidad</a></td>
+                        <td>Muestra la cantidad por tipo divididos en cada unidad academica</td>
+                        <td>Barras/columnas/torta</td>
+                        
                     </tr>
                     <tr>
                         <td>2</td>
-                      <td><a href="index.php?pagina=araucano2">Cantidad de egresados por unidad</a></td>
-                        <td>Muestra la cantidad total por año de egresados por unidad academica</td>
-                        <td>Barras/Torta</td>
-                        <td>elit</td>
+                      <td><a href="index.php?pagina=araucano2">Cantidad y tipo de alumno por origen </a></td>
+                        <td>Muestra la cantidad total de alumnos por tipo segun su origen</td>
+                        <td>Barras/columnas/torta</td>
+                       
                     </tr>
                    <tr>
                             
@@ -460,47 +304,8 @@
                 </tbody>
             </table>
         </div>
-        <!--Tabla secundaria pilaga DATOS DESAGREGADOS POR UNIDAD ACADEMICA -->
-        <div  id="tabla3-3" class="table-responsive internas" style="display:none;">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Reportes</th>
-                        <th>Descripcion</th>
-                        <th>Tipo de grafico</th>
-                        <th>Header</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                         <td>Cantidad de alumnos desagregados por unidad y datos</td>
-                        <td>Muestra la cantidad desagregadas por año junto con datos de los alumnos  por unidad academica</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
-                    <tr>
-                        <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!--FIN TABLAS PILAGA-->
+       
+        <!--FIN TABLAS ARAUCANO-->
       
         <!--INICIO TABLAS SIGEVA-->
         <!--tabla principal -->
@@ -531,12 +336,7 @@
                              <td>    </td>
                          <td>    </td>
                         </tr>
-                        <tr>
-                            <td class="principal4-3 boton hvr-fade">DATOS DESAGREGADOS POR UNIDAD ACADÉMICA</td>
-                        <td>    </td>
-                             <td>    </td>
-                         <td>    </td>
-                        </tr>
+                    
                     </tbody>
 
                 </table>
@@ -551,7 +351,7 @@
                             <th>Reportes</th>
                             <th>Descripcion</th>
                             <th>Tipo de grafico</th>
-                            <th>Header</th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -560,14 +360,14 @@
                             <td>Cantidad y tipo de investigadores </td>
                             <td>Muestra la cantidad y tipo de investigadores totales por año en la facultad</td>
                             <td>Barras</td>
-                            <td>sit</td>
+                            
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Producción academica </td>
                             <td>Muestra total de produccion academica divididas en categorias (ej:publicacion en revistas) </td>
                             <td>Barras</td>
-                            <td>elit</td>
+                            
                         </tr>
                         <tr>
                             
@@ -588,7 +388,7 @@
                             <th>Reportes</th>
                             <th>Descripcion</th>
                             <th>Tipo de grafico</th>
-                            <th>Header</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -597,14 +397,14 @@
                             <td>Cantidad y tipo de investigadores por unidad academica </td>
                             <td>Muestra la cantidad y tipo de investigadores totales de cada unidad academica</td>
                             <td>Barras</td>
-                            <td>sit</td>
+                           
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Producción academica por unidad</td>
                             <td>Muestra total de produccion academica por cada unidad academica divididas en categorias (ej:publicacion en revistas)</td>
                             <td>Barras/Torta</td>
-                            <td>elit</td>
+                            
                         </tr>
                         <tr>
                             
@@ -615,46 +415,7 @@
                     </tbody>
                 </table>
             </div>
-            <!--Tabla secundaria mapuche DATOS DESAGREGADOS POR UNIDAD ACADEMICA -->
-            <div id="tabla4-3" class="table-responsive internas" style="display:none;">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Reportes</th>
-                            <th>Descripcion</th>
-                            <th>Tipo de grafico</th>
-                            <th>Header</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Cantidad y tipo de docente</td>
-                            <td>ipsum</td>
-                            <td>dolor</td>
-                            <td>sit</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>amet</td>
-                            <td>consectetur</td>
-                            <td>adipiscing</td>
-                            <td>elit</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Integer</td>
-                            <td>nec</td>
-                            <td>odio</td>
-                            <td>Praesent</td>
-                        </tr>
-                        <tr>
-                            <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      
         </div>
        </div>
             <!--FIN TABLAS SIGEVA -->
