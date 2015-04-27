@@ -4,6 +4,7 @@ require 'class/Clases.php';
 $puntos = new Clases();
 
 $p = $puntos->getPuntosMapa();
+
 ?>
 <style>
     #chartdiv {
@@ -15,10 +16,9 @@ $p = $puntos->getPuntosMapa();
     }	
 </style>
 
-<script src="../js/ammap.js"></script>
-<script src="../js/worldHigh.js"></script>
-<script src="../js/dark.js"></script>
+
 <script>
+      $('body').css("background-image","url()");
     /*
      although ammap has methos like getAreaCenterLatitude and getAreaCenterLongitude,
      they are not suitable in quite a lot of cases as the center of some countries
@@ -26,18 +26,7 @@ $p = $puntos->getPuntosMapa();
      That's why wehave the coordinates stored here
      */
 
-    $(document).ready(function () {
-
-        $('body').css("background-image", "url()");
-        $('#p_base').removeClass("active");
-        $('#p_mapa').removeClass("active");
-        $('#p_contacto').removeClass("active");
-        $('#p_historia').removeClass("active");
-        $('#p_mapa_sigeva').addClass("active");
-
-
-    });
-
+   
     var latlong = {};
     latlong["AD"] = {"latitude": 42.5, "longitude": 1.5};
     latlong["AE"] = {"latitude": 24, "longitude": 54};
@@ -303,9 +292,10 @@ $p = $puntos->getPuntosMapa();
             max = value;
         }
     }
-
+    
     // build map
     AmCharts.ready(function () {
+        
         AmCharts.theme = AmCharts.themes.dark;
         map = new AmCharts.AmMap();
         map.pathToImages = "http://www.amcharts.com/lib/3/images/";

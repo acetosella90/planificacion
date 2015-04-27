@@ -1,6 +1,8 @@
+
 <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-2 main" >
+    <h1 class="page-header" style="border-bottom: 2px solid #428BCA;">Historia de la UNSAM</h1>
     <img src="http://www.unsam.edu.ar/img/top_historia.jpg" width="600" height="172" alt="imagen del campus" />
-    <h1>Historia de la UNSAM</h1> 
+    
     <p>Radicada en la ciudad de la tradici&oacute;n y  capital de la industria, la UNSAM fue creada como respuesta a dos necesidades:  la descentralizaci&oacute;n de las grandes universidades y el deseo de la comunidad de  San Mart&iacute;n de contar con una universidad en su territorio. <br />
         La  iniciativa tuvo origen en la Biblioteca Popular de San Mart&iacute;n, impulsada por un  grupo de vecinos. En julio de 1990 el diputado Antonio Libonatti present&oacute; ante  la C&aacute;mara de Diputados el Proyecto de Ley de Creaci&oacute;n de la Universidad  Nacional de San Mart&iacute;n. Esa iniciativa condujo a la fundaci&oacute;n de la UNSAM, el  10 de junio de 1992, por Ley de la Naci&oacute;n No. 24.095.&nbsp; <br />
         El Poder  Ejecutivo design&oacute; a Daniel Malcolm como Rector organizador. Las primeras  actividades acad&eacute;micas de grado y posgrado tuvieron lugar en 1994.<br />

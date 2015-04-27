@@ -46,7 +46,7 @@ if ($araucano) {
         }
     }
     echo "<div  class='col-xs-18 col-md-3'>";
-    echo "<strong><h4 style='text-decoration: underline;'>Información de Araucano</h4></strong>";
+    echo "<strong><h4 style='text-decoration: underline;'>Información de Alumnos</h4></strong>";
     echo "<strong>Cantidad de Carreras: </strong>" . count($titulo);
     echo "<br><strong>Cantidad de Egresados: </strong>" . $egresados;
     echo "<br><strong>Cantidad de Alumnos (año " . (date('Y') - 2) . "): </strong>" . $alumnos;
@@ -61,7 +61,7 @@ if ($pilaga) {
       
     
     echo "<div  class='col-xs-18 col-md-3'>";
-    echo"<strong><h4 style='text-decoration: underline;'>Información de Pilaga</h4></strong>";
+    echo"<strong><h4 style='text-decoration: underline;'>Información de Presupuesto</h4></strong>";
     echo "<strong>Credito Original: </strong> $ ". number_format($todo[0][m0], 2, ',', '.');
     echo "<br><strong>Credito: </strong> $ ". number_format($todo[0][m1], 2, ',', '.');;
     echo "<br><strong>Saldo presupuestario: </strong> $ ". number_format($todo[0][m2], 2, ',', '.');
@@ -76,9 +76,9 @@ if ($mapuche) {
       
     
     echo "<div  class='col-xs-18 col-md-3'>";
-    echo"<strong><h4 style='text-decoration: underline;'>Información de Mapuche</h4></strong>";
-    echo "<strong>Docentes: </strong>". $todo[0][cantcargosliq];
-    echo "<br><strong>No Docentes: </strong>". $todo[1][cantcargosliq];
+    echo"<strong><h4 style='text-decoration: underline;'>Información de Personal</h4></strong>";
+    echo "<strong>Docentes: </strong>"; if($todo[0][cantcargosliq])echo $todo[0][cantcargosliq]; else echo "0";
+    echo "<br><strong>No Docentes: </strong>"; if($todo[1][cantcargosliq])echo $todo[1][cantcargosliq]; else echo "0";
     echo "<br><strong>Superior: </strong>"; if($todo[2][cantcargosliq]) echo $todo[2][cantcargosliq]; else echo "0";
     echo "</div>";
 }
@@ -90,7 +90,7 @@ if ($sigeva) {
     $todo = $consulta->fetchAll();
 
     echo "<div  class='col-xs-18 col-md-3'>";
-    echo"<strong><h4 style='text-decoration: underline;'>Información de Sigeva</h4></strong>";
+    echo"<strong><h4 style='text-decoration: underline;'>Información de Investigación</h4></strong>";
     echo "<strong>Investigadores: </strong>".$todo[0][cantidad];
     echo "</div>";
 }
