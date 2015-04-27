@@ -250,6 +250,7 @@ class Consultas {
 
         $anio = date('Y');
 
+
         $sql = "select
                    d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
                    anio_id as c1,
@@ -264,8 +265,8 @@ class Consultas {
                    and
                    anio_id = " . $anio . "
                    group by
-                   1,2"
-;
+                   1,2";
+
 
         return $sql;
     }
@@ -275,32 +276,25 @@ class Consultas {
         $anio = date('Y-m');
 
         $sql = "SELECT
-                    dim_periodo2.fecha_id ,
-                    map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc ,
-                    -- map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_desc as c3,
-                    map_dw_lt_categoriascargo.escalafon_desc ,
-                    sum(ft_lt_cargos.importenetocargo) as importenetocargo ,
-                    sum(ft_lt_cargos.cantcargosliq) as cantcargosliq
-                FROM
-                    mapuche.dim_periodo2 as dim_periodo2,
-                    mapuche.ft_lt_cargos as ft_lt_cargos,
-                    mapuche.map_dw_lt_imppresupsubdependencia as map_dw_lt_imppresupsubdependencia,
-                    mapuche.map_dw_lt_categoriascargo as map_dw_lt_categoriascargo
-                WHERE
-                    ft_lt_cargos.periodoinfo = dim_periodo2.fecha_id
-                    AND
-                    dim_periodo2.fecha_id = '2015-02-01'
-                    AND
-                    ft_lt_cargos.imppresupsubdependencia_id = map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_id
-                    AND
-                    ft_lt_cargos.categoria_id = map_dw_lt_categoriascargo.categoria_id
-                    AND
-                    mapuche.map_dw_lt_imppresupsubdependencia.flag = $escuela
-                GROUP BY
-                    dim_periodo2.fecha_id,
-                    map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc,
-                    -- map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_desc,
-                    map_dw_lt_categoriascargo.escalafon_desc";
+                
+                periodoinfo,
+                map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc ,
+                map_dw_lt_categoriascargo.escalafon_desc ,
+                sum(ft_lt_cargos.importenetocargo) as importenetocargo ,
+                sum(ft_lt_cargos.cantcargosliq) as cantcargosliq
+
+                FROM mapuche.ft_lt_cargos as ft_lt_cargos inner join mapuche.map_dw_lt_imppresupsubdependencia as map_dw_lt_imppresupsubdependencia on 
+
+                ft_lt_cargos.imppresupsubdependencia_id = map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_id
+
+                inner join mapuche.map_dw_lt_categoriascargo as map_dw_lt_categoriascargo on 
+
+                ft_lt_cargos.categoria_id = map_dw_lt_categoriascargo.categoria_id
+
+                where periodoinfo = '2015-02-01' 
+                 AND mapuche.map_dw_lt_imppresupsubdependencia.flag = $escuela
+
+                GROUP BY 1,2,3";
 
         return $sql;
     }

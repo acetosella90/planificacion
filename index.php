@@ -40,7 +40,7 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
             <script src="test/js/modules/data.js"></script>
             <script src="test/js/modules/exporting.js"></script>
             <script src="test/js/highcharts-3d.js"></script>
-            
+            <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
             
            
             
@@ -136,7 +136,7 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
 
             <script src='js/botones.js'></script>
             <script src='js/funciones.js'></script>
-            
+            <script src="js/tool.js"></script>
            
 
 
