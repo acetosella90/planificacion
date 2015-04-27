@@ -250,7 +250,7 @@ class Consultas {
 
         $anio = date('Y');
 
-       echo $sql = "select
+        $sql = "select
                    d_unidad_presupuestaria.unidad_presupuestaria_desc as c0,
                    anio_id as c1,
                    sum(ft_movimientos.credito_original) as m0,

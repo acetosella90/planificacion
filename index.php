@@ -119,7 +119,8 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                         if ($_GET[p] == 'mapa') 
                             include './content/p_mapa_sigeva.php';    
                         
-
+                        if ($_GET[p] == 'mapuche') 
+                            include './content/p_tabla-araucano.php';
                         ?>
                     </div>
 

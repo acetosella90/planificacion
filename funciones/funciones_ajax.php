@@ -26,4 +26,7 @@ if ($_POST[id] == 'p_tabla-pilaga')
 
 if ($_POST[id] == 'p_mapa_sigeva')
     include_once '../content/p_mapa_sigeva.php';
+
+if ($_POST[id] == 'p_tabla-mapuche')
+    include_once '../content/p_tabla-mapuche.php';
 ?>
