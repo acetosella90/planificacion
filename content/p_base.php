@@ -80,7 +80,7 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Cantidad y tipo de docente </td>
+                            <td><a href="index.php?pagina=mapuche" >Cantidad y tipo de de personal por unidad </a></td>
                             <td>Muestra la cantidad y tipo de docentes totales en la facultad</td>
                             <td>Barras</td>
                             <td>sit</td>
