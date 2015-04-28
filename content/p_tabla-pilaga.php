@@ -16,6 +16,8 @@
     $todo2 = $consulta->fetchAll();
 
     $unidades = getUnidades($todo2);
+    
+    
     ?>
 
     <div class="row">

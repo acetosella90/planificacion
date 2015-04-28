@@ -157,3 +157,20 @@ function getUnidades($todo) {
     }
     return $unidades;
 }
+
+
+function getDependencias($todo) {
+
+    $unidades = array();
+    $unidades[0]='Facultad Unsam';
+    $j = 1;
+
+    for ($i = 1; $i < count($todo); $i++) {
+
+        if ($unidades[$j - 1] != $todo[$i]['unidad']||$todo[$i]['unidad']!='Valor erróneo o nulo' ) {
+            $unidades[$j] = $todo[$i]['unidad'];
+            $j++;
+        }
+    }
+    return $unidades;
+}

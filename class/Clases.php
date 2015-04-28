@@ -156,4 +156,36 @@ class Clases {
         return $todo;
     }
 
-}
+
+    
+      static public function getTipoEscalafon() {
+
+        if ($_SERVER["REQUEST_METHOD"] != 'POST') {
+            $a = " checked ";
+            $b = " checked ";
+            $c = " checked ";
+        } else {
+
+            if ($_POST[tipo_alumno][0] == "Docente" || $_POST[tipo_alumno][1] == "Docente" || $_POST[tipo_alumno][2] == "Docente")
+                $a = " checked ";
+            else
+                $a = "";
+
+
+            if ($_POST[tipo_alumno][0] == "No Docente" || $_POST[tipo_alumno][1] == "No Docente" || $_POST[tipo_alumno][2] == "No Docente")
+                $b = " checked ";
+            else
+                $b = "";
+
+            if ($_POST[tipo_alumno][0] == "Superior" || $_POST[tipo_alumno][1] == "Superior" || $_POST[tipo_alumno][2] == "Superior")
+                $c = " checked ";
+            else
+                $c = "";
+        }
+
+        echo "<input  style=' margin-left: 5px;' type='checkbox' name='tipo_escalafon[]'" . $a . " value='Docente'>Docente";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_escalafon[]'" . $b . " value='No Docente'>No Docente";
+        echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_escalafon[]'" . $c . " value='Superior'>Superior";
+    }  
+    
+    }

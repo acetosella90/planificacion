@@ -347,7 +347,8 @@ class Consultas {
                    pilaga.d_fecha as d_fecha
                    where
                    ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
-                   
+                   and 
+                   anio=2014
 
                    and 
                        ft_movimientos.fecha_id = d_fecha.fecha_id
@@ -370,7 +371,8 @@ class Consultas {
                     pilaga.d_fecha as d_fecha
                     where
                     ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
-                    
+                    and 
+                    anio=2014
                     and
                     d_unidad_presupuestaria.unidad_presupuestaria_desc= " . "'" . $combo_unidades . "'" .
 
@@ -409,4 +411,54 @@ class Consultas {
                         group by 1";    
     }
 
-}
+
+    
+       public static function getTodoMapuche2() {
+
+        $anio = date('Y-m');
+
+        $sql = "select
+    mapuche.dim_periodo2.anio as anio,
+    mapuche.dim_periodo2.mes as mes,
+    map_dw_lt_categoriascargo.escalafon_desc as escalofon,
+    map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc as unidad,
+
+    
+    sum(ft_lt_cargos.cantcargosactivos) as total
+    FROM mapuche.ft_lt_cargos as ft_lt_cargos inner join mapuche.map_dw_lt_imppresupsubdependencia as map_dw_lt_imppresupsubdependencia on 
+
+                ft_lt_cargos.imppresupsubdependencia_id = map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_id
+
+                inner join mapuche.map_dw_lt_categoriascargo as map_dw_lt_categoriascargo on 
+
+                ft_lt_cargos.categoria_id = map_dw_lt_categoriascargo.categoria_id
+
+       inner join mapuche.dim_periodo2 as dim_periodo2 on 
+      
+       ft_lt_cargos.periodoinfo = dim_periodo2.fecha_id
+
+
+
+    where
+
+
+      dim_periodo2.anio = 2014
+
+
+
+
+
+     group by
+        anio,
+	mes,
+        map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc
+     order by 
+       unidad,mes";
+     return $sql;   
+    } 
+    
+    
+    
+    
+    
+    }
