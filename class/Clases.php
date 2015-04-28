@@ -113,18 +113,18 @@ class Clases {
             $c = " checked ";
         } else {
 
-            if ($_POST[tipo_alumno][0] == "credito_original" || $_POST[tipo_alumno][1] == "credito_original" || $_POST[tipo_alumno][2] == "credito_original")
+            if ($_POST[tipo_credito][0] == "credito_original" || $_POST[tipo_credito][1] == "credito_original" || $_POST[tipo_credito][2] == "credito_original")
                 $a = " checked ";
             else
                 $a = "";
 
 
-            if ($_POST[tipo_alumno][0] == "credito" || $_POST[tipo_alumno][1] == "credito" || $_POST[tipo_alumno][2] == "credito")
+            if ($_POST[tipo_credito][0] == "credito" || $_POST[tipo_credito][1] == "credito" || $_POST[tipo_credito][2] == "credito")
                 $b = " checked ";
             else
                 $b = "";
 
-            if ($_POST[tipo_alumno][0] == "preventivo" || $_POST[tipo_alumno][1] == "preventivo" || $_POST[tipo_alumno][2] == "preventivo")
+            if ($_POST[tipo_credito][0] == "preventivo" || $_POST[tipo_credito][1] == "preventivo" || $_POST[tipo_credito][2] == "preventivo")
                 $c = " checked ";
             else
                 $c = "";
