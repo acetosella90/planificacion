@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 echo "0";
@@ -8,9 +7,10 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
     <!DOCTYPE html>
     <html lang="en">
         <head>
-          <!-- <meta http-equiv="content-type" content="text/html; charset=utf-8"/> -->
-          
+            <!-- <meta http-equiv="content-type" content="text/html; charset=utf-8"/> -->
+
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="">
             <meta name="author" content="">
@@ -25,25 +25,18 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
             <link href="css/Hover-master/css/hover-min.css" rel="stylesheet">
             <!-- Bootstrap core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
-            
-            
-            
-            
+
             <script src="js/jquery.min.js"></script>
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            
+
             <script src="js/ammap.js"></script>
             <script src="js/worldHigh.js"></script>
             <script src="js/dark.js"></script>
-            
+
             <script src="test/js/highcharts.js"></script>
             <script src="test/js/modules/data.js"></script>
             <script src="test/js/modules/exporting.js"></script>
             <script src="test/js/highcharts-3d.js"></script>
-            <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
-            
-           
-            
+       
             <!-- Custom styles for this template -->
             <link href="css/dashboard.css" rel="stylesheet">
             <link href="css/cosas.css" rel="stylesheet">
@@ -88,39 +81,41 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                 <div class="row">
                     <div  class="col-sm-3 col-md-1 sidebar">
                         <ul id="div" class="nav nav-sidebar">
-                            <li id="p_mapa" ><a href="#">Mapa Unsam <span class="sr-only"></span></a></li>
-                            <li id="p_mapa_sigeva" ><a href="index.php?p=mapa">Mapa Investigadores<span class="sr-only"></span></a></li>
-                            <li id="p_base"><a href="#">Cubos/Reportes</a></li>
+                            <li id="p_mapaT" ><a href="#">Mapas<span class="sr-only"></span></a></li>
+                           <!-- <li id="p_mapa_sigeva" ><a href="index.php?p=mapa">Mapa Investigadores<span class="sr-only"></span></a></li> -->
+                            <li id="p_base"><a href="#">Reportes</a></li>
                             <li><a href="#">Analisis</a></li>
                             <li><a href="#">Exportar</a></li>
                         </ul>
                         <ul class="nav nav-sidebar">
                             <li id="p_historia"><a href="#">Historia</a></li>
                             <li><a href="http://www.unsam.edu.ar">Ir a Unsam</a></li>
-                            <li id="p_contacto"><a href="#">Contactenos</a></li>
+                            <li id="p_contacto"><a href="#">Contacto</a></li>
                         </ul>
                     </div>
 
                     <div id="contenido" ><!-- CONTENIDO -->
                         <?php
-                        if ($_GET[pagina] == 'araucano') 
+                        if ($_GET[pagina] == 'araucano')
                             include './content/p_tabla-araucano.php';
-                        
-                        if ($_GET[pagina] == 'araucano2') 
+
+                        if ($_GET[pagina] == 'araucano2')
                             include './content/p_tabla-araucano2.php';
 
-                        
-                        if ($_GET[pagina] == 'araucano3') 
+
+                        if ($_GET[pagina] == 'araucano3')
                             include './content/p_tabla-araucano3.php';
+
+
+                        if ($_GET[pagina] == 'pilaga')
+                            include './content/p_tabla-pilaga.php';
                         
-                        if ($_GET[pagina] == 'pilaga') 
-                            include './content/p_tabla-pilaga.php';   
-                        
-                        if ($_GET[p] == 'mapa') 
-                            include './content/p_mapa_sigeva.php';    
-                        
+                        if ($_GET[pagina] == 'mapa2')
+                            include './content/p_mapa_sigeva.php';
+
                         if ($_GET[p] == 'mapuche') 
                             include './content/p_tabla-araucano.php';
+
                         ?>
                     </div>
 
@@ -136,15 +131,10 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
 
             <script src='js/botones.js'></script>
             <script src='js/funciones.js'></script>
-            <script src="js/tool.js"></script>
-           
-
-
+         
         </body>
     </html>
     <?php
-} else 
+} else
     header('Location: login.php');
-
-
 ?>

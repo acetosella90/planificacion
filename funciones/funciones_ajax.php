@@ -6,6 +6,9 @@ if ($_POST[id] == 'p_base')
 if ($_POST[id] == 'p_mapa')
     include_once '../content/p_mapa.php';
 
+if ($_POST[id] == 'p_mapaT')
+    include_once '../content/p_mapas.php';
+
 if ($_POST[id] == 'p_tabla-araucano')
     include_once '../content/p_tabla-araucano.php';
 
@@ -27,6 +30,10 @@ if ($_POST[id] == 'p_tabla-pilaga')
 if ($_POST[id] == 'p_mapa_sigeva')
     include_once '../content/p_mapa_sigeva.php';
 
+if ($_POST[id] == 'mapa1')
+    include '../content/p_mapa.php';
+
 if ($_POST[id] == 'p_tabla-mapuche')
     include_once '../content/p_tabla-mapuche.php';
+
 ?>

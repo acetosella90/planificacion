@@ -1,5 +1,5 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main" >
-    <h1 class="page-header" style="text-shadow: -5px -5px 5px #aaa;">Mapa Interactivo de la Universidad Nacional San Martin</h1>
+     <h1 class="page-header" style="border-bottom: 2px solid #428BCA;">Mapa Interactivo de la Universidad Nacional San Martin</h1>
     <div class="row" style="margin-left: 0px;" >
         <h4><span class="glyphicon glyphicon-circle-arrow-down"> <strong>Filtros</strong></span></h4>
 
