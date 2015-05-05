@@ -162,7 +162,7 @@ function getUnidades($todo) {
 function getDependencias($todo) {
 
     $unidades = array();
-    $unidades[0]='Facultad Unsam';
+    $unidades[0]='FACULTAD UNSAM';
     $j = 1;
 
     for ($i = 1; $i < count($todo); $i++) {

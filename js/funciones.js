@@ -309,7 +309,7 @@ $(function () {
                 type: 'column'
             },
             title: {
-                text: 'Personal por Tipos de escalafon'
+                text: 'Personal en Cargos por Tipos de escalafon (Febrero 2015)'
             },
             yAxis: {
                 allowDecimals: false,

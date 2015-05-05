@@ -34,7 +34,7 @@ include 'class/Clases.php';
                
 Clases::getUnidades($unidades); // Combo facultades
 Clases::getTipoEscalafon(); // Checks
-                
+    
                  ?>
                 <input style="margin-left: 10px; " type="submit" value="Buscar">
             </form>
@@ -51,6 +51,7 @@ Clases::getTipoEscalafon(); // Checks
         $consulta2->execute();
         $todo3 = $consulta2->fetchAll();
     
+        
         ?>
 <div class="row" style="margin-top: 40px;">
             <div class="col-xs-18 col-md-12">
@@ -64,7 +65,7 @@ Clases::getTipoEscalafon(); // Checks
    <div class="row"  id="tabla1" style="display: none;">
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
-                    <h2>Nombre y apellido de personal por tipo, escuela y escalafon</h2>
+                    <h2>Nombre , Apellido y Categoria de personal por tipo, escuela y escalafon</h2>
                     <table style='float: left;'  class="table table-hover">
                         <tbody>
                         <td><strong>Nombre y Apellido</strong></td>
@@ -73,9 +74,9 @@ Clases::getTipoEscalafon(); // Checks
                         
                         
                         </tbody>
-                        <?php for ($i = 0; $i < count($todo); $i++) { ?>
+                        <?php for ($i = 0; $i < count($todo2); $i++) { ?>
                             <tr>
-                                <td><?php echo $todo2[$i][nombre];echo" "; echo$todo2[$i][apellido]; ?></td>
+                                <td style="color: #428BCA"><?php echo $todo2[$i][nombre];echo" "; echo$todo2[$i][apellido]; ?></td>
                                 <td><?php echo $todo2[$i][escalafon]; ?></td>
                                 <td><?php echo $todo2[$i][categoria_desc]; ?></td>
                               <?php

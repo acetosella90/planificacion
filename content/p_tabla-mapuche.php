@@ -51,30 +51,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="row"  id="tabla1" >
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
-                    <h2>Tabla de Tipo de Credito por Unidad</h2>
+                    <h2 style="color:#428BCA">Tabla de Tipo de Credito por Unidad</h2>
                     <table style='float: left;'  class="table table-hover">
                         <tbody>
-                        <td><strong>Unidad Dependencia</strong></td>
+                        <td style="color:#428BCA"><strong>Unidad Dependencia</strong></td>
 
-                        <td><strong>Tipo de personal</strong></td>
+                        <td style="color:#428BCA"><strong>Tipo de personal</strong></td>
 
-                        <td><strong>Enero</strong></td>
-                        <td><strong>Febrero</strong></td>
-                        <td><strong>Marzo</strong></td>
-                        <td><strong>Abril</strong></td>
-                        <td><strong>Mayo</strong></td>
-                        <td><strong>Junio</strong></td>
-                        <td><strong>Julio</strong></td>
-                        <td><strong>Agosto</strong></td>
-                        <td><strong>Septiembre</strong></td>   
-                        <td><strong>Octubre</strong></td>
-                        <td><strong>Noviembre</strong></td>
-                        <td><strong>Diciembre</strong></td>
+                        <td style="color:#428BCA"><strong>Enero</strong></td>
+                        <td style="color:#428BCA"><strong>Febrero</strong></td>
+                        <td style="color:#428BCA"><strong>Marzo</strong></td>
+                        <td style="color:#428BCA"><strong>Abril</strong></td>
+                        <td style="color:#428BCA"><strong>Mayo</strong></td>
+                        <td style="color:#428BCA"><strong>Junio</strong></td>
+                        <td style="color:#428BCA"><strong>Julio</strong></td>
+                        <td style="color:#428BCA"><strong>Agosto</strong></td>
+                        <td style="color:#428BCA"><strong>Septiembre</strong></td>   
+                        <td style="color:#428BCA"><strong>Octubre</strong></td>
+                        <td style="color:#428BCA"><strong>Noviembre</strong></td>
+                        <td style="color:#428BCA"><strong>Diciembre</strong></td>
                         </tbody>
 
 
 
-                        <tr><td rowspan="3"><?php if ($todo[0][unidad]) {
+                        <tr><td rowspan="3" style="color: #428BCA"><?php if ($todo[0][unidad]) {
         echo$todo[0][unidad];
     } else {
         echo 'Facultad Unsam';
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if ($e1) {
-        echo "<td>Docente</td>";
+        echo "<td style=color:#428BCA>Docente</td>";
 
         $a = array();
         $a=[0,0,0,0,0,0,0,0,0,0,0,0] ;
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <tr> 
     <?php
     if ($a1) {
-        echo "<td>No Docente</td>";
+        echo "<td style=color:#428BCA>No Docente</td>";
 
 
         $e = array();
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <?php
                             if ($r1) {
-                                echo "<td>Superior</td>";
+                                echo "<td style=color:#428BCA>Superior</td>";
                                 $r = array();
                                 $r=[0,0,0,0,0,0,0,0,0,0,0,0] ;
                                
@@ -233,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         type: 'line'
                     },
                     title: {
-                        text: 'Tipos de personal por meses'
+                        text: 'Tipos de cargos por meses'
                     },
                     subtitle: {
                     },

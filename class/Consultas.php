@@ -445,9 +445,40 @@ order by escalafon,unidad";
     
        public static function getFiltroMapuche2($POST) {
 
-        $anio = date('Y-m');
+       
         $combo_unidades = $POST[combo_unidades];
-        $sql = "select
+      if ($combo_unidades=='FACULTAD UNSAM'){
+          
+          $sql="select
+year(ft_lt_cargos.periodoinfo) as anio,
+month(ft_lt_cargos.periodoinfo) as mes,
+
+map_dw_lt_categoriascargo.escalafon_desc as escalafon,
+
+
+sum(ft_lt_cargos.cantcargosactivos) as total
+
+from mapuche.ft_lt_cargos inner join mapuche.map_dw_lt_imppresupsubdependencia on
+ft_lt_cargos.imppresupsubdependencia_id = map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_id
+inner join mapuche.map_dw_lt_categoriascargo on
+ft_lt_cargos.categoria_id = map_dw_lt_categoriascargo.categoria_id
+inner join mapuche.dim_map_dw_lt_dependenciadesig2 on 
+ft_lt_cargos.dependenciadesign_id = dim_map_dw_lt_dependenciadesig2.dependenciadesign_id
+
+
+where
+year(ft_lt_cargos.periodoinfo) = 2014
+
+
+group by 1,2,3
+order by escalafon,mes";
+          
+          
+      }
+      
+      
+      
+      else{  $sql = "select
 year(ft_lt_cargos.periodoinfo) as anio,
 month(ft_lt_cargos.periodoinfo) as mes,
 /* mapuche.dim_periodo2.anio as anio,
@@ -474,15 +505,52 @@ map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc= " . "'" . $combo_un
 map_dw_lt_categoriascargo.escalafon_desc in ('" . $POST[tipo_escalafon][0] . "','" . $POST[tipo_escalafon][1] . "','" . $POST[tipo_escalafon][2] . "')". 
          "group by 1,2,3,4
 order by escalafon,unidad";
-     return $sql;   
+      } 
+      
+      
+      return $sql;   
     }   
     
     
 public static function getTodoMapuche3($POST) {
 
-        $anio = date('Y-m');
+        
         $combo_unidades = $POST[combo_unidades];         
-        $sql = "select
+       
+        if ($combo_unidades=='FACULTAD UNSAM'){
+        
+     $sql = "  select
+year(ft_lt_cargos.periodoinfo) as anio,
+
+
+map_dw_lt_categoriascargo.escalafon_desc as escalafon,
+
+
+sum(ft_lt_cargos.cantcargosactivos) as total
+
+from mapuche.ft_lt_cargos inner join mapuche.map_dw_lt_imppresupsubdependencia on
+ft_lt_cargos.imppresupsubdependencia_id = map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_id
+inner join mapuche.map_dw_lt_categoriascargo on
+ft_lt_cargos.categoria_id = map_dw_lt_categoriascargo.categoria_id
+inner join mapuche.dim_map_dw_lt_dependenciadesig2 on 
+ft_lt_cargos.dependenciadesign_id = dim_map_dw_lt_dependenciadesig2.dependenciadesign_id
+
+
+where
+ft_lt_cargos.periodoinfo = '2015-02-01'
+
+
+group by 1,2";
+
+            
+            
+            
+        }
+            
+            
+       else{     
+            $sql = "select
+        
 year(ft_lt_cargos.periodoinfo) as anio,
 
 /* mapuche.dim_periodo2.anio as anio,
@@ -509,16 +577,60 @@ map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc= " . "'" . $combo_un
 map_dw_lt_categoriascargo.escalafon_desc in ('" . $POST[tipo_escalafon][0] . "','" . $POST[tipo_escalafon][1] . "','" . $POST[tipo_escalafon][2] . "')".
 "group by 1,2,3
 order by escalafon,unidad";
-     return $sql;   
-    } 
+    
+       } 
+            
+            return $sql;   
+   
+     } 
        
     
     
 public static function getFiltroMapuche3($POST) {
 
-        $anio = date('Y-m');
+       
         $combo_unidades = $POST[combo_unidades];
-        $sql = "select
+      
+      if($combo_unidades=='FACULTAD UNSAM'){  
+       
+          
+    $sql= " select
+year(ft_lt_cargos.periodoinfo) as anio,
+map_dw_lt_persona.nombre,
+map_dw_lt_persona.apellido,
+categoria_desc,
+
+/* mapuche.dim_periodo2.anio as anio,
+mapuche.dim_periodo2.mes as mes, */
+map_dw_lt_categoriascargo.escalafon_desc as escalafon
+
+
+
+
+from mapuche.ft_lt_cargos inner join mapuche.map_dw_lt_imppresupsubdependencia on
+ft_lt_cargos.imppresupsubdependencia_id = map_dw_lt_imppresupsubdependencia.imppresupsubdependencia_id
+inner join mapuche.map_dw_lt_categoriascargo on
+ft_lt_cargos.categoria_id = map_dw_lt_categoriascargo.categoria_id
+inner join mapuche.dim_map_dw_lt_dependenciadesig2 on 
+ft_lt_cargos.dependenciadesign_id = dim_map_dw_lt_dependenciadesig2.dependenciadesign_id
+inner join mapuche.map_dw_lt_persona on 
+ft_lt_cargos.persona_id = map_dw_lt_persona.persona_id
+
+where
+ft_lt_cargos.periodoinfo = '2015-02-01' 
+group by 1,2,3,4,5
+order by escalafon";
+          
+          
+          
+      }
+          
+          
+          
+          
+          
+    else{      $sql = "select
+      
 year(ft_lt_cargos.periodoinfo) as anio,
 map_dw_lt_persona.nombre,
 map_dw_lt_persona.apellido,
@@ -547,12 +659,14 @@ and
 map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc= " . "'" . $combo_unidades . "'" .
 "and
 map_dw_lt_categoriascargo.escalafon_desc in ('" . $POST[tipo_escalafon][0] . "','" . $POST[tipo_escalafon][1] . "','" . $POST[tipo_escalafon][2] . "')". 
- "group by 1,2,3,4
+ "group by 1,2,3,4,5,6
 
 
 
 order by escalafon,unidad";
-     return $sql;   
+    }
+    
+    return $sql;   
     }    
     
     
