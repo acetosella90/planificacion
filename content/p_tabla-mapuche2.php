@@ -12,15 +12,15 @@ include 'class/Clases.php';
 
     $conexion = new Conexion();
     
-    $consulta = $conexion->prepare(Consultas::getTodoAraucano2());
+    $consulta = $conexion->prepare(Consultas::getTodoMapuche2());
     $consulta->execute();
     $todo = $consulta->fetchAll();
     
     
     
     
-    $facultades = getFacultades($todo);
-    $paises = getPaises($todo);
+    $unidades = getDependencias($todo);
+    
    
     ?>
 
@@ -31,9 +31,9 @@ include 'class/Clases.php';
             <form  method="POST">
                 <?php
                 echo "<div  style='float: left;'>";
-                Clases::getFacultades($facultades); // Combo facultades
-                Clases::getPaises($paises); // Combo paises
-                Clases::getGenero(); // Checks
+               
+Clases::getUnidades($unidades); // Combo facultades
+Clases::getTipoEscalafon(); // Checks
                 
                  ?>
                 <input style="margin-left: 10px; " type="submit" value="Buscar">
@@ -43,15 +43,18 @@ include 'class/Clases.php';
 
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($_POST));
+        $consulta = $conexion->prepare(Consultas::getFiltroMapuche3($_POST));
         $consulta->execute();
-        $todo = $consulta->fetchAll();
+        $todo2 = $consulta->fetchAll();
     
-        
+        $consulta2 = $conexion->prepare(Consultas::getTodoMapuche3($_POST));
+        $consulta2->execute();
+        $todo3 = $consulta2->fetchAll();
+    
         ?>
 <div class="row" style="margin-top: 40px;">
             <div class="col-xs-18 col-md-12">
-                <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <div id="container6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 <span style="float: right" class="label label-danger " id="btn-tabla1">Ver Tabla de Datos 1</span>
             </div>
         </div>
@@ -61,31 +64,27 @@ include 'class/Clases.php';
    <div class="row"  id="tabla1" style="display: none;">
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
-                    <h2>Tabla de Escuelas por titulos, genero y pais de origen</h2>
+                    <h2>Nombre y apellido de personal por tipo, escuela y escalafon</h2>
                     <table style='float: left;'  class="table table-hover">
                         <tbody>
-                        <td><strong>Escuelas</strong></td>
-                        <td><strong>Titulos</strong></td>
-                        <td><strong>Pais</strong></td>
-                        <td><strong>Genero</strong></td>
-                        <td><strong>Total</strong></td>
+                        <td><strong>Nombre y Apellido</strong></td>
+                        <td><strong>Tipo</strong></td>
+                        <td><strong>categoria</strong></td>
+                        
+                        
                         </tbody>
                         <?php for ($i = 0; $i < count($todo); $i++) { ?>
                             <tr>
-                                <td><?php echo $todo[$i][facultad]; ?></td>
-                                <td><?php echo $todo[$i][titulo]; ?></td>
-                                <td><?php echo $todo[$i][pais]; ?></td>
-                                <td><?php echo $todo[$i][genero]; ?></td>
-                                <td><?php echo $todo[$i][total]; ?></td>
-                            </tr>
-                            <?php
+                                <td><?php echo $todo2[$i][nombre];echo" "; echo$todo2[$i][apellido]; ?></td>
+                                <td><?php echo $todo2[$i][escalafon]; ?></td>
+                                <td><?php echo $todo2[$i][categoria_desc]; ?></td>
+                              <?php
                             
-                            if ($todo[$i][genero] == "Masculino")
-                                $total[Masculino]+= $todo[$i][total];
-                            if ($todo[$i][genero] == "Femenino")
-                                $total[Femenino]+= $todo[$i][total];
+                           
                         }
-                        ?>
+                        ?>  
+                            </tr>
+                     
                     </table>
                     
                </div>
@@ -100,27 +99,35 @@ include 'class/Clases.php';
                 <div id="tabla2" style="display: none;">
                     <table   class="table table-hover" style="width: 225px;">
                         <tbody>
-                        <td colspan="2"> Pais <?php echo $_POST[combo_paises]; ?></td>
+                        <td colspan="2"> Escuela <?php echo $_POST[combo_unidades]; ?></td>
                         </tbody>
                         <tr>
-                            <td><strong>Total Alumnos Femeninos</strong></td>
+                            <td><strong>Total Personal Docente</strong></td>
                             <td><?php
-                                if ($total[Femenino])
-                                    echo $al = $total[Femenino];
+                                if ($todo3[0][total])
+                                    echo $al = $todo3[0][total];
                                 else
                                     echo $al = 0;
                                 ?></td>
                             </tr>
                             <tr>
-                            <td><strong>Total Alumnos Masculino</strong></td>
+                            <td><strong>Total Personal No Docente</strong></td>
                             <td><?php
-                                if ($total[Masculino])
-                                    echo $eg = $total[Masculino];
+                                if ($todo3[1][total])
+                                    echo $eg = $todo3[1][total];
                                 else
                                     echo $eg = 0;
                                 ?></td>
                         </tr>
-                   
+                    <tr>
+                            <td><strong>Total Personal Superior</strong></td>
+                            <td><?php
+                                if ($todo3[2][total])
+                                    echo $er = $todo3[2][total];
+                                else
+                                    echo $er = 0;
+                                ?></td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -133,31 +140,27 @@ include 'class/Clases.php';
         </div>
 
         <?php
-        $titulo = getTitulos($todo);
         
-        for ($i = 0, $a = 0, $e = 0 ; $i < count($titulo); $i++) {
+            $a=0;
+            $t=0;
+            $r=0;
+        
 
-            for ($j = 0; $j < count($todo); $j++) {
+            for ($j = 0; $j < count($todo3); $j++) {
 
-                if ($todo[$j][genero] == "Femenino" && $todo[$j][titulo] == $titulo[$i])
-                    $t[$i] = array(titulo => $titulo[$i], Femenino => $a+=$todo[$j][total], Masculino => $e);
+                if ($todo[$j][escalafon] == "Docente" )
+                    $a=$todo[$j][total];
 
-                if ($todo[$j][genero] == "Masculino" && $todo[$j][titulo] == $titulo[$i])
-                    $t[$i] = array(titulo => $titulo[$i], Femenino => $a, Masculino => $e+=$todo[$j][total]);
-
+                if ($todo[$j][escalafon] == "No_Docente" )
+                    $t=$todo[$j][total];
                 
-            }
+                if ($todo[$j][escalafon] == "Superior" )
+                    $r=$todo[$j][total];
+                
+            
         }
 
 
-        $r = array_sort($t, 'Femenino', SORT_DESC);
-        $r = array_slice($r, 0, 10);
-
-        foreach ($t as $cuadro) {
-            $c.= "'" . $cuadro[titulo] . "',";
-        }
-
-        $c = substr($c, 0, -1);
         
         
         
@@ -171,15 +174,15 @@ include 'class/Clases.php';
                         type: 'bar'
                     },
                     title: {
-                        text: 'Alumnos por titulo'
+                        text: 'Personal  por Tipo de Escalafon'
                     },
                     xAxis: {
-                        categories: [<?php echo $c; ?>]
+                        categories: [<?php echo "'" . $todo3[0][unidad]."'"; ?>]
                     },
                     yAxis: {
                         min: 0,
                         title: {
-                            text: 'Cantidad de alumnos'
+                            text: 'Cantidad de Personal'
                         }
                     },
                     legend: {
@@ -195,24 +198,33 @@ include 'class/Clases.php';
                         }
                     },
                     series: [{
-                            name: 'Alumnos Masculinos',
+                            name: 'Personal Docente',
                             data: [<?php
-    foreach ($r as $cuadro) {
-        echo $cuadro[Masculino] . ", ";
-    }
+    
+        echo $al ;
+    
     ?>]
                         },
                         {
-                            name: 'Alumnos Femeninos',
+                            name: 'Personal No Docente',
                             data: [<?php
-    foreach ($r as $cuadro) {
-        echo $cuadro[Femenino] . ", ";
-    }
+    
+        echo $eg ;
+    
+    ?>]
+                        
+
+                        },
+                      {
+                            name: 'Personal Superior',
+                            data: [<?php
+    
+        echo $er ;
+    
     ?>]
                         
 
                         }
-
                     ]
                 });
             });
@@ -222,24 +234,37 @@ include 'class/Clases.php';
 
 
 
-        <table id="datatable2" style='display: none;'>
+        <table id="datatable3" style='display: none;'>
             <thead>
                 <tr>
                     <th></th>
                     
-                    <th>Masculino</th>
-                    <th>Femenino</th>
+                    <th><?php echo $todo3[1][unidad]; ?></th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($t as $cuadro) { ?>
+                
                     <tr>
-                        <th><?php echo $cuadro[titulo]; ?></th>
-                        <td><?php echo $cuadro[Masculino]; ?></td>
-                        <td><?php echo $cuadro[Femenino]; ?></td>
+                        <th>Docente</th>
+                        <td><?php echo $todo3[0][total]; ?></td>
+                        
                         
                     </tr>                
-                <?php } ?> 
+                
+                     <tr>
+                        <th>No Docente</th>
+                        <td><?php echo $todo3[1][total]; ?></td>
+                        
+                        
+                    </tr>      
+               
+                      <tr>
+                          <th>Superior</th>
+                        <td><?php echo $todo3[2][total]; ?></td>
+                        
+                        
+                    </tr> 
             </tbody>
         </table>
         <script>
@@ -277,11 +302,11 @@ include 'class/Clases.php';
                     },
                     series: [{
                             type: 'pie',
-                            name: 'Total de Alumnos',
+                            name: 'Total de Personal',
                             data: [
-                                ['Masculinos', <?php echo $al; ?>],
-                                ['Femeninos', <?php echo $eg; ?>],
-                               
+                                ['Docente', <?php echo $al; ?>],
+                                ['No Docente', <?php echo $eg; ?>],
+                                ['Superior', <?php echo$er; ?>],
                             ]
                         }]
                 });

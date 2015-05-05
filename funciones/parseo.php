@@ -166,11 +166,11 @@ function getDependencias($todo) {
     $j = 1;
 
     for ($i = 1; $i < count($todo); $i++) {
-
-        if ($unidades[$j - 1] != $todo[$i]['unidad']||$todo[$i]['unidad']!='Valor erróneo o nulo' ) {
+           
+             if ( !in_array (  $todo[$i]['unidad'] ,  $unidades ) && $todo[$i]['unidad']!='Valor erróneo o nulo') {
             $unidades[$j] = $todo[$i]['unidad'];
             $j++;
-        }
+          }
     }
     return $unidades;
 }

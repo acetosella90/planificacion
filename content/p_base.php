@@ -74,7 +74,7 @@
                             <th>Reportes</th>
                             <th>Descripcion</th>
                             <th>Tipo de grafico</th>
-                            <th>Header</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -83,7 +83,7 @@
                             <td><a href="index.php?pagina=mapuche" >Cantidad y tipo de de personal por unidad </a></td>
                             <td>Muestra la cantidad y tipo de docentes totales en la facultad</td>
                             <td>Barras</td>
-                            <td>sit</td>
+                            
                         </tr>
 
                         <tr>
@@ -102,16 +102,16 @@
                             <th>Reportes</th>
                             <th>Descripcion</th>
                             <th>Tipo de grafico</th>
-                            <th>Header</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Cantidades totales y tipo de docente por unidad academica</td>
+                            <td><a href="index.php?pagina=mapuche2" >Cantidades totales y tipo de docente por unidad academica</a></td>
                             <td>Muestra la cantidad y tipo de docentes totales de cada unidad academica</td>
                             <td>Barras</td>
-                            <td>sit</td>
+                            
                         </tr>
 
                         <tr>

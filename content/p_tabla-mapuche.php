@@ -13,10 +13,8 @@
     $consulta->execute();
     $todo2 = $consulta->fetchAll();
 
-    $unidades = getUnidades($todo2);
-    echo "<pre>";
-    var_dump($todo2);
-    echo "</pre>";
+    $unidades = getDependencias($todo2);
+    
     
     ?>
 
@@ -35,9 +33,12 @@ Clases::getTipoEscalafon(); // Checks
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $consulta = $conexion->prepare(Consultas::getFiltroPilaga($_POST));
+    $consulta = $conexion->prepare(Consultas::getFiltroMapuche2($_POST));
     $consulta->execute();
     $todo = $consulta->fetchAll();
+   
+
+    
     ?>
 
         <div class="row" style="margin-top: 40px;">
@@ -81,32 +82,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php
     $meses = array(Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre);
 
-    for ($i = 0; $i < count($_POST[tipo_credito]); $i++) {
-        if ($_POST[tipo_credito][$i] == "credito_original")
+    for ($i = 0; $i < count($_POST[tipo_escalafon]); $i++) {
+        if ($_POST[tipo_escalafon][$i] == "Docente")
             $e1 = 1;
-        if ($_POST[tipo_credito][$i] == "credito") {
+        if ($_POST[tipo_escalafon][$i] == "No Docente") {
             $a1 = 1;
         }
-        if ($_POST[tipo_credito][$i] == "preventivo")
+        if ($_POST[tipo_escalafon][$i] == "Superior")
             $r1 = 1;
     }
 
 
     if ($e1) {
-        echo "<td>Credito original</td>";
+        echo "<td>Docente</td>";
 
         $a = array();
-        $i = 1995;
-        $t = 0;
-        $p = 0;
+        $a=[0,0,0,0,0,0,0,0,0,0,0,0] ;
+      
         for ($g = 0; $g < count($todo); $g++) {
 
-            echo"<td>" . $todo[$g][credito_original] . "</td>";
+          
 
 
-            $a[$g] = $todo[$g][credito_original];
+           if($todo[$g][escalafon]=='Docente'){
+           $a[$todo[$g][mes]-1] = $todo[$g][total];}
         }
+    for ($b = 0; $b < count($a); $b++) {
+
+            echo"<td>" . $a[$b] . "</td>";
+
+
+       
     }
+        }
     ?>
                         </tr>
 
@@ -114,19 +122,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <tr> 
     <?php
     if ($a1) {
-        echo "<td>Credito</td>";
+        echo "<td>No Docente</td>";
 
 
         $e = array();
-        $i = 1995;
-        $t = 0;
-        $p = 0;
+        $e=[0,0,0,0,0,0,0,0,0,0,0,0] ;
+      
         for ($g = 0; $g < count($todo); $g++) {
 
-            echo"<td>" . $todo[$g][credito] . "</td>";
-            $e[$g] = $todo[$g][credito];
+            
+            if($todo[$g][escalafon]=='No Docente'){
+            $e[$todo[$g][mes]-1] = $todo[$g][total];}
         }
-    }
+   
+       for ($b = 0; $b < count($e); $b++) {
+
+            echo"<td>" . $e[$b] . "</td>";
+
+
+       
+    }  
+        
+        
+            }
     ?>
                         </tr>
 
@@ -136,18 +154,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <?php
                             if ($r1) {
-                                echo "<td>Preventivo</td>";
+                                echo "<td>Superior</td>";
                                 $r = array();
-                                $i = 1995;
-                                $t = 0;
-                                $p = 0;
+                                $r=[0,0,0,0,0,0,0,0,0,0,0,0] ;
+                               
                                 for ($g = 0; $g < count($todo); $g++) {
 
-                                    echo"<td>" . $todo[$g][preventivo] . "</td>";
+                                    
 
-                                    $r[$g] = $todo[$g][preventivo];
+                                     if($todo[$g][escalafon]=='Superior'){
+                                     $r[$todo[$g][mes]-1] = $todo[$g][total];}
                                 }
-                            }
+                           
+                               for ($b = 0; $b < count($r); $b++) {
+
+                                    echo"<td>" . $r[$b] . "</td>";
+
+
+       
+                                     }  
+                                
+                                
+                                     }
                             ?>
                         </tr>
 
@@ -205,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         type: 'line'
                     },
                     title: {
-                        text: 'Tipos de Creditos Desarrollados por meses'
+                        text: 'Tipos de personal por meses'
                     },
                     subtitle: {
                     },
@@ -216,7 +244,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                     },
                     yAxis: {
-                        title: {
+                     min: 0,   
+                   title: {
                             text: 'Cantidad $'
                         }
                     },
@@ -228,7 +257,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             enableMouseTracking: true
                  }          },
                     series: [{
-                            name: 'Credito Original',
+                            name: 'Docente',
                             data: [<?php
     foreach ($a as $cuadro) {
         echo $cuadro . ", ";
@@ -236,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ?>]
                         },
                         {
-                            name: 'Credito',
+                            name: 'No docente',
                             data: [<?php
     foreach ($e as $cuadro) {
         echo $cuadro . ", ";
@@ -244,7 +273,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ?>]
                         },
                         {
-                            name: 'Preventivo',
+                            name: 'Superior',
                             data: [<?php
     foreach ($r as $cuadro) {
         echo $cuadro . ", ";

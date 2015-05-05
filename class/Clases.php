@@ -166,18 +166,18 @@ class Clases {
             $c = " checked ";
         } else {
 
-            if ($_POST[tipo_alumno][0] == "Docente" || $_POST[tipo_alumno][1] == "Docente" || $_POST[tipo_alumno][2] == "Docente")
+            if ($_POST[tipo_escalafon][0] == "Docente" || $_POST[tipo_escalafon][1] == "Docente" || $_POST[tipo_escalafon][2] == "Docente")
                 $a = " checked ";
             else
                 $a = "";
 
 
-            if ($_POST[tipo_alumno][0] == "No Docente" || $_POST[tipo_alumno][1] == "No Docente" || $_POST[tipo_alumno][2] == "No Docente")
+            if ($_POST[tipo_escalafon][0] == "No Docente" || $_POST[tipo_escalafon][1] == "No Docente" || $_POST[tipo_escalafon][2] == "No Docente")
                 $b = " checked ";
             else
                 $b = "";
 
-            if ($_POST[tipo_alumno][0] == "Superior" || $_POST[tipo_alumno][1] == "Superior" || $_POST[tipo_alumno][2] == "Superior")
+            if ($_POST[tipo_escalafon][0] == "Superior" || $_POST[tipo_escalafon][1] == "Superior" || $_POST[tipo_escalafon][2] == "Superior")
                 $c = " checked ";
             else
                 $c = "";

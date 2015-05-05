@@ -268,11 +268,18 @@ $p = $puntos->getPuntosMapa();
     latlong["ZA"] = {"latitude": -29, "longitude": 24};
     latlong["ZM"] = {"latitude": -15, "longitude": 30};
     latlong["ZW"] = {"latitude": -20, "longitude": 30};
+    latlong["NC"] = {"latitude": -50, "longitude": 10};
 
     var mapData = [
-<?php foreach ($p as $val) { ?>
+<?php foreach ($p as $val) { 
+   if($val[pais_nombre] != 'No Cargado'){ ?>
             {"code": "<?php echo $val[pais] ?>", "name": "<?php echo $val[pais_nombre] ?>", "value": <?php echo $val[cantidad] ?>, "color": "#428BCA"},
-<?php } ?>
+   <?php }else { ?> 
+         {"code": "NC", "name": "<?php echo $val[pais_nombre] ?>", "value": <?php echo $val[cantidad] ?>, "color": "#428BCA"},
+   <?php
+   }
+   
+   } ?>
 
     ]
     var map;

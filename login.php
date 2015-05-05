@@ -58,13 +58,17 @@ if ($_POST['usuario'] == "ruta" && $_POST['pass'] == "cadabra") {
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
             </form>
-        </div> <!-- /container -->
-        <div class="col-xs-6 col-md-4"></div>
-        <div class="col-xs-6 col-md-7" style="text-align: left">
-            <div id="container_footer" style="font-size: 10px;padding: 14px 20px 0 80px; height:200px;">UNSAM Campus Miguelete, 25 de Mayo y Francia. C.P.: 1650. San Martín, Provincia de Buenos Aires, Argentina. <br>
-                Teléfonos: 4006 1500 ó 4724 1500 | <a href="mailto:secplanificacion@unsam.edu.ar">secplanificacion@unsam.edu.ar</a> - <a href="mailto:dw@unsam.edu.ar">dw@unsam.edu.ar</a> <br>Mantenimiento y Actualización: Secretaría de Planificación - Equipo de Data Warehouse UNSAM. <br><a href="http://www.unsam.edu.ar/" target="_blank">Universidad Nacional de San Martín - © 1992-2015 </a>
+            <div style="text-align: left; margin-left: 22%">
+                <div id="container_footer" style="font-size: 10px;padding: 14px 20px 0 80px; height:200px;">UNSAM Campus Miguelete, 25 de Mayo y Francia. C.P.: 1650. San Martín, Provincia de Buenos Aires, Argentina. <br>
+                    Teléfonos: 4006 1500 ó 4724 1500 | <a href="mailto:secplanificacion@unsam.edu.ar">secplanificacion@unsam.edu.ar</a> - <a href="mailto:dw@unsam.edu.ar">dw@unsam.edu.ar</a> <br>Mantenimiento y Actualización: Secretaría de Planificación - Equipo de Data Warehouse UNSAM. <br><a href="http://www.unsam.edu.ar/" target="_blank">Universidad Nacional de San Martín - © 1992-2015 </a>
+                </div>
             </div>
-        </div>
+        </div> <!-- /container -->
+        
+            
+            
+       
+        
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="js/ie10-viewport-bug-workaround.js"></script>
