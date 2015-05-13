@@ -364,8 +364,8 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Producción academica </td>
-                        <td>Muestra total de produccion academica divididas en categorias (ej:publicacion en revistas) </td>
+                        <td><a href="index.php?pagina=sigeva">publicacion de articulos </a></td>
+                        <td>Total de articulos publicados por meses segun unidad academica y pais </td>
                         <td>Barras</td>
 
                     </tr>
@@ -394,18 +394,12 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Cantidad y tipo de investigadores por unidad academica </td>
-                        <td>Muestra la cantidad y tipo de investigadores totales de cada unidad academica</td>
+                        <td><a href="index.php?pagina=sigeva2">Cantidad de articulos segun campo disiplinar </a></td>
+                        <td>Muestra total de cantidad de articulos por unidad academica al ultimo mes segun campo disiplinar</td>
                         <td>Barras</td>
 
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Producción academica por unidad</td>
-                        <td>Muestra total de produccion academica por cada unidad academica divididas en categorias (ej:publicacion en revistas)</td>
-                        <td>Barras/Torta</td>
-
-                    </tr>
+               
                     <tr>
 
                     </tr>

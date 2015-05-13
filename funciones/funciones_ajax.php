@@ -39,4 +39,9 @@ if ($_POST[id] == 'p_tabla-mapuche')
 if ($_POST[id] == 'p_tabla-mapuche2')
     include_once '../content/p_tabla-mapuche2.php';
 
+if ($_POST[id] == 'p_tabla-sigeva')
+    include_once '../content/p_tabla-sigeva.php';
+
+if ($_POST[id] == 'p_tabla-sigeva2')
+    include_once '../content/p_tabla-sigeva2.php';
 ?>
