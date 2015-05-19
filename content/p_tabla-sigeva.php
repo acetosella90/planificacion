@@ -27,7 +27,7 @@ include 'class/Clases.php';
                 Clases::getFacultades($facultades); // Combo facultades
                 Clases::getpaises($paises); // Checks
                 ?>
-                <input style="margin-left: 10px;" type="submit" value="Buscar"></div>
+                <input style="margin-left: 10px;" type="submit" value="Buscar">
             </form>
         </div>
     </div>
@@ -198,7 +198,7 @@ include 'class/Clases.php';
 
 
 <?php } ?>
-</div><?php
+</div>
 
 /* 
  * To change this license header, choose License Headers in Project Properties.

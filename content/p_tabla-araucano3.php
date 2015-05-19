@@ -26,7 +26,7 @@ include 'class/Clases.php';
                 Clases::getFacultades($facultades); // Combo facultades
                 Clases::getTipoAlumno(); // Checks
                 ?>
-                <input style="margin-left: 10px;" type="submit" value="Buscar"></div>
+                <input style="margin-left: 10px;" type="submit" value="Buscar">
             </form>
         </div>
     </div>

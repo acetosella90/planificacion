@@ -28,7 +28,7 @@ echo "<div  style='float: left;'>";
 Clases::getUnidades($unidades); // Combo facultades
 Clases::getTipoCredito(); // Checks
 ?>
-                <input style="margin-left: 10px;" type="submit" value="Buscar"></div>
+                <input style="margin-left: 10px;" type="submit" value="Buscar">
             </form>
         </div>
     </div>
