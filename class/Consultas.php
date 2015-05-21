@@ -500,7 +500,8 @@ ft_lt_cargos.dependenciadesign_id = dim_map_dw_lt_dependenciadesig2.dependenciad
 where
 year(ft_lt_cargos.periodoinfo) = 2014
 and
-map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc= " . "'" . $combo_unidades . "'" .
+case when map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc like 'Valor erróneo o nulo' then dim_map_dw_lt_dependenciadesig2.dependenciadesign_desc
+else map_dw_lt_imppresupsubdependencia.imppresupdependencia_desc end= " . "'" . $combo_unidades . "'" .
 "and
 map_dw_lt_categoriascargo.escalafon_desc in ('" . $POST[tipo_escalafon][0] . "','" . $POST[tipo_escalafon][1] . "','" . $POST[tipo_escalafon][2] . "')". 
          "group by 1,2,3,4
