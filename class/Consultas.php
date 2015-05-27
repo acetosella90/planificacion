@@ -813,7 +813,13 @@ disciplina,fecha";
  
 public static function getFiltroSigeva2($POST) {   
    $combo_disciplinas = $POST[combo_facultades];
-   $sql =   "select
+   $combo_unidades = $POST[combo_unidades];
+   
+ if($combo_unidades=='FACULTAD UNSAM'){
+   
+   
+     
+          $sql =   "select
 
 dim_personas_mapuche_sigeva.id_fecha as fecha,
 dim_campo_disciplinar.campo_disciplinar as disciplina,
@@ -833,6 +839,8 @@ where
 dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
 and
 dim_campo_disciplinar.campo_disciplinar=" . "'" .$combo_disciplinas. "'" .
+
+           
 "
 group by 1,2,3
 order by 
@@ -843,7 +851,126 @@ disciplina,fecha";
  
  
  
+ }
+     
+     
+     
+     
+     
+ else if ($combo_facultades=='Todas') {   
+     
+     
+       $sql =   "select
+
+dim_personas_mapuche_sigeva.id_fecha as fecha,
+dim_campo_disciplinar.campo_disciplinar as disciplina,
+dim_personas_mapuche_sigeva.escuela as unidad,
+
+
+sum(ft_pc_articulos.cantidad) as total
+
+from
+sigeva.ft_pc_articulos inner join sigeva.dim_campo_disciplinar on 
+ft_pc_articulos.campo_disciplinar_id = dim_campo_disciplinar.id 
+inner join sigeva.dim_personas_mapuche_sigeva on
+dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
+
+where 
+
+dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
+
+and
+dim_personas_mapuche_sigeva.escuela=". "'" .$combo_unidades. "'" .
+           
+"
+group by 1,2,3
+order by 
+disciplina,fecha";
+    
+  
+   return $sql;   
+     
+     
+     
+     
+     
+     
+     
+     
+ }
+     
+ else if($combo_unidades=='FACULTAD UNSAM' && $combo_facultades=='Todas' ) {
+     
+         $sql =   "select
+
+dim_personas_mapuche_sigeva.id_fecha as fecha,
+dim_campo_disciplinar.campo_disciplinar as disciplina,
+dim_personas_mapuche_sigeva.escuela as unidad,
+
+
+sum(ft_pc_articulos.cantidad) as total
+
+from
+sigeva.ft_pc_articulos inner join sigeva.dim_campo_disciplinar on 
+ft_pc_articulos.campo_disciplinar_id = dim_campo_disciplinar.id 
+inner join sigeva.dim_personas_mapuche_sigeva on
+dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
+
+where 
+
+dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
+
+
+           
+
+group by 1,2,3
+order by 
+disciplina,fecha";
+    
+  
+   return $sql;    
+     
+ }
+ else{
+ $sql =   "select
+
+dim_personas_mapuche_sigeva.id_fecha as fecha,
+dim_campo_disciplinar.campo_disciplinar as disciplina,
+dim_personas_mapuche_sigeva.escuela as unidad,
+
+
+sum(ft_pc_articulos.cantidad) as total
+
+from
+sigeva.ft_pc_articulos inner join sigeva.dim_campo_disciplinar on 
+ft_pc_articulos.campo_disciplinar_id = dim_campo_disciplinar.id 
+inner join sigeva.dim_personas_mapuche_sigeva on
+dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
+
+where 
+
+dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
+and
+dim_campo_disciplinar.campo_disciplinar=" . "'" .$combo_disciplinas. "'" .
+"and
+dim_personas_mapuche_sigeva.escuela=". "'" .$combo_unidades. "'" .
+           
+"
+group by 1,2,3
+order by 
+disciplina,fecha";
+    
+  
+   return $sql;   
+ 
+ 
  
  }
  
-}
+
+ }
+ 
+
+ 
+ 
+ }

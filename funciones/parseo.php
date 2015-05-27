@@ -167,8 +167,24 @@ function getDependencias($todo) {
 
     for ($i = 1; $i < count($todo); $i++) {
            
-             if ( !in_array (  $todo[$i]['unidad'] ,  $unidades ) && $todo[$i]['unidad']!='Valor erróneo o nulo') {
+             if ( !in_array (  $todo[$i]['unidad'] ,  $unidades ) && ($todo[$i]['unidad']!="Valor erróneo o nulo")) {
             $unidades[$j] = $todo[$i]['unidad'];
+            $j++;
+          }
+    }
+    return $unidades;
+}
+
+function getDisciplinas($todo) {
+
+    $unidades = array();
+    $unidades[0]='Todas';
+    $j = 1;
+
+    for ($i = 1; $i < count($todo); $i++) {
+           
+             if ( !in_array (  $todo[$i]['disciplina'] ,  $unidades ) && ($todo[$i]['disciplina']!="NO CARGADO")) {
+            $unidades[$j] = $todo[$i]['disciplina'];
             $j++;
           }
     }
