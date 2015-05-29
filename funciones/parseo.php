@@ -183,10 +183,25 @@ function getDisciplinas($todo) {
 
     for ($i = 1; $i < count($todo); $i++) {
            
-             if ( !in_array (  $todo[$i]['disciplina'] ,  $unidades ) && ($todo[$i]['disciplina']!="NO CARGADO")) {
+             if ( !in_array (  $todo[$i]['disciplina'] ,  $unidades ) && ($todo[$i]['disciplina']!="NO CARGADO") && ($todo[$i]['disciplina']!="Historia (la historia de la Ciencia y Tecnología va en 6.3 ".'"'."Filosofía, Ética y Religión".'"'.", mientras que la historia de cada ciencia en particular va en su respectivo encabezado)")) {
             $unidades[$j] = $todo[$i]['disciplina'];
             $j++;
           }
     }
     return $unidades;
+}
+
+function getFecha($todo) {
+
+    $fecha = array();
+    $j = 0;
+
+    for ($i = 0; $i < count($todo); $i++) {
+
+        
+            $fecha[$j] = $todo[$i]['fecha'];
+            $j++;
+        }
+    
+    return $fecha;
 }

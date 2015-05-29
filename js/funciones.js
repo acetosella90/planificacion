@@ -359,3 +359,32 @@ $(function () {
             }
         });
     });  
+    
+    
+      $(function () {
+      
+        $('#container9').highcharts({
+            
+            data: {
+                table: 'datatable4'
+            },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Personal en Cargos por Tipos de escalafon (Febrero 2015)'
+            },
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: 'Cantidad '
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + ' personal en ' + this.point.name.toLowerCase();
+                }
+            }
+        });
+    });  

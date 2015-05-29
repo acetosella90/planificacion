@@ -188,4 +188,23 @@ class Clases {
         echo "<input style=' margin-left: 5px;' type='checkbox' name='tipo_escalafon[]'" . $c . " value='Superior'>Superior";
     }  
     
-    }
+    
+    
+  
+       static public function getFechas($fechas) {
+        echo "<select name='combo_fechas' id='fecha' style='margin-left: 5px;'>";
+        for ($i = 0; $i < count($fechas); $i++) {
+            echo "<option";
+            if ($_POST[combo_fechas] == $fechas[$i])
+                echo " selected ";
+            echo " value='$fechas[$i]'>" . $fechas[$i] . "</option>";
+        }
+        echo "</select>";
+    } 
+    
+    
+    
+    
+    
+    
+        }

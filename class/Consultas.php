@@ -776,7 +776,14 @@ pais,fecha";
              
  }
 
+ public static function getFechaSigeva() {   
+   
+   $sql =   "SELECT id_fecha as fecha FROM sigeva.dim_personas_mapuche_sigeva
+group by id_fecha";
     
+  
+   return $sql;  
+ }    
     
  public static function getTodoSigeva2() {   
    
@@ -795,9 +802,7 @@ ft_pc_articulos.campo_disciplinar_id = dim_campo_disciplinar.id
 inner join sigeva.dim_personas_mapuche_sigeva on
 dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
 
-where 
 
-dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
 
 
 
@@ -814,8 +819,8 @@ disciplina,fecha";
 public static function getFiltroSigeva2($POST) {   
    $combo_disciplinas = $POST[combo_facultades];
    $combo_unidades = $POST[combo_unidades];
-   
- if($combo_unidades=='FACULTAD UNSAM'){
+   $combo_fecha = $POST[combo_fechas];
+ if($combo_unidades=='FACULTAD UNSAM' && $combo_disciplinas=='Todas' ){
    
    
      
@@ -836,9 +841,11 @@ dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
 
 where 
 
-dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
-and
-dim_campo_disciplinar.campo_disciplinar=" . "'" .$combo_disciplinas. "'" .
+dim_personas_mapuche_sigeva.id_fecha=" . "'" .$combo_fecha. "'" .
+
+           
+
+
 
            
 "
@@ -857,7 +864,7 @@ disciplina,fecha";
      
      
      
- else if ($combo_facultades=='Todas') {   
+ else if ($combo_disciplinas=='Todas' && $combo_unidades!='FACULTAD UNSAM') {   
      
      
        $sql =   "select
@@ -877,7 +884,10 @@ dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
 
 where 
 
-dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
+dim_personas_mapuche_sigeva.id_fecha=" . "'" .$combo_fecha. "'" .
+
+           
+"
 
 and
 dim_personas_mapuche_sigeva.escuela=". "'" .$combo_unidades. "'" .
@@ -899,7 +909,7 @@ disciplina,fecha";
      
  }
      
- else if($combo_unidades=='FACULTAD UNSAM' && $combo_facultades=='Todas' ) {
+ else if($combo_unidades=='FACULTAD UNSAM' && $combo_disciplinas!='Todas'  ) {
      
          $sql =   "select
 
@@ -918,9 +928,12 @@ dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
 
 where 
 
-dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
+dim_personas_mapuche_sigeva.id_fecha=" . "'" .$combo_fecha. "'" .
 
-
+           
+"
+and
+dim_campo_disciplinar.campo_disciplinar=" . "'" .$combo_disciplinas. "'" ."
            
 
 group by 1,2,3
@@ -949,7 +962,10 @@ dim_personas_mapuche_sigeva.id_sigeva = ft_pc_articulos.persona_id
 
 where 
 
-dim_personas_mapuche_sigeva.id_fecha='2015-02-01'
+dim_personas_mapuche_sigeva.id_fecha=". "'" .$combo_fecha. "'" ."
+
+           
+
 and
 dim_campo_disciplinar.campo_disciplinar=" . "'" .$combo_disciplinas. "'" .
 "and

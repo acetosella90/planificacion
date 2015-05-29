@@ -373,3 +373,129 @@ $consulta = $conexion->prepare(Consultas::getFiltroAraucano2($POST));
 
        if(($or!=""&& $cred!=""&& $prev =="")||($or!=""&& $cred!=""&& $prev !="")){$coma1 = ",";}
        if(($or!=""&& $cred==""&& $prev !="")||($or==""&& $cred!=""&& $prev !="")||($or!=""&& $cred!=""&& $prev !="")){$coma2 = ",";}
+       
+       
+       
+       <script>
+
+            $(function () {
+                $('#container2').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'Escuela  por disciplinas'
+                    },
+                    xAxis: {
+                        categories: [<?php echo $control; ?>]
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Cantidad de publicaciones'
+                        }
+                    },
+                    legend: {
+                        align: 'right',
+                        verticalAlign: 'top',
+                        layout: 'vertical',
+                        x: 0,
+                        y: 100
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: [<?php  for ($b = 0; $b < count($control2); $b++){if (count($control2)>1 && $b!=(count($control2)-1)){?>
+                          { name: <?php echo $control2[$b]; ?>,
+                            data: [<?php
+    
+        echo $controltotal[$b];
+    
+    ?>]
+                    },<?php}else{?> { name: <?php echo $control2[$b]; ?>,
+                            data: [<?php
+    
+        echo $controltotal[$b];
+    }
+    ?>]
+                 <?php   } ?>
+                        ]
+                        
+
+                });
+            });
+
+        </script>
+
+
+
+
+        <table id="datatable" style='display:none'>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Alumnos</th>
+                    <th>Egresados</th>
+                    <th>Reinscriptos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($t as $cuadro) { ?>
+                    <tr>
+                        <th><?php echo $cuadro[titulo]; ?></th>
+                        <td><?php echo $cuadro[alumnos]; ?></td>
+                        <td><?php echo $cuadro[egresados]; ?></td>
+                        <td><?php echo $cuadro[reinscriptos]; ?></td>
+                    </tr>                
+                <?php } ?> 
+            </tbody>
+        </table>
+        <script>
+            $(function () {
+                $('#container3').highcharts({
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                            enabled: true,
+                            alpha: 45,
+                            beta: 0
+                        }
+                    },
+                    title: {
+                        text: null
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            depth: 35,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.name}'
+                            }
+                        }
+                    },
+                    navigation: {
+                        buttonOptions: {
+                            enabled: true
+                        }
+                    },
+                    series: [{
+                            type: 'pie',
+                            name: 'Total de Alumnos',
+                            data: [
+                                ['Alumnos', <?php echo $al; ?>],
+                                ['Egresados', <?php echo $eg; ?>],
+                                ['Reinscriptos', <?php echo $re; ?>]
+                            ]
+                        }]
+                });
+            });
+        </script>
+    <?php } ?>
+</div>

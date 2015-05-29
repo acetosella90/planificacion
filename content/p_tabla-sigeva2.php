@@ -17,6 +17,12 @@ include 'class/Clases.php';
 
     $disciplina = getDisciplinas($todo2);
     $facultades = getDependencias($todo2);
+    
+    $consulta = $conexion->prepare(Consultas::getFechaSigeva());
+    $consulta->execute();
+    $todo3 = $consulta->fetchAll();
+    
+    $fechas = getFecha($todo3)
     ?>
 
     <div class="row">
@@ -25,9 +31,10 @@ include 'class/Clases.php';
                 <?php
                 echo "<div  style='float: left;'>";
                 Clases::getUnidades($facultades); // Combo facultades
-                Clases::getFacultades($disciplina); // Checks
+                Clases::getFacultades($disciplina); // combo disciplinas
+                Clases::getFechas($fechas); //combo fechas
                 ?>
-                <input style="margin-left: 10px;" type="submit" value="Buscar"></div>
+                <input style="margin-left: 10px;" type="submit" value="Buscar">
             </form>
         </div>
     </div>
@@ -39,13 +46,12 @@ include 'class/Clases.php';
         $consulta->execute();
         $todo = $consulta->fetchAll();
         
-        ;
-      
+  
         ?>
 
         <div class="row" style="margin-top: 40px;">
             <div class="col-xs-18 col-md-12">
-                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <div id="container9" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 <span style="float: right" class="label label-danger " id="btn-tabla1">Ver Tabla de Datos 1</span>
             </div>
         </div>
@@ -53,30 +59,26 @@ include 'class/Clases.php';
         <div class="row"  id="tabla1" style="display: none;">
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
-                    <h2>Tabla de Escuelas por titulos y tipos de alumnos</h2>
+                    <h2>Tabla de publicaciones de Escuelas  por disciplinas en periodo </h2>
                     <table style='float: left;'  class="table table-hover">
                         <tbody>
                         <td><strong>Escuelas</strong></td>
-                        <td><strong>Titulos</strong></td>
-                        <td><strong>Tipo de alumnos</strong></td>
+                        <td><strong>Disciplinas</strong></td>
+                       
                         <td><strong>Total</strong></td>
                         </tbody>
                         <?php for ($i = 0; $i < count($todo); $i++) { ?>
                             <tr>
-                                <td><?php echo $todo[$i][facultad]; ?></td>
-                                <td><?php echo $todo[$i][titulo]; ?></td>
-                                <td><?php echo $todo[$i][tipo_alumno]; ?></td>
+                                <td><?php echo $todo[$i][unidad]; ?></td>
+                                <td><?php echo $todo[$i][disciplina]; ?></td>
+                                
                                 <td><?php echo $todo[$i][total]; ?></td>
-                            </tr>
+                              </tr>
                             <?php
-                            if ($todo[$i][tipo_alumno] == "Alumnos")
-                                $total[alumnos]+= $todo[$i][total];
-                            if ($todo[$i][tipo_alumno] == "Egresados")
-                                $total[egresados]+= $todo[$i][total];
-                            if ($todo[$i][tipo_alumno] == "Reinscriptos")
-                                $total[reinscriptos]+= $todo[$i][total];
+                            
                         }
                         ?>
+                  
                     </table>
 
 
@@ -86,7 +88,7 @@ include 'class/Clases.php';
 
         <div class="row">
             <div class="col-xs-6 col-md-7">
-                <div id="container2" style="width: 800px; height: 400px; margin: 0 auto;  "></div>
+                <div id="container6" style="width: 800px; height: 400px; margin: 0 auto;  "></div>
             </div>
             <div  class="col-xs-6 col-md-1" style="z-index: 9999;  ">
                 <div id="tabla2" style="display: none;">
@@ -94,39 +96,43 @@ include 'class/Clases.php';
                         <tbody>
                         <td colspan="2"> A&Ntilde;O <?php echo $_POST[combo_fechas]; ?></td>
                         </tbody>
+                        
+                         <?php $control = array();
+                         $total_por_unidades=array();//muestra el total de publicaciones por cada unidad
+                         $j= 0;
+                         $totalf=0;
+                         for ($i = 0; $i < count($todo); $i++) { 
+                             
+                         if ( !in_array (  $todo[$i]['unidad'] ,  $control )){
+                            
+                                 ?>
+                        
                         <tr>
-                            <td><strong>Total de Alumnos</strong></td>
+                            <td><strong>Total <?php echo $todo[$i]['unidad']?></strong></td>
                             <td><?php
-                                if ($total[alumnos])
-                                    echo $al = $total[alumnos];
-                                else
-                                    echo $al = 0;
-                                ?></td>
+                               
+                                 for ($b = 0; $b < count($todo); $b++) {
+                                  if ($todo[$b]['unidad']== $todo[$i]['unidad']){  
+                                    $totalf +=  intval($todo[$b]['total']);
+                                  }
+                                   echo $totalf;
+                               
+                                   } ?></td>
                         </tr>
-                        <tr>
-                            <td><strong>Total de Egresados</strong></td>
-                            <td><?php
-                                if ($total[egresados])
-                                    echo $eg = $total[egresados];
-                                else
-                                    echo $eg = 0;
-                                ?></td>
-                        </tr>
-                        <td><strong>Total de Reinscriptos</strong></td>
-                        <td><?php
-                            if ($total[reinscriptos])
-                                echo $re = $total[reinscriptos];
-                            else
-                                echo $re = 0;
-                            ?></td>
-                        </tr>
-
+                        
+                         <?php $control[$j] = $todo[$i]['unidad'];
+            $total_por_unidades[$j]= $totalf;
+             $totalf=0;
+                         $j++;
+            
+                                  } }
+                        ?>
                     </table>
                 </div>
             </div>
             <div class="col-xs-6 col-md-4">
 
-                <div id="container3" style="max-width: 200px; height: 250px; margin: 0 auto; float: left; margin-top: 100px;"></div>
+                <div id="container5" style="max-width: 200px; height: 250px; margin: 0 auto; float: left; margin-top: 100px;"></div>
                 <div style="clear: both; height: 0px;"><!-- e --></div>
                 <span style="float: right" class="label label-danger" id="btn-tabla2">Ver Tabla de Datos 2</span>
             </div>
@@ -164,23 +170,60 @@ include 'class/Clases.php';
         $c = substr($c, 0, -1);
         ?>
 
-        <script>
+   <?php    
+                         $control2 = array();
+                         $control3 = array();
+                         $controltotal = array();
+                         $total_por_disciplinas=array();//muestra el total de publicaciones por cada disciplina
+                         $j= 0;
+                         $t=0;
+                         $totald=0;
+                         for ($i = 0; $i < count($todo); $i++) { 
+                             
+                         if ( !in_array (  $todo[$i]['disciplina'] ,  $control2 )){
+                            
+                                 
+                        
+                               
+                                 for ($b = 0; $b < count($todo); $b++) {
+                                  if ($todo[$b]['unidad'] != $todo[$i]['unidad']){  
+                                    $control3[$t] =  $todo[$b]['total'];
+                                  $t++;}
+                                   
+                                  
+                                   
+                               
+                                   } ?>
+                        
+                        
+       <?php $control2[$j] = $todo[$i]['disciplina'];
+            $total_por_disciplinas[$j]= $totald;
+            $controltotal[$j]= $control3;
+            $totalf=0;
+                         $j++;
+            
+                                  } }
+
+?>
+
+                      
+          <script>
 
             $(function () {
-                $('#container2').highcharts({
+                $('#container6').highcharts({
                     chart: {
                         type: 'bar'
                     },
                     title: {
-                        text: 'Alumnos por titulo'
+                        text: 'Escuela  por disciplinas'
                     },
                     xAxis: {
-                        categories: [<?php echo $c; ?>]
+                        categories: [<?php echo $control; ?>]
                     },
                     yAxis: {
                         min: 0,
                         title: {
-                            text: 'Cantidad de alumnos'
+                            text: 'Cantidad de publicaciones'
                         }
                     },
                     legend: {
@@ -195,32 +238,18 @@ include 'class/Clases.php';
                             stacking: 'normal'
                         }
                     },
-                    series: [{
-                            name: 'Alumnos',
+                    series: [<?php  for ($b = 0; $b < count($control2); $b++){if (count($control2)>1 && $b!=(count($control2)-1)){?>
+                          { name: <?php echo $control2[$b]; ?>,
                             data: [<?php
-    foreach ($r as $cuadro) {
-        echo $cuadro[alumnos] . ", ";
-    }
+    
+        echo $controltotal[$b];
+    
     ?>]
-                        },
-                        {
-                            name: 'Egresados',
-                            data: [<?php
-    foreach ($r as $cuadro) {
-        echo $cuadro[egresados] . ", ";
-    }
-    ?>]
-                        },
-                        {
-                            name: 'Reinscriptos',
-                            data: [<?php
-    foreach ($r as $cuadro) {
-        echo $cuadro[reinscriptos] . ", ";
-    }
-    ?>]
-                        }
+                    },
+                    <?php  } } ?>
+                        ]
+                        
 
-                    ]
                 });
             });
 
@@ -229,13 +258,13 @@ include 'class/Clases.php';
 
 
 
-        <table id="datatable" style='display:none'>
+        <table id="datatable4" style='display:none'>
             <thead>
                 <tr>
                     <th></th>
                     <th>Alumnos</th>
                     <th>Egresados</th>
-                    <th>Reinscriptos</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -251,7 +280,7 @@ include 'class/Clases.php';
         </table>
         <script>
             $(function () {
-                $('#container3').highcharts({
+                $('#container5').highcharts({
                     chart: {
                         type: 'pie',
                         options3d: {
