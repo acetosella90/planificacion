@@ -46,7 +46,9 @@ include 'class/Clases.php';
         $consulta->execute();
         $todo = $consulta->fetchAll();
         
-  
+  echo "<pre>";
+    var_dump($todo);
+    echo "</pre>";
         ?>
 
         <div class="row" style="margin-top: 40px;">
@@ -91,10 +93,10 @@ include 'class/Clases.php';
                 <div id="container6" style="width: 800px; height: 400px; margin: 0 auto;  "></div>
             </div>
             <div  class="col-xs-6 col-md-1" style="z-index: 9999;  ">
-                <div id="tabla2" style="display: none;">
+                <div id="tabla2" style="">
                     <table   class="table table-hover" style="width: 225px;">
                         <tbody>
-                        <td colspan="2"> A&Ntilde;O <?php echo $_POST[combo_fechas]; ?></td>
+                        <td colspan="2"> FECHA: <?php echo $_POST[combo_fechas]; ?></td>
                         </tbody>
                         
                          <?php $control = array();
@@ -108,16 +110,16 @@ include 'class/Clases.php';
                                  ?>
                         
                         <tr>
-                            <td><strong>Total <?php echo $todo[$i]['unidad']?></strong></td>
+                            <td><strong>Total articulos publicados en <?php echo $todo[$i]['unidad']?></strong></td>
                             <td><?php
                                
                                  for ($b = 0; $b < count($todo); $b++) {
                                   if ($todo[$b]['unidad']== $todo[$i]['unidad']){  
                                     $totalf +=  intval($todo[$b]['total']);
                                   }
-                                   echo $totalf;
+                                  
                                
-                                   } ?></td>
+                                   }echo $totalf; ?></td>
                         </tr>
                         
                          <?php $control[$j] = $todo[$i]['unidad'];
@@ -127,6 +129,46 @@ include 'class/Clases.php';
             
                                   } }
                         ?>
+                  
+                    
+                  <?php    
+                         $control2 = array();
+                         $control3 = array();
+                         $controltotal = array();
+                         $total_por_disciplinas=array();//muestra el total de publicaciones por cada disciplina
+                         $j= 0;
+                         $t=0;
+                         $totald=0;
+                         for ($i = 0; $i < count($todo); $i++) { 
+                             
+                         if ( !in_array (  $todo[$i]['disciplina'] ,  $control2 )){
+                            
+                                 
+                        
+                               
+                                 for ($b = 0; $b < count($todo); $b++) {
+                                  if ($todo[$b]['unidad'] != $todo[$i]['unidad']){  
+                                    $control3[$t] =  $todo[$b]['total'];
+                                  $t++;}
+                                   
+                                  
+                                   
+                               
+                                   } ?>
+                        
+                        
+       <?php $control2[$j] = $todo[$i]['disciplina'];
+            $total_por_disciplinas[$j]= $totald;
+            $controltotal[$j]= $control3;
+            $totalf=0;
+                         $j++;
+            
+                                  } }
+
+?>     
+                    
+                    
+                    
                     </table>
                 </div>
             </div>
@@ -218,7 +260,7 @@ include 'class/Clases.php';
                         text: 'Escuela  por disciplinas'
                     },
                     xAxis: {
-                        categories: [<?php echo $control; ?>]
+                        categories: [<?php echo $control2; ?>]
                     },
                     yAxis: {
                         min: 0,
@@ -246,7 +288,13 @@ include 'class/Clases.php';
     
     ?>]
                     },
-                    <?php  } } ?>
+                    <?php  }else{ echo '{ name: '. $control2[$b].','.
+                            'data:'. 
+    
+         $controltotal[$b].
+    
+    ']
+                    }'; }}?>
                         ]
                         
 
