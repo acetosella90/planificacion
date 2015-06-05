@@ -157,6 +157,9 @@ $(document).ready(function() {
         $("#tabla2").slideToggle();
     });
 
+ $("#btn-tabla3").click(function (){
+        $("#tabla3").slideToggle();
+    });
 
 $('#tabla_araucano2').click(function() {
          $('#p_base').removeClass("active");
@@ -205,7 +208,21 @@ $('#tabla_pilaga').click(function() {
             }
         });
     });    
-
+$('#tabla_pilaga2').click(function() {
+         $('#p_base').removeClass("active");
+        $('#tabla_pilaga2').addClass("active");
+        var ajax_data = {
+            "id": "p_tabla-pilaga"
+        };
+        $.ajax({
+            data: ajax_data,
+            type: "POST",
+            url: "funciones/funciones_ajax.php",
+            success: function(a) {
+                $('#contenido').html(a);
+            }
+        });
+    });
 
 $('#tabla_mapuche').click(function() {
          $('#p_base').removeClass("active");

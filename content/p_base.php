@@ -195,7 +195,7 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Presupuesto total pagado por unidad</td>
+                    <td><a href="index.php?pagina=pilaga2" >Presupuesto total pagado por unidad</a></td>
                     <td>Presupuesto total pagado por cada unidad academica de la facultad</td>
                     <td>Barras</td>
 
@@ -355,13 +355,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Cantidad y tipo de investigadores </td>
-                        <td>Muestra la cantidad y tipo de investigadores totales por año en la facultad</td>
-                        <td>Barras</td>
-
-                    </tr>
+                 
                     <tr>
                         <td>2</td>
                         <td><a href="index.php?pagina=sigeva">publicacion de articulos </a></td>
@@ -369,9 +363,7 @@
                         <td>Barras</td>
 
                     </tr>
-                    <tr>
-
-                    </tr>
+                  
                     <tr>
                         <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
                     </tr>
@@ -400,9 +392,7 @@
 
                     </tr>
                
-                    <tr>
-
-                    </tr>
+                   
                     <tr>
                         <td class='volver boton  hvr-icon-back'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver</td>
                     </tr>

@@ -54,11 +54,11 @@ include 'class/Clases.php';
         <div class="row" style="margin-top: 40px;">
             <div class="col-xs-18 col-md-12">
                 <div id="container9" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                <span style="float: right" class="label label-danger " id="btn-tabla1">Ver Tabla de Datos 1</span>
+                <span style="float: right" class="label label-danger " id="btn-tabla3">Ver Tabla de Datos 1</span>
             </div>
         </div>
 
-        <div class="row"  id="tabla1" style="display: none;">
+        <div class="row"  id="tabla3" style="display: none;">
             <div class="col-xs-18 col-md-12">
                 <div style="margin-top: 100px;">
                     <h2>Tabla de publicaciones de Escuelas  por disciplinas en periodo </h2>
@@ -228,7 +228,7 @@ include 'class/Clases.php';
                         
                                
                                  for ($b = 0; $b < count($todo); $b++) {
-                                  if ($todo[$b]['unidad'] != $todo[$i]['unidad']){  
+                                  if ($todo[$b]['unidad'] != $todo[$i]['unidad'] ){  
                                     $control3[$t] =  $todo[$b]['total'];
                                   $t++;}
                                    
@@ -242,7 +242,8 @@ include 'class/Clases.php';
             $total_por_disciplinas[$j]= $totald;
             $controltotal[$j]= $control3;
             $totalf=0;
-                         $j++;
+                       
+            $j++;
             
                                   } }
 
@@ -260,7 +261,7 @@ include 'class/Clases.php';
                         text: 'Escuela  por disciplinas'
                     },
                     xAxis: {
-                        categories: [<?php echo $control2; ?>]
+                        categories: [<?php echo $control; ?>]
                     },
                     yAxis: {
                         min: 0,

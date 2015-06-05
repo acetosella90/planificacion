@@ -110,6 +110,9 @@ if ($_SESSION['usuario'] == "ruta" && $_SESSION['pass'] == "cadabra") {
                         if ($_GET[pagina] == 'pilaga')
                             include './content/p_tabla-pilaga.php';
                         
+                        if ($_GET[pagina] == 'pilaga2')
+                            include './content/p_tabla-pilaga2.php';
+                        
                         if ($_GET[pagina] == 'mapa2')
                             include './content/p_mapa_sigeva.php';
 

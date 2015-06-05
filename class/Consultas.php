@@ -304,6 +304,7 @@ class Consultas {
 
         $sql = "select
                     d_unidad_presupuestaria.unidad_presupuestaria_desc as unidad,
+                    d_unidad_presupuestaria.subunidad_presupuestaria_desc as subunidad,
                     d_fecha.anio as anio,
                     sum(ft_movimientos.credito_original) as credito_original,
                     sum(ft_movimientos.credito) as credito,
@@ -393,7 +394,71 @@ class Consultas {
        return $sql;
    }
 
+public static function getFiltroPilaga2($POST) {
 
+       $combo_unidades = $POST[combo_unidades];
+
+       
+       if ($combo_unidades == 'Facultad Unsam') {
+       $sql = "select
+                 
+                   d_fecha.anio as anio,  
+               d_fecha.mes_desc as mes,
+               sum(ft_movimientos.credito_original) as credito_original,
+               sum(ft_movimientos.credito) as credito,
+               sum(ft_movimientos.preventivo) as preventivo
+              
+               from
+                   pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
+                   pilaga.ft_movimientos as ft_movimientos,
+                   pilaga.d_fecha as d_fecha
+                   where
+                   ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
+                   and 
+                   anio=2015
+
+                   and 
+                       ft_movimientos.fecha_id = d_fecha.fecha_id
+                group by
+                   
+                    d_fecha.anio,
+                     d_fecha.mes";
+        }
+        else{ $sql = "select
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc as unidad,
+                    d_fecha.anio as anio,  
+                  d_fecha.mes_desc as mes,
+                d_fecha.mes_desc as mes,
+               sum(ft_movimientos.credito_original) as credito_original,
+               sum(ft_movimientos.credito) as credito,
+               sum(ft_movimientos.preventivo) as preventivo
+                from
+                    pilaga.d_unidad_presupuestaria as d_unidad_presupuestaria,
+                    pilaga.ft_movimientos as ft_movimientos,
+                    pilaga.d_fecha as d_fecha
+                    where
+                    ft_movimientos.unidad_presupuestaria_id = d_unidad_presupuestaria.unidad_presupuestaria_id
+                    and 
+                    anio=2015
+                    and
+                    d_unidad_presupuestaria.unidad_presupuestaria_desc= " . "'" . $combo_unidades . "'" .
+
+                
+                  
+                  "and 
+                      ft_movimientos.fecha_id = d_fecha.fecha_id
+               group by
+                  
+                   d_fecha.anio,
+                    d_fecha.mes";
+       }
+ 
+
+                   
+
+
+       return $sql;
+   }
     
     public static function getSigeva($escuela) {
 
@@ -820,9 +885,9 @@ public static function getFiltroSigeva2($POST) {
    $combo_disciplinas = $POST[combo_facultades];
    $combo_unidades = $POST[combo_unidades];
    $combo_fecha = $POST[combo_fechas];
- if($combo_unidades=='FACULTAD UNSAM' && $combo_disciplinas=='Todas' ){
+ if($combo_disciplinas=='Todas' && $combo_unidades=='FACULTAD UNSAM' ){
    
-   
+    
      
           $sql =   "select
 

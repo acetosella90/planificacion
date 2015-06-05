@@ -1,0 +1,12 @@
+06-05-2015 
+		- ETL de "UNSAM - VIS"
+			1) abro el pdi y creo un trabajo
+			2) defino los datasources (228 vs matias, etc) o conexiona base de origen y destino:
+				tools - asistente - Crear conexion a base de datos
+				luego de creado el data source, boton derecho sobre el icono de la base y en advanced, pongo que use el esquema; ej
+				si es postgres: set search_path = araucano;
+				si es mysql: use araucano;
+			3) tools - asistentes para copiar tablas: copio lo que necesito y guardo el trabajo
+			4) le doy a play y corro el job (veo de setear en nivel de debugging maximo)
+			
+
